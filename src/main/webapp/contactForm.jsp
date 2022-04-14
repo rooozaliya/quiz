@@ -50,19 +50,19 @@
     <div class="container">
         <form action="#">
 
-            <label for="fname">First Name</label>
+            <label for="fname">Имя</label>
             <input type="text" id="fname" name="firstname" placeholder="Your name..">
 
-            <label for="lname">Last Name</label>
+            <label for="lname">Фамилия</label>
             <input type="text" id="lname" name="lastname" placeholder="Your last name..">
 
             <label for="email">Email</label>
             <input type="text" id="email" name="email" placeholder="Your email..">
 
-            <label for="subject">Your Message</label>
-            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+            <label for="subject">Что хотите написать?</label>
+            <textarea id="subject" name="subject" placeholder="Напишите что-нибудь..." style="height:200px"></textarea>
 
-            <input type="submit" value="Submit">
+            <input type="submit" value="Отправить">
 
         </form>
     </div>

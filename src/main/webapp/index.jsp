@@ -49,13 +49,13 @@
 <body>
 <div class="hero-image">
     <div class="hero-text">
-        <h1>Welcome to the Quiz App</h1>
-        <h3>Start a quiz and increase your knowledge!</h3>
+        <h1>Добро пожаловать на обучающую платформу!</h1>
+        <h3>Вы можете проверить свои знания с помощью тестов.</h3>
         <br>
         <br>
         <div class="login-form">
             <form action="${pageContext.request.contextPath}/login" method="POST">
-                <h2 class="text-center">Log in</h2>
+                <h2 class="text-center">Вход</h2>
                 <div class="form-group">
                     <input type="email" class="form-control" name="username" placeholder="Email" required="required">
                 </div>
@@ -63,10 +63,10 @@
                     <input type="password" class="form-control" name="password" placeholder="Password" required="required">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Log in</button>
+                    <button type="submit" class="btn btn-primary btn-block">Войти</button>
                 </div>
             </form>
-            <p class="text-center"><a href="${pageContext.request.contextPath}/register-form">Create an Account</a></p>
+            <p class="text-center"><a href="${pageContext.request.contextPath}/register-form">Нет аккаунта? Создай его!</a></p>
         </div>
     </div>
 </div>

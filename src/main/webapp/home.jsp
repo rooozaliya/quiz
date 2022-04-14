@@ -12,7 +12,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Тесты</title>
 </head>
 <jsp:include page="nav.jsp" flush="true" />
 <body>
@@ -33,7 +33,7 @@
                                     <input type="hidden" class="form-control" name="page" value="1">
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block">Start Quiz</button>
+                                    <button type="submit" class="btn btn-primary btn-block">Приступить к тестированию</button>
                                 </div>
                             </form>
                         </div>

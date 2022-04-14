@@ -26,10 +26,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="d19c3ee5-e2dd-4a5e-b17d-4c02bf346a7e">
-        <schema name="mysql" object-types="table, view, procedure, function" />
-      </connection>
-      <connection connection-id="c851934b-3dc2-44ab-bae1-80603ee2a7d5">
-        <schema name="quizdb" object-types="table, view, procedure, function, constraint, index, column, dataset trigger" />
+        <schema name="quizdb" object-types="table, view, procedure, function" />
       </connection>
     </loaded-nodes>
   </component>

@@ -17,14 +17,14 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="${pageContext.request.contextPath}/">QuizMe!</a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/">Тесты!</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="${pageContext.request.contextPath}/">Home</a></li>
-                <li><a href="${pageContext.request.contextPath}/login-form">Login</a></li>
-                <li><a href="${pageContext.request.contextPath}/register-form">Registration</a></li>
-                <li><a href="${pageContext.request.contextPath}/feedback-form">Feedback</a></li>
-                <li><a href="${pageContext.request.contextPath}/contact-form">Contact Us</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/">Главная</a></li>
+                <li><a href="${pageContext.request.contextPath}/login-form">Вход</a></li>
+                <li><a href="${pageContext.request.contextPath}/register-form">Регистрация</a></li>
+                <li><a href="${pageContext.request.contextPath}/feedback-form">Обратная связь</a></li>
+                <li><a href="${pageContext.request.contextPath}/contact-form">Контакты</a></li>
             </ul>
         </div>
     </nav>

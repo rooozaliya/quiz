@@ -92,26 +92,26 @@
 <jsp:include page="nav.jsp" flush="true" />
 <div class="container">
     <form action="${pageContext.request.contextPath}/feedback" method="POST"">
-        <h3>Please give a rating:</h3>
+        <h3>Оцените тест по пятибалльной шкале:</h3>
         <div class="rating">
             <input type="radio" id="star5" name="rating" value="5" />
-            <label for="star5" title="text">5 stars</label>
+            <label for="star5" title="text">5 звёзд</label>
             <input type="radio" id="star4" name="rating" value="4" />
-            <label for="star4" title="text">4 stars</label>
+            <label for="star4" title="text">4 звёзд</label>
             <input type="radio" id="star3" name="rating" value="3" />
-            <label for="star3" title="text">3 stars</label>
+            <label for="star3" title="text">3 звёзд</label>
             <input type="radio" id="star2" name="rating" value="2" />
-            <label for="star2" title="text">2 stars</label>
+            <label for="star2" title="text">2 звёзд</label>
             <input type="radio" id="star1" name="rating" value="1" />
-            <label for="star1" title="text">1 star</label>
+            <label for="star1" title="text">1 звёзд</label>
         </div>
             <input type="hidden" name="quizTypeId" value="1" />
         <br>
         <br>
-        <h3>Your Comments:</h3>
-        <textarea id="description" name="description" placeholder="Write something.." style="height:200px"></textarea>
+        <h3>Ваш комментарий:</h3>
+        <textarea id="description" name="description" placeholder="Напишите что-нибудь.." style="height:200px"></textarea>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Отправить">
 
     </form>
 </div>

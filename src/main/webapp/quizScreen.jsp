@@ -47,9 +47,9 @@
 
                         <fieldset class="form-group">
 
-                            <button  name="previous" id="previous" class="btn btn-success">Previous</button>
+                            <button  name="previous" id="previous" class="btn btn-success">Предыдущий</button>
                             &nbsp;
-                            <button  name="next" id="next" class="btn btn-success">Next</button>
+                            <button  name="next" id="next" class="btn btn-success">Следующий</button>
                             <h4><span id="qid">1.</span> <span id="question"></span></h4>
 
                             <div class="option-block-container" id="question-options">
@@ -131,7 +131,7 @@
                     this.showResult = function(scr) {
                         $("#result").addClass('result');
                         $("#result").html("<h1 class='res-header'>Total Score: &nbsp;" + scr  + '/' + totalque + "</h1>");
-                        $("#result").append('<h3><a href="http://localhost:8080/app/feedback-form">Give a Feedback</a></h3>');
+                        $("#result").append('<h3><a href="http://localhost:8080/jq/feedback-form">Give a Feedback</a></h3>');
 
 
                         $("#result").append('<br>');
