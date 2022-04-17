@@ -17,9 +17,9 @@ public class ProfileServlet extends HttpServlet {
         if (oldSession == null) {
             req.getRequestDispatcher("/loginForm.jsp").include(req, resp);
             writer.print(
-                    "<div class='container'>" +
-                            "<h2 style='color: red;'>Unauthorized access, please login.</h2>" +
-                            "</div>"
+
+                            "<h2 style='color: red;'>Unauthorized access, please login.</h2>"
+
             );
         } else {
             String username = (String)oldSession.getAttribute("username");

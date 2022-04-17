@@ -25,6 +25,8 @@
                 <li><a href="${pageContext.request.contextPath}/register-form">Регистрация</a></li>
                 <li><a href="${pageContext.request.contextPath}/feedback-form">Обратная связь</a></li>
                 <li><a href="${pageContext.request.contextPath}/contact-form">Контакты</a></li>
+                <li><a href="${pageContext.request.contextPath}/profile">Profile</a></li>
+                 <li><a href="${pageContext.request.contextPath}/admin">Admin</a></li>
             </ul>
         </div>
     </nav>

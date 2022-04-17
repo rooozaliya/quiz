@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
             PrintWriter writer = res.getWriter();
             req.getRequestDispatcher("/loginForm.jsp").include(req, res);
 
-            writer.print(
+            writer.println(
                     "<div class='container'>" +
                             "<h2 style='color: red;'>Incorrect user name or password.</h2>" +
                             "</div>"
