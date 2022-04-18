@@ -19,6 +19,8 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
+        req.setCharacterEncoding("UTF-8");
+        res.setCharacterEncoding("UTF-8");
 
         if (username!=null && password!=null && userDao.checkCredentials(username, password)) {
             // get the old session

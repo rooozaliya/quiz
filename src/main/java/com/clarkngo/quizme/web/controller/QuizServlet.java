@@ -17,6 +17,8 @@ public class QuizServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession session = req.getSession(true);
+        req.setCharacterEncoding("UTF-8");
+        res.setCharacterEncoding("UTF-8");
 
        // res.setHeader("Set-Cookie","JSESSIONID=" + session.getId());
         if (session.getAttribute("quiz") == null) {

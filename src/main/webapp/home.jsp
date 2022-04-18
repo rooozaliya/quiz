@@ -2,13 +2,7 @@
 <%@ page import="com.clarkngo.quizme.web.domain.QuizType" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Iterator" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: clark
-  Date: 4/20/2021
-  Time: 2:51 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>

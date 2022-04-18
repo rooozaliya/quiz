@@ -14,5 +14,7 @@ public class QuizScreenServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         req.getRequestDispatcher("/quizScreen.jsp").forward(req,res);
+        req.setCharacterEncoding("UTF-8");
+        res.setCharacterEncoding("UTF-8");
     }
 }

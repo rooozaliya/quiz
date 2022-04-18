@@ -14,6 +14,8 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession session = req.getSession(true);
+        req.setCharacterEncoding("UTF-8");
+        res.setCharacterEncoding("UTF-8");
 
         QuizTypeDao dao = new QuizTypeDao();
         List<QuizType> qtList = dao.getQuizTypes();

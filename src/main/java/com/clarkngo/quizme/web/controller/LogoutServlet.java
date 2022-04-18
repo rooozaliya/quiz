@@ -10,6 +10,8 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession oldSession = req.getSession(false);
+        req.setCharacterEncoding("UTF-8");
+        res.setCharacterEncoding("UTF-8");
         if (oldSession != null) {
             oldSession.invalidate();
         }

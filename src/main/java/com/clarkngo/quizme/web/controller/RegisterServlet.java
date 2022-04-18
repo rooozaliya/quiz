@@ -19,6 +19,8 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
+        req.setCharacterEncoding("UTF-8");
+        res.setCharacterEncoding("UTF-8");
 
         if(userDao.userExists(username)) {
             res.setContentType("text/html");

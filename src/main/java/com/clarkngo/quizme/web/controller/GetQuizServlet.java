@@ -23,6 +23,8 @@ public class GetQuizServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("quizTypeId"));
         response.setContentType("application/json;charset=UTF-8");
         response.setHeader("Access-Control-Allow-Origin", "*");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
        // ServletOutputStream out = response.getOutputStream();
 
         List<Question> quiz = new QuestionDao().getTenRandomQuestions(id);

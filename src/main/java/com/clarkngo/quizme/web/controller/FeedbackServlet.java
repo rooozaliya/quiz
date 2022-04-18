@@ -28,6 +28,8 @@ public class FeedbackServlet extends HttpServlet {
         feedbackDao.addFeedback(quizTypeId, rating, description);
 
         res.setContentType("text/html");
+        req.setCharacterEncoding("UTF-8");
+        res.setCharacterEncoding("UTF-8");
         PrintWriter writer = res.getWriter();
         writer.print(
                 "<div class='container'>" +
