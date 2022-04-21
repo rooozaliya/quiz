@@ -1,5 +1,7 @@
 package com.clarkngo.quizme.web.domain;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 public class User {
@@ -8,6 +10,8 @@ public class User {
     private String email;
     private String password;
     private List<Result> results;
+    @PersistenceContext
+    private EntityManager em;
 
     public int getUserId() {
         return userId;
@@ -59,4 +63,6 @@ public class User {
                 ", results=" + results +
                 '}';
     }
+
+
 }

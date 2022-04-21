@@ -1,10 +1,18 @@
 package com.clarkngo.quizme.web.controller;
 
+import com.clarkngo.quizme.web.dao.UserDao;
+import com.clarkngo.quizme.web.domain.User;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import java.util.Map;
 
 
 @WebServlet(name = "AdminServlet", value = "/admin")
@@ -39,6 +47,10 @@ public class AdminServlet extends HttpServlet {
                 writer.close();
             }
         }
+//СДЕЛАТЬ ВЫВОД ВСЕХ ЮЗЕРОВ
+//        List<Map> usersList = UserDao.findAll();
+//        req.setAttribute("ps", usersList);
+//        req.getRequestDispatcher("/WEB-INF/admin.jsp").forward(req, res);
     }
 }
 

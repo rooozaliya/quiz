@@ -7,6 +7,9 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 public class UserDao {
     private DataSource ds;
@@ -17,6 +20,8 @@ public class UserDao {
     }
 
     private PreparedStatement ps;
+
+
 
     public boolean checkCredentials(String username, String password)
     {
@@ -83,4 +88,18 @@ public class UserDao {
             e.printStackTrace();
         }
     }
+
+//    public  List<Map> findAll(String username) {
+//        try {
+//            this.conn = ds.getConnection();
+//            ps = conn.prepareStatement("SELECT * FROM user");
+//            ps.setString(1, username);
+//            System.out.println(ps);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//        return null;
+//    }
 }

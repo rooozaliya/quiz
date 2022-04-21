@@ -36,6 +36,9 @@ public class FeedbackServlet extends HttpServlet {
                         "<h2 style='color: green;'>Successfully sent feedback! Thank you.</h2>" +
                         "</div>"
         );
+        writer.println(String.format("<h2>Mark: %s, Message: %s</h2>", rating, description));
+
+
 
         writer.close();
     }
