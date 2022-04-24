@@ -6,17 +6,26 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.DriverManager;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 
 @WebServlet(name = "AdminServlet", value = "/admin")
 public class AdminServlet extends HttpServlet {
+    @PersistenceContext
+    private EntityManager em;
+
+    private UserDao userDao;
+    public void init() {this.userDao = new UserDao();}
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -32,8 +41,7 @@ public class AdminServlet extends HttpServlet {
                     "<h1>Авторизуйся</h1>"
             );
             writer.close();
-        }
-        else {
+        } else {
             String username = (String) oldSession.getAttribute("username");
             if (username.equals("rooozaliya@mail.ru")) {
                 writer.print(
@@ -47,12 +55,14 @@ public class AdminServlet extends HttpServlet {
                 writer.close();
             }
         }
-//СДЕЛАТЬ ВЫВОД ВСЕХ ЮЗЕРОВ
-//        List<Map> usersList = UserDao.findAll();
-//        req.setAttribute("ps", usersList);
-//        req.getRequestDispatcher("/WEB-INF/admin.jsp").forward(req, res);
+
+
+userDao.getUserId();
+
     }
 }
+
+
 
 
 

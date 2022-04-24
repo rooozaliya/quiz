@@ -1,5 +1,7 @@
 package com.clarkngo.quizme.web.controller;
 
+import com.clarkngo.quizme.web.dao.UserDao;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -32,6 +34,8 @@ public class ProfileServlet extends HttpServlet {
 
             writer.println(String.format("<h2>Welcome Username: %s, Password: %s</h2>", username, password));
             writer.println(String.format("Session Id: %s", oldSession.getId()));
+
+
         }
 
         writer.close();

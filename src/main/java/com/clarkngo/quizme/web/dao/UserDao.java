@@ -2,12 +2,12 @@ package com.clarkngo.quizme.web.dao;
 
 import com.clarkngo.quizme.web.config.MySqlDS;
 import com.clarkngo.quizme.web.domain.User;
-
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -40,17 +40,18 @@ public class UserDao {
         return st;
     }
 
-    public User getUserId(String username) {
+    public  User getUserId() {
         User user = new User();
         try {
             this.conn = ds.getConnection();
-            ps = conn.prepareStatement("SELECT * FROM user WHERE Email=?");
-            ps.setString(1, username);
+            ps = conn.prepareStatement("SELECT * FROM user");
+            // ps.setString(1, username);
             ResultSet rs =ps.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 user.setUserId(rs.getInt("Id"));
                 user.setName(rs.getString("Name"));
                 user.setEmail(rs.getString("Email"));
+                System.out.println("Students : "   + user);
             }
         }
         catch(Exception e) {
@@ -89,17 +90,4 @@ public class UserDao {
         }
     }
 
-//    public  List<Map> findAll(String username) {
-//        try {
-//            this.conn = ds.getConnection();
-//            ps = conn.prepareStatement("SELECT * FROM user");
-//            ps.setString(1, username);
-//            System.out.println(ps);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//        return null;
-//    }
 }
