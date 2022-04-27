@@ -1,17 +1,29 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.clarkngo.quizme.web.domain.User" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Iterator" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>admin страница</title>
+    <title>Список пользователей</title>
 </head>
 <jsp:include page="nav.jsp" flush="true" />
 <body>
-username
-<c:forEach items="${getUserId}" var="getUserId">
-        <tr>
-              <td>${user.id}</td>
-              <td>${user.username}</td>
-              <td>${user.password}</td>
-        </tr>
-    </c:forEach>
+    <table>
+                    <thead>
+                    <th>ID</th>
+                    <th>UserName</th>
+                    <th>Password</th>
+
+                    </thead>
+                    <c:forEach items="${listUser}" var="user">
+                      <tr>
+                        <td><c:out value="${user.getEmail()}"/></td>
+                        <td><c:out value="${user.getName()}"/></td>
+                        <td><c:out value="${user.getUserId()}"/></td>
+                      </tr>
+                    </c:forEach>
+    </table>
 </body>
 </html>

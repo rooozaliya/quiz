@@ -3,25 +3,19 @@ package com.clarkngo.quizme.web.dao;
 import com.clarkngo.quizme.web.config.MySqlDS;
 import com.clarkngo.quizme.web.domain.User;
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
 
 public class UserDao {
     private DataSource ds;
     private Connection conn;
+    private PreparedStatement ps;
 
     public UserDao() {
         this.ds = MySqlDS.getDs();
     }
-
-    private PreparedStatement ps;
-
-
 
     public boolean checkCredentials(String username, String password)
     {
@@ -40,24 +34,30 @@ public class UserDao {
         return st;
     }
 
-    public  User getUserId() {
-        User user = new User();
+    public List<User> listAllUsers() {
+        List<User> listUsers = new ArrayList<>();
+        PreparedStatement ps = null;
         try {
-            this.conn = ds.getConnection();
-            ps = conn.prepareStatement("SELECT * FROM user");
-            // ps.setString(1, username);
-            ResultSet rs =ps.executeQuery();
+        this.conn = ds.getConnection();
+        ps = conn.prepareStatement("SELECT * FROM user");
+
+        ResultSet rs = ps.executeQuery();
+
+
             while (rs.next()) {
+                User user = new User();
                 user.setUserId(rs.getInt("Id"));
                 user.setName(rs.getString("Name"));
                 user.setEmail(rs.getString("Email"));
-                System.out.println("Students : "   + user);
+                System.out.println("Students : "  +user );
+                listUsers.add(user);
             }
         }
         catch(Exception e) {
             e.printStackTrace();
         }
-        return user;
+        return listUsers;
+
     }
 
     public boolean userExists(String username) {

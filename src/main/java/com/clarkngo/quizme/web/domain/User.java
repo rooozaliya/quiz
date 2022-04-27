@@ -13,6 +13,14 @@ public class User {
     @PersistenceContext
     private EntityManager em;
 
+
+//    public User(int userId, String name) {
+//        super();
+//        this.userId = userId;
+//        this.name = name;
+//    }
+
+
     public int getUserId() {
         return userId;
     }
@@ -52,6 +60,15 @@ public class User {
     public void setResults(List<Result> results) {
         this.results = results;
     }
+//
+//
+//    public User() {
+//    }
+//
+//    public User(int id) {
+//        this.userId = id;
+//    }
+
 
     @Override
     public String toString() {
