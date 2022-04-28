@@ -159,3 +159,19 @@ CREATE TABLE IF NOT EXISTS `quizdb`.`result` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+-- __________
+-- table chat
+-- ------
+CREATE TABLE IF NOT EXISTS `quizdb`.`chat` (
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  `idUser` INT NULL,
+  `Description` VARCHAR(45) NULL,
+  PRIMARY KEY (`Id`),
+  INDEX `Name` (`idUser` ASC) VISIBLE,
+  CONSTRAINT `idUser`
+    FOREIGN KEY (`idUser`)
+    REFERENCES `quizdb`.`user` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;

@@ -2,39 +2,37 @@ package com.clarkngo.quizme.web.domain;
 
 public class Chat {
     private int chatId;
-    private int fkQuizTypeIdChat;
-    private String chat;
-
-    public int getFeedbackId() {
-        return chatId;
-    }
+    private int userId;
+    private String description;
 
     public void setChatId(int chatId) {
         this.chatId = chatId;
     }
-
-    public int getFkQuizTypeIdChat() {
-        return fkQuizTypeIdChat;
+    public int getChatId() {
+        return chatId;
+    }
+    public int getUserId() {
+        return userId;
     }
 
-    public void setFkQuizTypeIdChat(int fkQuizTypeIdChat) {
-        this.fkQuizTypeIdChat = fkQuizTypeIdChat;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public String getChat() {
-        return chat;
+    public String getDescription() {
+        return description;
     }
 
-    public void setChat(String chat) {
-        this.chat = chat;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
     public String toString() {
         return "Chat{" +
-                "chatId=" + chatId +
-                ", fkQuizTypeIdChat=" + fkQuizTypeIdChat +
-                ", chat='" + chat + '\'' +
+//                "chatId=" + chatId +
+                ", description=" + description +
+//                ", userId ='" + userId + '\'' +
                 '}';
     }
 }

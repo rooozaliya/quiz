@@ -25,6 +25,7 @@ pageEncoding="UTF-8"%>
                 <li><a href="${pageContext.request.contextPath}/profile">Profile</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin-form">Admin</a></li>
                 <li><a href="${pageContext.request.contextPath}/home">Test</a></li>
+                <li><a href="${pageContext.request.contextPath}/chat">Chat</a></li>
             </ul>
         </div>
     </nav>

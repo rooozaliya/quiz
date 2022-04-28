@@ -2,6 +2,7 @@
 <%@ page import="com.clarkngo.quizme.web.domain.User" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Iterator" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -10,6 +11,8 @@
 </head>
 <jsp:include page="nav.jsp" flush="true" />
 <body>
+
+
     <table>
                     <thead>
                     <th>ID</th>

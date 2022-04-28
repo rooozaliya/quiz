@@ -40,16 +40,13 @@ public class UserDao {
         try {
         this.conn = ds.getConnection();
         ps = conn.prepareStatement("SELECT * FROM user");
-
         ResultSet rs = ps.executeQuery();
-
-
             while (rs.next()) {
                 User user = new User();
                 user.setUserId(rs.getInt("Id"));
                 user.setName(rs.getString("Name"));
                 user.setEmail(rs.getString("Email"));
-                System.out.println("Students : "  +user );
+                System.out.println("Students : "  + user );
                 listUsers.add(user);
             }
         }
