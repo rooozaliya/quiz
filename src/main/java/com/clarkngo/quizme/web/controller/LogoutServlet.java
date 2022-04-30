@@ -17,5 +17,6 @@ public class LogoutServlet extends HttpServlet {
         }
 
         req.getRequestDispatcher("/loginForm.jsp").forward(req,res);
+//        этот сервлет перенаправляет нас на страничку входа.
     }
 }

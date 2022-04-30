@@ -12,6 +12,11 @@ VALUES
 	('JSP', 'JavaServer Pages')
 ;
 
+INSERT INTO coursetype (Name, Description)
+VALUES
+	('JSP', 'JavaServer Pages')
+;
+
 INSERT INTO question (Fk_QuizTypeId_Question, Description)
 VALUES
 	(1, 'Is it possible to override the JSP lifecycle methods? If yes, which of the methods can be overridden?'),

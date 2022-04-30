@@ -1,3 +1,4 @@
+<!-- ЭТО СТРАНИЦА ОТОБРАЖЕНИЯ ВОПРОСОВ -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="com.clarkngo.quizme.web.domain.QuizType" %>
 <%@ page import="java.util.ArrayList" %>

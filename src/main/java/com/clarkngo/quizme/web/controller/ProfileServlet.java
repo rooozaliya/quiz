@@ -18,13 +18,12 @@ public class ProfileServlet extends HttpServlet {
         PrintWriter writer = resp.getWriter();
 
         HttpSession oldSession = req.getSession(false);
-        if (oldSession == null) {
-            req.getRequestDispatcher("/loginForm.jsp").include(req, resp);
-            writer.print(
 
-                            "<h2 style='color: red;'>Unauthorized access, please login.</h2>"
+        String id = (String)oldSession.getAttribute("username");
+        if(id == null) {
 
-            );
+            String path = req.getContextPath() + "/error";
+            resp.sendRedirect(path);
         } else {
 
             String username = (String)oldSession.getAttribute("username");
@@ -39,5 +38,7 @@ public class ProfileServlet extends HttpServlet {
         }
 
         writer.close();
+
+
     }
 }

@@ -24,7 +24,7 @@ public class CourseServlet extends HttpServlet {
        // res.setHeader("Set-Cookie","JSESSIONID=" + session.getId());
         if (session.getAttribute("quiz") == null) {
             int id = Integer.parseInt(req.getParameter("courseTypeId"));
-            int page = Integer.parseInt(req.getParameter("page"));
+         //   int page = Integer.parseInt(req.getParameter("page"));
             CourseDao dao = new CourseDao();
             Course course = dao.getCourse(id);
             session.setAttribute("course", course);
