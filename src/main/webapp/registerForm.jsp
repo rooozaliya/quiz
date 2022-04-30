@@ -19,6 +19,9 @@
         <div class="form-group">
             <input type="password" class="form-control" name="password" placeholder="Password" required="required">
         </div>
+         <div class="form-group">
+                    <input type="name" class="form-control" name="name" placeholder="Name" required="required">
+         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Зарегистрироваться</button>
         </div>

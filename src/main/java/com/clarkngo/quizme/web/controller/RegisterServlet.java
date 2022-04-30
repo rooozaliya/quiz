@@ -19,6 +19,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
+        String name = req.getParameter("name");
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
 
@@ -35,7 +36,7 @@ public class RegisterServlet extends HttpServlet {
 
             writer.close();
         } else {
-            userDao.addUser(username, password);
+            userDao.addUser(name, username, password);
             res.setContentType("text/html");
             PrintWriter writer = res.getWriter();
             req.getRequestDispatcher("/login").include(req,res);

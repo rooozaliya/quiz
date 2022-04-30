@@ -74,12 +74,13 @@ public class UserDao {
         return result == 1;
     }
 
-    public void addUser(String username, String password) {
+    public void addUser(String name, String username, String password) {
         try {
             this.conn = ds.getConnection();
-            ps = conn.prepareStatement("INSERT INTO user (Email, Password) VALUES (?,?)");
-            ps.setString(1, username);
-            ps.setString(2, password);
+            ps = conn.prepareStatement("INSERT INTO user (Name, Email, Password) VALUES (?,?,?)");
+            ps.setString(1, name);
+            ps.setString(2, username);
+            ps.setString(3, password);
             ps.executeUpdate();
         }
         catch (Exception e) {
