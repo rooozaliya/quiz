@@ -1,4 +1,4 @@
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <html>
@@ -17,7 +17,8 @@ pageEncoding="UTF-8"%>
                 <a class="navbar-brand" href="${pageContext.request.contextPath}/">Тесты!</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="${pageContext.request.contextPath}/">Главная</a></li>
+               <li ><a href="${pageContext.request.contextPath}/profile"> <b>Привет! <c:out value="${username}"/></b></a></li>
+                <li class=""><a href="${pageContext.request.contextPath}/">Главная</a></li>
                 <li><a href="${pageContext.request.contextPath}/login-form">Вход</a></li>
                 <li><a href="${pageContext.request.contextPath}/register-form">Регистрация</a></li>
                 <li><a href="${pageContext.request.contextPath}/feedback-form">Обратная связь</a></li>
@@ -28,8 +29,12 @@ pageEncoding="UTF-8"%>
                 <li><a href="${pageContext.request.contextPath}/chat">Chat</a></li>
                 <li><a href="${pageContext.request.contextPath}/logout">Выйти</a></li>
                 <li><a href="${pageContext.request.contextPath}/course">Курсы</a></li>
+
+
             </ul>
         </div>
     </nav>
 </body>
+
+
 </html>

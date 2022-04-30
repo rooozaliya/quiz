@@ -14,31 +14,18 @@ public class ProfileServlet extends HttpServlet {
         resp.setContentType("text/html");
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
-
         PrintWriter writer = resp.getWriter();
-
         HttpSession oldSession = req.getSession(false);
-
-        String id = (String)oldSession.getAttribute("username");
-        if(id == null) {
-
+        String username = (String)oldSession.getAttribute("username");
+        String password = (String)oldSession.getAttribute("password");
+        if(username == null) {
             String path = req.getContextPath() + "/error";
             resp.sendRedirect(path);
         } else {
-
-            String username = (String)oldSession.getAttribute("username");
-            String password = (String)oldSession.getAttribute("password");
-
             req.getRequestDispatcher("/userProfile.jsp").include(req, resp);
-
             writer.println(String.format("<h2>Welcome Username: %s, Password: %s</h2>", username, password));
             writer.println(String.format("Session Id: %s", oldSession.getId()));
-
-
         }
-
         writer.close();
-
-
     }
 }
