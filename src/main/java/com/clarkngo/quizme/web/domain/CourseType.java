@@ -8,10 +8,21 @@ public class CourseType {
     private String name;
     private String description;
     private String ImageUrl;
+    private String Image;
     private List<Question> questions;
     private String questionsJson;
     private Feedback feedback;
 
+    public CourseType() {
+    }
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
+    }
 
 
     public int getCourseTypeId() {

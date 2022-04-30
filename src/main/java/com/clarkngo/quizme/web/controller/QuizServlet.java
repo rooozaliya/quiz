@@ -1,3 +1,5 @@
+//ПОМОГАЕТ ПЕРЕНАПРАВИТЬ НА СТРАНИЦУ ВОПРОСОВ
+
 package com.clarkngo.quizme.web.controller;
 
 import com.clarkngo.quizme.web.dao.QuizDao;

@@ -14,8 +14,14 @@ VALUES
 
 INSERT INTO coursetype (Name, Description)
 VALUES
-	('JSP', 'JavaServer Pages')
+	('курс 2', 'описание курса 2')
 ;
+
+ALTER TABLE coursetype  ADD COLUMN ImageURL VARCHAR(255) NULL;
+
+ALTER TABLE coursetype  ADD COLUMN Image BLOB NULL;
+
+INSERT INTO coursetype (Image) VALUES(LOAD_FILE('D:\q.jpg'));
 
 INSERT INTO question (Fk_QuizTypeId_Question, Description)
 VALUES

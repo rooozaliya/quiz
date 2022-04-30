@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "CourseHomeServlet", value = "/course-home")
+@WebServlet(name = "CourseHomeServlet", value = "/course")
 public class CourseHomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -25,6 +25,6 @@ public class CourseHomeServlet extends HttpServlet {
         CourseTypeDao dao = new CourseTypeDao();
         List<CourseType> qtList = dao.getCourseTypes();
         session.setAttribute("courseTypeList", qtList);
-        req.getRequestDispatcher("/course-home-page").forward(req, res);
+        req.getRequestDispatcher("/course-page").forward(req, res);
     }
 }

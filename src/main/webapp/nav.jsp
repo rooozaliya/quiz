@@ -26,8 +26,8 @@ pageEncoding="UTF-8"%>
                 <li><a href="${pageContext.request.contextPath}/admin-form">Admin</a></li>
                 <li><a href="${pageContext.request.contextPath}/home">Test</a></li>
                 <li><a href="${pageContext.request.contextPath}/chat">Chat</a></li>
-                 <li><a href="${pageContext.request.contextPath}/logout">Выйти</a></li>
-                  <li><a href="${pageContext.request.contextPath}/course">Курсы</a></li>
+                <li><a href="${pageContext.request.contextPath}/logout">Выйти</a></li>
+                <li><a href="${pageContext.request.contextPath}/course">Курсы</a></li>
             </ul>
         </div>
     </nav>

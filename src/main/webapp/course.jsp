@@ -15,7 +15,7 @@
             <c:forEach var="courseType" items="${courseTypeList}">
                 <div class="col-sm-4">
                     <div class="card border-primary mb-3" style="max-width: 25rem;">
-                        <img class="card-img-top" src="" alt="Card image" width="100%" height="200">
+                        <img class="card-img-top" src="${courseType.getImage()}" alt="Card image" width="100%" height="200">
                         <div class="card-body">
                             <h4 class="card-title"><c:out value="${courseType.getName()}"/></h4>
                             <p class="card-text"><c:out value="${courseType.getDescription()}"/></p>
@@ -27,7 +27,7 @@
                                     <input type="hidden" class="form-control" name="page" value="1">
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block">Приступить к тестированию</button>
+                                    <button type="submit" class="btn btn-primary btn-block">Приступить к изучению материала</button>
                                 </div>
                             </form>
                         </div>
