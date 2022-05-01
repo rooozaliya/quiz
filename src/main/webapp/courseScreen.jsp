@@ -1,6 +1,6 @@
 <!-- ЭТО СТРАНИЦА ОТОБРАЖЕНИЯ ВОПРОСОВ -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="com.clarkngo.quizme.web.domain.QuizType" %>
+<%@ page import="com.clarkngo.quizme.web.domain.CourseType" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page buffer="none" %>
@@ -37,22 +37,10 @@
         <div class="row">
             <div class="col-sm-12">
                 <div id="result" class="quiz-body">
-
-                    <form id="sampleForm" name="sampleForm" action="http://localhost:8080/app/quizSubmit" method="POST">
-
-                        <fieldset class="form-group">
-
-                            <button  name="previous" id="previous" class="btn btn-success">Предыдущий</button>
-                            &nbsp;
-                            <button  name="next" id="next" class="btn btn-success">Следующий</button>
-                            <h4><span id="qid">1.</span> <span id="question"></span></h4>
-
-                            <div class="option-block-container" id="question-options">
-
-                            </div> <!-- End of option block -->
-                        </fieldset>
-
-                    </form>
+                    <h2> ПУК ТЕОРИЯ</h2>
+                                            <c:forEach items="${listTheories}" var="theory">
+                                                <p><c:out value="${theory.getTheory()}"/></p>
+                                            </c:forEach>
                 </div>
             </div> <!-- End of col-sm-12 -->
 

@@ -35,6 +35,7 @@ public class CourseTypeDao {
                 qt.setName(rs.getString("Name"));
                 qt.setDescription(rs.getString("Description"));
                 qt.setImageUrl(rs.getString("ImageURL"));
+                qt.setTheory(rs.getString("Theory"));
 
                 courseTypes.add(qt);
             }
@@ -66,6 +67,7 @@ public class CourseTypeDao {
                 courseType.setName(rs.getString("Name"));
                 courseType.setDescription(rs.getString("Description"));
                 courseType.setImageUrl(rs.getString("ImageURL"));
+                courseType.setTheory(rs.getString("Theory"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -81,4 +83,5 @@ public class CourseTypeDao {
 
         return courseType;
     }
+
 }

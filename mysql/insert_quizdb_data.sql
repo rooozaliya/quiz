@@ -22,6 +22,18 @@ ALTER TABLE coursetype  ADD COLUMN ImageURL VARCHAR(255) NULL;
 --ALTER TABLE coursetype  ADD COLUMN Image BLOB NULL;
 --
 --INSERT INTO coursetype (Image) VALUES(LOAD_FILE('D:\q.jpg'));
+--INSERT INTO theory (theoryId, Description)
+--VALUES (1, 'теория'),
+--(1, 'теория2');
+
+ALTER TABLE quiztype  ADD COLUMN ImageURL VARCHAR(255) NULL;
+
+ALTER TABLE coursetype  ADD COLUMN Theory VARCHAR(255) NULL;
+
+INSERT INTO coursetype (Theory)
+VALUES ( 'теория');
+
+--select * from theory;
 
 INSERT INTO question (Fk_QuizTypeId_Question, Description)
 VALUES

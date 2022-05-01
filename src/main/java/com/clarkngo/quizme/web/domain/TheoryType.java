@@ -3,27 +3,17 @@ package com.clarkngo.quizme.web.domain;
 
 import java.util.List;
 
-public class CourseType {
-    private int courseTypeId;
+public class TheoryType {
+    private int theoryId;
     private String name;
     private String description;
-
-    public String getTheory() {
-        return theory;
-    }
-
-    public void setTheory(String theory) {
-        this.theory = theory;
-    }
-
-    private String theory;
     private String ImageUrl;
     private String Image;
     private List<Question> questions;
     private String questionsJson;
     private Feedback feedback;
 
-    public CourseType() {
+    public TheoryType() {
     }
 
     public String getImage() {
@@ -35,12 +25,12 @@ public class CourseType {
     }
 
 
-    public int getCourseTypeId() {
-        return courseTypeId;
+    public int getTheoryId() {
+        return theoryId;
     }
 
-    public void setCourseTypeId(int courseTypeId) {
-        this.courseTypeId = courseTypeId;
+    public void setTheoryId(int theoryId) {
+        this.theoryId = theoryId;
     }
 
     public String getName() {
@@ -86,7 +76,7 @@ public class CourseType {
     @Override
     public String toString() {
         return "QuizType{" +
-                "quizTypeId=" + courseTypeId +
+                "quizTypeId=" + theoryId +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", ImageUrl='" + ImageUrl + '\'' +

@@ -95,6 +95,22 @@ CREATE TABLE IF NOT EXISTS `quizdb`.`question` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `quizdb`.`theory`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `quizdb`.`theory` (
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  `theoryId` INT NULL,
+  `Description` TINYTEXT NULL,
+  PRIMARY KEY (`Id`),
+  INDEX `CourseTypeId_idx` (`theoryId` ASC) VISIBLE,
+  CONSTRAINT `CourseTypeId`
+    FOREIGN KEY (`theoryId`)
+    REFERENCES `quizdb`.`coursetype` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `quizdb`.`choice`

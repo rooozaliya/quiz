@@ -1,3 +1,5 @@
+//ПРОСТО ПОКАЗЫВАЕТ СПИСОК КУРСОВ
+
 package com.clarkngo.quizme.web.controller;
 
 import com.clarkngo.quizme.web.dao.CourseTypeDao;

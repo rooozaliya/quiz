@@ -21,27 +21,27 @@ public class CourseServlet extends HttpServlet {
         res.setCharacterEncoding("UTF-8");
 
        // res.setHeader("Set-Cookie","JSESSIONID=" + session.getId());
-//        if (session.getAttribute("course") == null) {
-//            int id = Integer.parseInt(req.getParameter("courseTypeId"));
-//            int page = Integer.parseInt(req.getParameter("page"));
-//            CourseDao dao = new CourseDao();
-//            Course course = dao.getCourse(id);
-//            session.setAttribute("course", course);
-//            session.setAttribute("page",1);
-//        } else {
-//            session.setAttribute("page", req.getParameter("page"));
-//            session.setAttribute("questionId", req.getParameter("questionId"));
-//            System.out.println(req.getParameter("questionId"));
-//        }
-//        req.getRequestDispatcher("/course-screen").forward(req,res);
-//    }
+        if (session.getAttribute("course-home") == null) {
+            int id = Integer.parseInt(req.getParameter("courseTypeId"));
+            int page = Integer.parseInt(req.getParameter("page"));
+            CourseDao dao = new CourseDao();
+            Course course = dao.getCourse(id);
+            session.setAttribute("course-home", course);
+            session.setAttribute("page",1);
+        } else {
+            session.setAttribute("page", req.getParameter("page"));
+            session.setAttribute("questionId", req.getParameter("questionId"));
+            System.out.println(req.getParameter("questionId"));
+        }
+        req.getRequestDispatcher("/course-screen").forward(req,res);
+    }
 
-//    @Override
-//    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-//        HttpSession session = req.getSession(true);
-//        System.out.println(req.getParameter("courseTypeId"));
-//        System.out.println(req.getParameter("page"));
-//        System.out.println(req.getParameter("questionId"));
-//
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        HttpSession session = req.getSession(true);
+        System.out.println(req.getParameter("courseTypeId"));
+        System.out.println(req.getParameter("page"));
+        System.out.println(req.getParameter("questionId"));
+
     }
 }
