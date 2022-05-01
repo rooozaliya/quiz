@@ -37,6 +37,7 @@ public class RegisterServlet extends HttpServlet {
             writer.close();
         } else {
             userDao.addUser(name, username, password);
+
             res.setContentType("text/html");
             PrintWriter writer = res.getWriter();
             req.getRequestDispatcher("/login").include(req,res);

@@ -1,12 +1,14 @@
 package com.clarkngo.quizme.web.controller;
 
 import com.clarkngo.quizme.web.dao.UserDao;
+import com.clarkngo.quizme.web.domain.User;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 @WebServlet(name = "ProfileServlet", value = "/profile")
 public class ProfileServlet extends HttpServlet {
@@ -17,13 +19,17 @@ public class ProfileServlet extends HttpServlet {
         PrintWriter writer = resp.getWriter();
         HttpSession oldSession = req.getSession(false);
         String username = (String)oldSession.getAttribute("username");
+        UserDao qq = new UserDao();
+       String name = qq.oneUser1(username).getName();
+        oldSession.setAttribute("name", name);
         String password = (String)oldSession.getAttribute("password");
+        System.out.println( username);
         if(username == null) {
             String path = req.getContextPath() + "/error";
             resp.sendRedirect(path);
         } else {
             req.getRequestDispatcher("/userProfile.jsp").include(req, resp);
-            writer.println(String.format("<h2>Welcome Username: %s, Password: %s</h2>", username, password));
+            writer.println(String.format("<h2>Welcome? Username: %s, Password: %s, Name: %s</h2>", username, password, name) );
             writer.println(String.format("Session Id: %s", oldSession.getId()));
         }
         writer.close();

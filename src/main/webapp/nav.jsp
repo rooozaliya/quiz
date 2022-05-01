@@ -17,7 +17,8 @@ pageEncoding="UTF-8"%>
                 <a class="navbar-brand" href="${pageContext.request.contextPath}/">Тесты!</a>
             </div>
             <ul class="nav navbar-nav">
-               <li ><a href="${pageContext.request.contextPath}/profile"> <b>Привет! <c:out value="${username}"/></b></a></li>
+
+                <li ><a href="${pageContext.request.contextPath}/profile"> <b>Привет! <c:out value="${name}"/></b></a></li>
                 <li class=""><a href="${pageContext.request.contextPath}/">Главная</a></li>
                 <li><a href="${pageContext.request.contextPath}/login-form">Вход</a></li>
                 <li><a href="${pageContext.request.contextPath}/register-form">Регистрация</a></li>

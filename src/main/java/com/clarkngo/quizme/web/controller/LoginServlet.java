@@ -19,6 +19,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
+        String name = req.getParameter("name");
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
 
@@ -33,7 +34,7 @@ public class LoginServlet extends HttpServlet {
             HttpSession newSession = req.getSession(true);
             newSession.setAttribute("username", username);
             newSession.setAttribute("password", password);
-
+            newSession.setAttribute("name", name);
             // setting session to expire in 10 minutes
             newSession.setMaxInactiveInterval(10 * 60);
             res.sendRedirect(req.getContextPath() + "/home");

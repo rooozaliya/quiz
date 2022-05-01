@@ -2,12 +2,14 @@
 package com.clarkngo.quizme.web.controller;
 
         import com.clarkngo.quizme.web.dao.UserDao;
+        import com.clarkngo.quizme.web.domain.User;
 
         import javax.servlet.*;
         import javax.servlet.http.*;
         import javax.servlet.annotation.*;
         import java.io.IOException;
         import java.io.PrintWriter;
+        import java.util.List;
 
 @WebServlet(name = "NavServlet", value = "/nav")
 public class NavServlet extends HttpServlet {
@@ -18,8 +20,13 @@ public class NavServlet extends HttpServlet {
         PrintWriter writer = resp.getWriter();
         HttpSession oldSession = req.getSession(false);
         String username = (String)oldSession.getAttribute("username");
-       // HttpSession session = req.getSession(true);
-        oldSession.setAttribute("username", username);
+        UserDao qq = new UserDao();
+        String name = qq.oneUser1(username).getName();
+        oldSession.setAttribute("name", name);
+//        UserDao dao = new UserDao();
+//
+//        oldSession.setAttribute("user",  dao.oneUser(usernma));
+//        System.out.println(name);
 //        if(username == null) {
 //            writer.println(String.format("<h2>Welcome!</h2>"));
 //        } else {

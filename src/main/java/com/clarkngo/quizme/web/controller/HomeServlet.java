@@ -3,6 +3,7 @@
 package com.clarkngo.quizme.web.controller;
 
 import com.clarkngo.quizme.web.dao.QuizTypeDao;
+import com.clarkngo.quizme.web.dao.UserDao;
 import com.clarkngo.quizme.web.domain.QuizType;
 
 import javax.servlet.*;
@@ -18,10 +19,16 @@ public class HomeServlet extends HttpServlet {
         HttpSession session = req.getSession(true);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
+        HttpSession oldSession = req.getSession(false);
+        String username = (String)oldSession.getAttribute("username");
+        UserDao qq = new UserDao();
+        String name = qq.oneUser1(username).getName();
+        oldSession.setAttribute("name", name);
 
         QuizTypeDao dao = new QuizTypeDao();
         List<QuizType> qtList = dao.getQuizTypes();
         session.setAttribute("quizTypeList", qtList);
         req.getRequestDispatcher("/home-page").forward(req, res);
+
     }
 }

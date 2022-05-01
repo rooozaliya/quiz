@@ -25,6 +25,7 @@ public class UserDao {
             ps = conn.prepareStatement("SELECT * FROM user WHERE Email=? AND Password=?");
             ps.setString(1, username);
             ps.setString(2, password);
+//            ps.setString(2, name);
             ResultSet rs =ps.executeQuery();
             st = rs.next();
         }
@@ -57,6 +58,8 @@ public class UserDao {
 
     }
 
+
+
     public boolean userExists(String username) {
         int result = 0;
         try {
@@ -87,5 +90,77 @@ public class UserDao {
             e.printStackTrace();
         }
     }
+
+    public  List<User> oneUser(String username) {
+       // User user = new User();
+        List<User> user1 = new ArrayList<>();
+      //  String name=null;
+        try {
+
+            this.conn = ds.getConnection();
+            ps = conn.prepareStatement("SELECT * FROM user WHERE Email=?");
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                User user = new User();
+               user.setName(rs.getString("Name"));
+                System.out.println("Students : "  + user );
+                user1.add(user);
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return user1;
+    }
+
+    public  User oneUser1(String username) {
+        User user = new User();
+      //  List<User> user1 = new ArrayList<>();
+        //  String name=null;
+        try {
+
+            this.conn = ds.getConnection();
+            ps = conn.prepareStatement("SELECT * FROM user WHERE Email=?");
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+//                User user = new User();
+
+                user.setName(rs.getString("Name"));
+                String a=user.getName();
+                System.out.println("Students : "  + user.getName() );
+               // user1.add(user);
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
+//    public  oneUser(String username, String password)
+//    {
+//        User user = new User();
+//        String result;
+//        try {
+//
+//            this.conn = ds.getConnection();
+//            ps = conn.prepareStatement("SELECT * FROM user WHERE Email=? AND Password=?");
+//            ResultSet rs = ps.executeQuery();
+//            ps.setString(1, username);
+//            ps.setString(2, password);
+//           // user.setName(rs.getString("Name"));
+//            if (rs.next()) {
+//               name= rs.getString("Name");
+//            }
+//        }
+//        catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return result;
+//    }
+
 
 }

@@ -17,6 +17,9 @@ VALUES
 	('курс 2', 'описание курса 2')
 ;
 
+UPDATE user SET Name='saaa' WHERE id=5;
+
+
 ALTER TABLE coursetype  ADD COLUMN ImageURL VARCHAR(255) NULL;
 
 --ALTER TABLE coursetype  ADD COLUMN Image BLOB NULL;
