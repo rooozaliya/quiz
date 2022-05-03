@@ -7,15 +7,6 @@ public class CourseType {
     private int courseTypeId;
     private String name;
     private String description;
-
-    public String getTheory() {
-        return theory;
-    }
-
-    public void setTheory(String theory) {
-        this.theory = theory;
-    }
-
     private String theory;
     private String ImageUrl;
     private String Image;
@@ -82,6 +73,15 @@ public class CourseType {
     public void setFeedback(Feedback feedback) {
         this.feedback = feedback;
     }
+
+    public String getTheory() {
+        return theory;
+    }
+
+    public void setTheory(String theory) {
+        this.theory = theory;
+    }
+
 
     @Override
     public String toString() {

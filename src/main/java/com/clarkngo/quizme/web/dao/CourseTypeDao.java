@@ -2,7 +2,8 @@ package com.clarkngo.quizme.web.dao;
 
 import com.clarkngo.quizme.web.config.MySqlDS;
 import com.clarkngo.quizme.web.domain.CourseType;
-import com.clarkngo.quizme.web.domain.QuizType;
+
+import javax.sql.DataSource;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -68,6 +69,7 @@ public class CourseTypeDao {
                 courseType.setDescription(rs.getString("Description"));
                 courseType.setImageUrl(rs.getString("ImageURL"));
                 courseType.setTheory(rs.getString("Theory"));
+                System.out.println("course11111");
             }
         } catch (SQLException e) {
             e.printStackTrace();

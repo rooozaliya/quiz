@@ -24,23 +24,15 @@
     </style>
 </head>
 <body>
-
-<header class="header bg-primary">
-
-    <div class="left-title">JS Quiz</div>
-    <div class="right-title">Total Questions: <span id="tque"></span></div>
-    <div class="clearfix"></div>
-</header>
+<jsp:include page="nav.jsp" flush="true" />
 <div class="content">
     <div class="container-fluid">
 
         <div class="row">
             <div class="col-sm-12">
                 <div id="result" class="quiz-body">
-                    <h2> ПУК ТЕОРИЯ</h2>
-                                            <c:forEach items="${listTheories}" var="theory">
-                                                <p><c:out value="${theory.getTheory()}"/></p>
-                                            </c:forEach>
+                    <h2>  ТЕОРИЯ</h2>
+                        <p><c:out value="${listTheories}"/></p>
                 </div>
             </div> <!-- End of col-sm-12 -->
 

@@ -1,9 +1,10 @@
-//ПРОСТО ПОКАЗЫВАЕТ СПИСОК КУРСОВ
+//ПРОСТО СПИСОК КУРСОВ
 
 package com.clarkngo.quizme.web.controller;
 
 import com.clarkngo.quizme.web.dao.CourseTypeDao;
 import com.clarkngo.quizme.web.dao.QuizTypeDao;
+import com.clarkngo.quizme.web.domain.Course;
 import com.clarkngo.quizme.web.domain.CourseType;
 import com.clarkngo.quizme.web.domain.QuizType;
 
@@ -26,7 +27,19 @@ public class CourseHomeServlet extends HttpServlet {
 
         CourseTypeDao dao = new CourseTypeDao();
         List<CourseType> qtList = dao.getCourseTypes();
+
+//        CourseType course = dao.getCourseType(2);
+//        session.setAttribute("courseType", course);
         session.setAttribute("courseTypeList", qtList);
         req.getRequestDispatcher("/course-page").forward(req, res);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        HttpSession session = req.getSession(true);
+        System.out.println(req.getParameter("courseTypeId"+"str36"));
+        System.out.println(req.getParameter("page"+"str37"));
+        System.out.println(req.getParameter("questionId"+"str38"));
+
     }
 }

@@ -1,3 +1,5 @@
+// ПРОСТО СПИСОК КУРСОВ
+
 package com.clarkngo.quizme.web.controller;
 
 import javax.servlet.ServletException;

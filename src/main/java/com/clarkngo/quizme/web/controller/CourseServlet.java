@@ -1,9 +1,12 @@
-// ПОМОГАЕТ ПЕРЕНАПРАВИТЬ НА СТРАНИЦУ ТЕОРИИ
+// ВНУТРЕННОСТЬ КУРСА
 
 package com.clarkngo.quizme.web.controller;
 
 import com.clarkngo.quizme.web.dao.CourseDao;
+import com.clarkngo.quizme.web.dao.CourseTypeDao;
 import com.clarkngo.quizme.web.domain.Course;
+import com.clarkngo.quizme.web.domain.CourseType;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,16 +25,21 @@ public class CourseServlet extends HttpServlet {
 
        // res.setHeader("Set-Cookie","JSESSIONID=" + session.getId());
         if (session.getAttribute("course-home") == null) {
-            int id = Integer.parseInt(req.getParameter("courseTypeId"));
-            int page = Integer.parseInt(req.getParameter("page"));
-            CourseDao dao = new CourseDao();
-            Course course = dao.getCourse(id);
-            session.setAttribute("course-home", course);
+//            int id = Integer.parseInt(req.getParameter("courseTypeId"));
+//            int page = Integer.parseInt(req.getParameter("page"));
+//            CourseDao dao = new CourseDao();
+//            Course course = dao.getCourse(id);
+         //   session.setAttribute("course-home", course);
             session.setAttribute("page",1);
+            int id = Integer.parseInt(req.getParameter("courseTypeId"));
+            CourseTypeDao dao = new CourseTypeDao();
+            CourseType course = dao.getCourseType(id);
+            String descrTheory= course.getTheory();
+            session.setAttribute("listTheories", descrTheory);
         } else {
             session.setAttribute("page", req.getParameter("page"));
             session.setAttribute("questionId", req.getParameter("questionId"));
-            System.out.println(req.getParameter("questionId"));
+            int id = Integer.parseInt(req.getParameter("courseTypeId"));
         }
         req.getRequestDispatcher("/course-screen").forward(req,res);
     }
@@ -39,9 +47,9 @@ public class CourseServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession session = req.getSession(true);
-        System.out.println(req.getParameter("courseTypeId"));
-        System.out.println(req.getParameter("page"));
-        System.out.println(req.getParameter("questionId"));
+        System.out.println(req.getParameter("courseTypeId"+"str42"));
+        System.out.println(req.getParameter("page"+"str43"));
+        System.out.println(req.getParameter("questionId"+"str36"));
 
     }
 }

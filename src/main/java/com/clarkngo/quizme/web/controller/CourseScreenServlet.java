@@ -1,11 +1,7 @@
-//ПОМОГАЕТ ПОКАЗАТЬ КУРСЫ
+// ВНУТРЕННОСТЬ КУРСОВ
 package com.clarkngo.quizme.web.controller;
 
-import com.clarkngo.quizme.web.dao.ChatDao;
-import com.clarkngo.quizme.web.dao.CourseDao;
 import com.clarkngo.quizme.web.dao.CourseTypeDao;
-import com.clarkngo.quizme.web.domain.Chat;
-import com.clarkngo.quizme.web.domain.Course;
 import com.clarkngo.quizme.web.domain.CourseType;
 
 import javax.servlet.ServletException;
@@ -15,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "CourseScreenServlet", value = "/course-screen")
 public class CourseScreenServlet extends HttpServlet {
@@ -25,10 +20,11 @@ public class CourseScreenServlet extends HttpServlet {
         HttpSession session = req.getSession(true);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
-
+        int id = Integer.parseInt(req.getParameter("courseTypeId"));
         CourseTypeDao dao = new CourseTypeDao();
-        List<CourseType> listTheory = dao.getCourseTypes();
-        session.setAttribute("listTheories", listTheory);
+        CourseType course = dao.getCourseType(id);
+        String descrTheory= course.getTheory();
+         session.setAttribute("listTheories", descrTheory);
         req.getRequestDispatcher("/courseScreen.jsp").forward(req, res);
     }
 }

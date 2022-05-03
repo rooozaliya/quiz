@@ -19,7 +19,6 @@ public class CourseDao {
     private PreparedStatement ps;
     public Course getCourse(int id) {
         Course course = new Course();
-
         course.setCourseType(new CourseTypeDao().getCourseType(id));
         course.setQuestions(new QuestionDao().getTenRandomQuestions(id));
         for (int i=0; i < course.getQuestions().size(); i++) {
