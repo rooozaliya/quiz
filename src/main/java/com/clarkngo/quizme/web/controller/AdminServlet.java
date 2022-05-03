@@ -38,33 +38,38 @@ public class AdminServlet extends HttpServlet {
 
         UserDao dao = new UserDao();
         List<User> listUser1 = dao.listAllUsers();
-        session.setAttribute("listUser", listUser1);
+//        session.setAttribute("listUser", listUser1);
         req.getRequestDispatcher("/admin.jsp").forward(req, res);
-        System.out.println(listUser1+"aaaaaaaaa");
+
 
         req.getRequestDispatcher("/admin.jsp").include(req, res);
 
         if (oldSession == null) {
 
-            writer.print(
-                    "<h1>Авторизуйся</h1>"
-            );
-            writer.close();
+//            String path = req.getContextPath() + "/error";
+//            res.sendRedirect(path);
+            res.sendRedirect("/error");
+
+
         } else {
             String username = (String) oldSession.getAttribute("username");
             if (username.equals("rooozaliya@mail.ru")) {
                 writer.print(
                         "<h1>Админ</h1>"
+
                 );
                 writer.close();
+                session.setAttribute("listUser", listUser1);
 
 
 
             } else if (oldSession != null) {
-                writer.print(
-                        "<h1>Не админ</h1>"
-                );
-                writer.close();
+                String path = "{pageContext.request.contextPath}/error";
+                res.sendRedirect(path);
+//                writer.print(
+//                        "<h1>Не админ</h1>"
+//                );
+//                writer.close();
             }
         }
 

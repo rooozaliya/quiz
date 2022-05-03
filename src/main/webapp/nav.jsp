@@ -8,27 +8,36 @@ pageEncoding="UTF-8"%>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Title</title>
      <meta charset="UTF-8">
+     <style>
+
+     </style>
 </head>
 
 <body>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="${pageContext.request.contextPath}/">Тесты!</a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/">Главная</a>
             </div>
             <ul class="nav navbar-nav">
 
-                <li ><a href="${pageContext.request.contextPath}/profile"> <b>Привет <c:out value="${name}"/>!</b></a></li>
-                <li class=""><a href="${pageContext.request.contextPath}/">Главная</a></li>
-                <li><a href="${pageContext.request.contextPath}/login-form">Вход</a></li>
-                <li><a href="${pageContext.request.contextPath}/register-form">Регистрация</a></li>
+                <li ><a href="${pageContext.request.contextPath}/profile"> <b>Привет! <c:out value="${name}"/></b></a></li>
+
+                <li><a href="${pageContext.request.contextPath}/home">Тесты</a></li>
+                <li><a href="${pageContext.request.contextPath}/chat">Чат</a></li>
+                <li><a href="${pageContext.request.contextPath}/course">Курсы</a></li>
+
                 <li><a href="${pageContext.request.contextPath}/feedback-form">Обратная связь</a></li>
                 <li><a href="${pageContext.request.contextPath}/contact-form">Контакты</a></li>
-                <li><a href="${pageContext.request.contextPath}/admin-form">Admin</a></li>
-                <li><a href="${pageContext.request.contextPath}/home">Test</a></li>
-                <li><a href="${pageContext.request.contextPath}/chat">Chat</a></li>
+
+                <li ><a href="${pageContext.request.contextPath}/login-form">Вход</a></li>
+                <li ><a href="${pageContext.request.contextPath}/register-form">Регистрация</a></li>
+
+
+                 <li><a href="${pageContext.request.contextPath}/admin-form">Админка</a></li>
                 <li><a href="${pageContext.request.contextPath}/logout">Выйти</a></li>
-                <li><a href="${pageContext.request.contextPath}/course">Курсы</a></li>
+
+
 
 
             </ul>

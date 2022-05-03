@@ -23,7 +23,6 @@ public class ProfileServlet extends HttpServlet {
        String name = qq.oneUser1(username).getName();
         oldSession.setAttribute("name", name);
         String password = (String)oldSession.getAttribute("password");
-        System.out.println( username);
         if(username == null) {
             String path = req.getContextPath() + "/error";
             resp.sendRedirect(path);

@@ -7,17 +7,19 @@
     <style>
         body, html {
             height: 100%;
+            margin:0px;
+            padding:0px;
+
         }
 
-        /* The hero image */
+
         .hero-image {
-            /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.wallpapersafari.com/96/20/psPtvc.jpg");
 
-            /* Set a specific height */
-            height: 70%;
-
-            /* Position and center the image to scale nicely on all screens */
+            background-image: linear-gradient(rgba(220, 90, 120, 0.5), rgba(110, 20, 0, 0.5));
+            height: 100%;
+            top:-20px;
+            margin:0px;
+            padding:0px;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -37,7 +39,7 @@
         input {
             background-color: dodgerblue;
             width: 250px;
-            padding: 5px;
+
         }
 
         form {
@@ -51,24 +53,13 @@
 <div class="hero-image">
     <div class="hero-text">
         <h1>Добро пожаловать на обучающую платформу!</h1>
-        <h3>Вы можете проверить свои знания с помощью тестов.</h3>
+        <h3>Здесь вы узнаете об алгоритмах программирования</h3>
         <br>
+       <p>Для проверки знаний рекомендуем проходить тесты, которые открываются после обучения. </p>
         <br>
-        <div class="login-form">
-            <form action="${pageContext.request.contextPath}/login" method="POST">
-                <h2 class="text-center">Вход</h2>
-                <div class="form-group">
-                    <input type="email" class="form-control" name="username" placeholder="Email" required="required">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" name="password" placeholder="Password" required="required">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Войти</button>
-                </div>
-            </form>
-            <p class="text-center"><a href="${pageContext.request.contextPath}/register-form">Нет аккаунта? Создай его!</a></p>
-        </div>
+         <form action="${pageContext.request.contextPath}/course" method="GET">
+        <button type="submit" class="btn btn-primary btn-block">Начать обучение!</button>
+        </form>
     </div>
 </div>
 </body>
