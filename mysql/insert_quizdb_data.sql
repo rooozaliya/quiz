@@ -23,6 +23,10 @@ UPDATE user SET Name='saaa' WHERE id=5;
 UPDATE coursetype SET Theory='theory1' WHERE id=1;
 UPDATE coursetype SET Theory='theory2' WHERE id=4;
 
+ALTER TABLE quiztype MODIFY COLUMN ImageURL BLOB ;
+INSERT INTO quiztype (ImageURL) VALUE(LOAD_FILE('D:/q.jpg'));
+UPDATE quiztype SET ImageURL=(LOAD_FILE('D:/q.jpg')) WHERE id=1;
+
 
 ALTER TABLE coursetype  ADD COLUMN ImageURL VARCHAR(255) NULL;
 

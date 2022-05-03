@@ -21,8 +21,6 @@ public class QuizServlet extends HttpServlet {
         HttpSession session = req.getSession(true);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
-
-       // res.setHeader("Set-Cookie","JSESSIONID=" + session.getId());
         if (session.getAttribute("quiz") == null) {
             int id = Integer.parseInt(req.getParameter("quizTypeId"));
             int page = Integer.parseInt(req.getParameter("page"));
@@ -30,12 +28,10 @@ public class QuizServlet extends HttpServlet {
             Quiz quiz = dao.getQuiz(id);
             session.setAttribute("quiz", quiz);
             session.setAttribute("page",1);
-            System.out.println("pyk!!!!!!!!!!!1");
         } else {
             session.setAttribute("page", req.getParameter("page"));
             session.setAttribute("questionId", req.getParameter("questionId"));
             System.out.println(req.getParameter("questionId"));
-           // System.out.println("pyk!!!!!!!!!!!1");
         }
         req.getRequestDispatcher("/quiz-screen").forward(req,res);
     }

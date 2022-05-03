@@ -34,6 +34,8 @@
                     <h2>  ТЕОРИЯ</h2>
                         <p><c:out value="${listTheories}"/></p>
                 </div>
+                 <h2>Проверь свои знания. Пройди <a href="${pageContext.request.contextPath}/home">тест.</a></h2>
+
             </div> <!-- End of col-sm-12 -->
 
         </div> <!-- End of row -->

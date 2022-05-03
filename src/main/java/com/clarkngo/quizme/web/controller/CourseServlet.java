@@ -22,8 +22,6 @@ public class CourseServlet extends HttpServlet {
         HttpSession session = req.getSession(true);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
-
-       // res.setHeader("Set-Cookie","JSESSIONID=" + session.getId());
         if (session.getAttribute("course-home") == null) {
 //            int id = Integer.parseInt(req.getParameter("courseTypeId"));
 //            int page = Integer.parseInt(req.getParameter("page"));
@@ -39,7 +37,6 @@ public class CourseServlet extends HttpServlet {
         } else {
             session.setAttribute("page", req.getParameter("page"));
             session.setAttribute("questionId", req.getParameter("questionId"));
-            int id = Integer.parseInt(req.getParameter("courseTypeId"));
         }
         req.getRequestDispatcher("/course-screen").forward(req,res);
     }

@@ -25,13 +25,14 @@
 </head>
 <body>
 
-<header class="header bg-primary">
-
+<div class="content">
+<div class="header bg-primary">
     <div class="left-title">JS Quiz</div>
     <div class="right-title">Total Questions: <span id="tque"></span></div>
     <div class="clearfix"></div>
-</header>
-<div class="content">
+</div>
+<jsp:include page="nav.jsp" flush="true" />
+
     <div class="container-fluid">
 
         <div class="row">
@@ -49,7 +50,7 @@
 
                             <div class="option-block-container" id="question-options">
 
-                            </div> <!-- End of option block -->
+                            </div>
                         </fieldset>
 
                     </form>
