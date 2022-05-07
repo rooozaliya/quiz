@@ -34,7 +34,7 @@
                     <h2>  ТЕОРИЯ</h2>
                         <p><c:out value="${listTheories}"/></p>
                 </div>
-                 <h2>Проверь свои знания. Пройди <a href="${pageContext.request.contextPath}/home">тест.</a></h2>
+                 <h2>Проверь свои знания. Пройди тест.</h2>
             </div>
         </div>
         <div class="test">
@@ -45,12 +45,13 @@
                               <div class="card border-primary mb-3" style="max-width: 25rem;">
 
 
-                                  <img class="card-img-top" src="${pageContext.request.contextPath}/resourses/img/course${courseTypeId}/${quizType.getQuizTypeId()}.png" alt="Carddd" width="200px" height="100px">
+                                  <img class="card-img-top" src="${pageContext.request.contextPath}/resourses/img/test/course${courseTypeId}/${quizType.getQuizTypeId()}.png" alt="Carddd" width="200px" height="100px">
 
                                   <div class="card-body">
 
                                       <h4 class="card-title"><c:out value="${quizType.getName()}"/></h4>
                                       <p class="card-text"><c:out value="${quizType.getDescription()}"/></p>
+
                                       <form action="${pageContext.request.contextPath}/quiz" method="GET">
                                           <div class="form-group">
                                               <input type="hidden" class="form-control" name="quizTypeId" value="${quizType.getQuizTypeId()}">
@@ -58,8 +59,20 @@
                                           <div class="form-group">
                                               <input type="hidden" class="form-control" name="page" value="1">
                                           </div>
-                                          <div class="form-group">
-                                              <button type="submit" class="btn btn-primary btn-block">Приступить к тестированию</button>
+
+
+
+                                    <c:choose>
+                                        <c:when test="${quizType.getQuizTypeId()<=courseTypeId}">
+                                           <button type="submit" class="btn btn-primary btn-block">Приступить к тестированию</button>
+                                        </c:when>
+                                        <c:otherwise>
+
+                                        </c:otherwise>
+                                    </c:choose>
+
+                                        <div class="form-group">
+
                                           </div>
                                       </form>
                                   </div>

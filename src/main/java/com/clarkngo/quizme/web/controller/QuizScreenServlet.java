@@ -19,6 +19,5 @@ public class QuizScreenServlet extends HttpServlet {
         req.getRequestDispatcher("/quizScreen.jsp").forward(req,res);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
-        System.out.println( session.getAttribute("result") +")))))))))))))))))))))))))))");
     }
 }

@@ -1,4 +1,4 @@
-//ПРОСТО ПОКАЗЫВАЕТ СПИСОК КУРСОВ
+//ПРОСТО ПОКАЗЫВАЕТ СПИСОК ТЕСТОВ
 
 package com.clarkngo.quizme.web.controller;
 
