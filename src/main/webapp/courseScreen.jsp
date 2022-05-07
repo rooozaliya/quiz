@@ -21,7 +21,7 @@
         .c-correct {  margin-left:20px; color:green; }
         .last-row { border-bottom:1px solid #ccc; padding-bottom:25px; margin-bottom:25px; }
         .res-header { border-bottom:1px solid #ccc; margin-bottom:15px; padding-bottom:15px; }
-        .test {margin-top: 30px;}
+        .test {margin-top: 30px; margin-left: 100px;}
     </style>
 </head>
 <body>
@@ -38,7 +38,37 @@
             </div>
         </div>
         <div class="test">
-            <jsp:include page="home.jsp" />
+
+           <c:forEach var="quizType" items="${quizTypeList}">
+
+                          <div class="col-sm-4">
+                              <div class="card border-primary mb-3" style="max-width: 25rem;">
+
+
+                                  <img class="card-img-top" src="${pageContext.request.contextPath}/resourses/img/course${courseTypeId}/${quizType.getQuizTypeId()}.png" alt="Carddd" width="200px" height="100px">
+
+                                  <div class="card-body">
+
+                                      <h4 class="card-title"><c:out value="${quizType.getName()}"/></h4>
+                                      <p class="card-text"><c:out value="${quizType.getDescription()}"/></p>
+                                      <form action="${pageContext.request.contextPath}/quiz" method="GET">
+                                          <div class="form-group">
+                                              <input type="hidden" class="form-control" name="quizTypeId" value="${quizType.getQuizTypeId()}">
+                                          </div>
+                                          <div class="form-group">
+                                              <input type="hidden" class="form-control" name="page" value="1">
+                                          </div>
+                                          <div class="form-group">
+                                              <button type="submit" class="btn btn-primary btn-block">Приступить к тестированию</button>
+                                          </div>
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+                      </c:forEach>
+
+
+
         </div>
     </div>
 </div>

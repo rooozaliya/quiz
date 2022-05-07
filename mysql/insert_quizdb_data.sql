@@ -42,18 +42,27 @@ UPDATE user SET Raitung=10 WHERE id=1;
 
 --ALTER TABLE coursetype  ADD COLUMN Image BLOB NULL;
 --
---INSERT INTO coursetype (Image) VALUES(LOAD_FILE('D:\q.jpg'));
+
 --INSERT INTO theory (theoryId, Description)
 --VALUES (1, 'теория'),
 --(1, 'теория2');
 
+DELETE FROM quiztype
+WHERE Id=4;
+
+UPDATE coursetype SET Raitung=10 WHERE id=1;
+
 ALTER TABLE quiztype  ADD COLUMN ImageURL VARCHAR(255) NULL;
 ALTER TABLE quiztype  ADD COLUMN ImgURL VARCHAR(255) NULL;
-UPDATE quiztype SET ImgURL='C:/Program Files/MySQL/MySQL Server 8.0/Upload/qq.png' WHERE id=1;
+--UPDATE quiztype SET ImgURL='C:/Program Files/MySQL/MySQL Server 8.0/Upload/qq.png' WHERE id=1;
 ALTER TABLE coursetype  ADD COLUMN Theory VARCHAR(255) NULL;
 
 INSERT INTO coursetype (Theory)
 VALUES ( 'теория');
+
+UPDATE coursetype Set Name='Hibernate' where id=5;
+UPDATE coursetype Set  Description='Java Hibernate' where id=5;
+
 
 --select * from theory;
 

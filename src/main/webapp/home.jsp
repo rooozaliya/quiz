@@ -21,32 +21,7 @@
     <div class="container">
         <div class="row">
 
-            <c:forEach var="quizType" items="${quizTypeList}">
-                <div class="col-sm-4">
-                    <div class="card border-primary mb-3" style="max-width: 25rem;">
 
-                       <!-- <img class="card-img-top" src="${quizType.getImageUrl()}" alt="Card image" width="100%" height="200">-->
-                       <!--<img class="card-img-top" src="${pageContext.request.contextPath}/resourses/img/2.png" alt="Card" width="100%" height="200">-->
-                        <img class="card-img-top" src="${pageContext.request.contextPath}/resourses/img/${quizType.getQuizTypeId()}.png" alt="Card" width="100%" height="200">
-                        <div class="card-body">
-                         <h4 class="card-title"><c:out value="${quizType.getQuizTypeId()}"/></h4>
-                            <h4 class="card-title"><c:out value="${quizType.getName()}"/></h4>
-                            <p class="card-text"><c:out value="${quizType.getDescription()}"/></p>
-                            <form action="${pageContext.request.contextPath}/quiz" method="GET">
-                                <div class="form-group">
-                                    <input type="hidden" class="form-control" name="quizTypeId" value="${quizType.getQuizTypeId()}">
-                                </div>
-                                <div class="form-group">
-                                    <input type="hidden" class="form-control" name="page" value="1">
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block">Приступить к тестированию</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </c:forEach>
         </div>
     </div>
 </body>

@@ -36,6 +36,9 @@ public class CourseServlet extends HttpServlet {
             CourseType course = dao.getCourseType(id);
             String descrTheory= course.getTheory();
             session.setAttribute("listTheories", descrTheory);
+            session.setAttribute("courseTypeId", id);
+
+
         } else {
             session.setAttribute("page", req.getParameter("page"));
             session.setAttribute("questionId", req.getParameter("questionId"));
