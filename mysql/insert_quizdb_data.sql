@@ -17,18 +17,28 @@ VALUES
 	('курс 2', 'описание курса 2')
 ;
 
-UPDATE user SET Name='saaa' WHERE id=5;
+INSERT INTO result (Fk_UserId_Result)
+VALUES
+	('1')
+;
 
+UPDATE user SET Name='saaa' WHERE id=5;
+UPDATE result SET Fk_UserId_Result='1' WHERE id=1;
 
 UPDATE coursetype SET Theory='theory1' WHERE id=1;
 UPDATE coursetype SET Theory='theory2' WHERE id=4;
 
+show columns from result;
+
 ALTER TABLE quiztype MODIFY COLUMN ImageURL BLOB ;
-INSERT INTO quiztype (ImageURL) VALUE(LOAD_FILE('D:/q.jpg'));
-UPDATE quiztype SET ImageURL=(LOAD_FILE('D:/q.jpg')) WHERE id=1;
+
+UPDATE quiztype SET ImageURL=(LOAD_FILE('/Uploads/qq.png')) WHERE id=1;
 
 
 ALTER TABLE coursetype  ADD COLUMN ImageURL VARCHAR(255) NULL;
+ALTER TABLE user  ADD COLUMN Raitung int NULL;
+UPDATE user SET Raitung=10 WHERE id=1;
+
 
 --ALTER TABLE coursetype  ADD COLUMN Image BLOB NULL;
 --
@@ -38,7 +48,8 @@ ALTER TABLE coursetype  ADD COLUMN ImageURL VARCHAR(255) NULL;
 --(1, 'теория2');
 
 ALTER TABLE quiztype  ADD COLUMN ImageURL VARCHAR(255) NULL;
-
+ALTER TABLE quiztype  ADD COLUMN ImgURL VARCHAR(255) NULL;
+UPDATE quiztype SET ImgURL='C:/Program Files/MySQL/MySQL Server 8.0/Upload/qq.png' WHERE id=1;
 ALTER TABLE coursetype  ADD COLUMN Theory VARCHAR(255) NULL;
 
 INSERT INTO coursetype (Theory)

@@ -9,7 +9,7 @@
 <head>
     <title>Title</title>
     <style>
-        .content { margin-top:54px; }
+        .content { margin-top:50px; text-align:center;  }
         .header {padding:15px; position:fixed; top:0; width:100%; z-index:9999; }
         .left-title { width:80px; color:#FFF; font-size:18px; float:left; }
         .right-title { width:150px; text-align:right; float:right; color:#FFF;  }
@@ -21,13 +21,13 @@
         .c-correct {  margin-left:20px; color:green; }
         .last-row { border-bottom:1px solid #ccc; padding-bottom:25px; margin-bottom:25px; }
         .res-header { border-bottom:1px solid #ccc; margin-bottom:15px; padding-bottom:15px; }
+        .test {margin-top: 30px;}
     </style>
 </head>
 <body>
 <jsp:include page="nav.jsp" flush="true" />
 <div class="content">
     <div class="container-fluid">
-
         <div class="row">
             <div class="col-sm-12">
                 <div id="result" class="quiz-body">
@@ -35,12 +35,12 @@
                         <p><c:out value="${listTheories}"/></p>
                 </div>
                  <h2>Проверь свои знания. Пройди <a href="${pageContext.request.contextPath}/home">тест.</a></h2>
-
-            </div> <!-- End of col-sm-12 -->
-
-        </div> <!-- End of row -->
-    </div> <!-- ENd of container fluid -->
-</div> <!-- End of content -->
-
+            </div>
+        </div>
+        <div class="test">
+            <jsp:include page="home.jsp" />
+        </div>
+    </div>
+</div>
 </body>
 </html>

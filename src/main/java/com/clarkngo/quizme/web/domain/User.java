@@ -60,14 +60,6 @@ public class User {
     public void setResults(List<Result> results) {
         this.results = results;
     }
-//
-//
-//    public User() {
-//    }
-//
-//    public User(int id) {
-//        this.userId = id;
-//    }
 
 
     @Override

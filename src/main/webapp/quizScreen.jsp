@@ -31,7 +31,8 @@
     <div class="right-title">Total Questions: <span id="tque"></span></div>
     <div class="clearfix"></div>
 </div>
-<jsp:include page="nav.jsp" flush="true" />
+<jsp:include page="nav.jsp" />
+
 
     <div class="container-fluid">
 
@@ -50,16 +51,18 @@
 
                             <div class="option-block-container" id="question-options">
 
+  <span id="ajaxUserServletResponse"></span>
+
                             </div>
                         </fieldset>
 
                     </form>
                 </div>
-            </div> <!-- End of col-sm-12 -->
+            </div>
 
-        </div> <!-- End of row -->
-    </div> <!-- ENd of container fluid -->
-</div> <!-- End of content -->
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
@@ -95,13 +98,10 @@
                             $("#previous").attr("disabled", false);
                             $("#next").attr("disabled", false);
                             $("#qid").html(quiz.JS[0][this.currentque].id + '.');
-
-
                             $("#question").html(quiz.JS[0][this.currentque].question);
                             $("#question-options").html("");
                             for (var key in quiz.JS[0][this.currentque].options[0]) {
                                 if (quiz.JS[0][this.currentque].options[0].hasOwnProperty(key)) {
-
                                     $("#question-options").append(
                                         "<div class='form-check option-block'>" +
                                         "<label class='form-check-label'>" +
@@ -123,16 +123,11 @@
                             return this.showResult(this.score);
                         }
                     }
-
                     this.showResult = function(scr) {
                         $("#result").addClass('result');
-                        $("#result").html("<h1 class='res-header'>Total Score: &nbsp;" + scr  + '/' + totalque + "</h1>");
+                        $("#result").html("<h1 class='res-header' id='ro'>Total Score: &nbsp;" + scr  + '/' + totalque + "</h1>");
                         $("#result").append('<h3><a href="http://localhost:8080/jq/feedback-form">Give a Feedback</a></h3>');
-
-
                         $("#result").append('<br>');
-
-
                         for(var j = 0; j < totalque; j++) {
                             var res;
                             if(quiz.JS[0][j].score == 0) {
@@ -145,7 +140,6 @@
                                 '<div><b>Selected answer:</b> &nbsp;' + quiz.JS[0][j].selected + '</div>' +
                                 '<div><b>Correct answer:</b> &nbsp;' + quiz.JS[0][j].answer + '</div>' +
                                 '<div class="last-row"><b>Score:</b> &nbsp;' + res +
-
                                 '</div>'
                             );
                             console.log(quiz.JS[0][j].questionId);
@@ -211,6 +205,21 @@
                 console.log(quiz.JS[0]);
 
             }
+        });
+
+        $.ajax({
+            type: 'POST',
+            method: 'POST',
+            async: true,
+            url:  "OuizScreenServlet",
+            data: {
+                  				result : $('#result').val()
+                  			},
+            dataType: "html",
+           		success : function(responseText) {
+           				$('#ajaxUserServletResponse').text(responseText);
+           			}
+
         });
     });
 

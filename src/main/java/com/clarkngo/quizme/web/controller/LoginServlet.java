@@ -24,20 +24,17 @@ public class LoginServlet extends HttpServlet {
         res.setCharacterEncoding("UTF-8");
 
         if (username!=null && password!=null && userDao.checkCredentials(username, password)) {
-            // get the old session
             HttpSession oldSession = req.getSession(false);
             if (oldSession != null) {
                 oldSession.invalidate();
             }
 
-            // generate a new Session
             HttpSession newSession = req.getSession(true);
             newSession.setAttribute("username", username);
             newSession.setAttribute("password", password);
             newSession.setAttribute("name", name);
-            // setting session to expire in 10 minutes
             newSession.setMaxInactiveInterval(10 * 60);
-            res.sendRedirect(req.getContextPath() + "/home");
+            res.sendRedirect(req.getContextPath() + "/course");
         } else {
             res.setContentType("text/html");
             PrintWriter writer = res.getWriter();

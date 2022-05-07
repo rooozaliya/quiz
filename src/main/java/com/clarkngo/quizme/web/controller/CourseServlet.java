@@ -22,6 +22,8 @@ public class CourseServlet extends HttpServlet {
         HttpSession session = req.getSession(true);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
+
+
         if (session.getAttribute("course-home") == null) {
 //            int id = Integer.parseInt(req.getParameter("courseTypeId"));
 //            int page = Integer.parseInt(req.getParameter("page"));

@@ -14,8 +14,11 @@ import java.util.List;
 public class QuizScreenServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        session.getAttribute("result");
         req.getRequestDispatcher("/quizScreen.jsp").forward(req,res);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
+        System.out.println( session.getAttribute("result") +")))))))))))))))))))))))))))");
     }
 }

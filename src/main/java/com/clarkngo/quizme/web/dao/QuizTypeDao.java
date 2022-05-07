@@ -30,7 +30,8 @@ public class QuizTypeDao {
                 qt.setQuizTypeId(rs.getInt("Id"));
                 qt.setName(rs.getString("Name"));
                 qt.setDescription(rs.getString("Description"));
-                qt.setImageUrl(rs.getString("ImageURL"));
+               // qt.setImageUrl(rs.getString("ImageURL"));
+                qt.setImgUrl(rs.getString("ImgURL"));
 
                 quizTypes.add(qt);
             }
@@ -61,7 +62,8 @@ public class QuizTypeDao {
                 quizType.setQuizTypeId(rs.getInt("Id"));
                 quizType.setName(rs.getString("Name"));
                 quizType.setDescription(rs.getString("Description"));
-                quizType.setImageUrl(rs.getString("ImageURL"));
+//                quizType.setImageUrl(rs.getString("ImageURL"));
+                quizType.setImgUrl(rs.getString("ImgURL"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

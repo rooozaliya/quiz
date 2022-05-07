@@ -25,6 +25,8 @@ public class HomeServlet extends HttpServlet {
         String name = qq.oneUser1(username).getName();
         oldSession.setAttribute("name", name);
 
+
+
         QuizTypeDao dao = new QuizTypeDao();
         List<QuizType> qtList = dao.getQuizTypes();
         session.setAttribute("quizTypeList", qtList);

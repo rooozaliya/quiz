@@ -1,6 +1,7 @@
 package com.clarkngo.quizme.web.dao;
 
 import com.clarkngo.quizme.web.config.MySqlDS;
+import com.clarkngo.quizme.web.domain.Result;
 import com.clarkngo.quizme.web.domain.User;
 import javax.sql.DataSource;
 import java.sql.*;
@@ -25,7 +26,6 @@ public class UserDao {
             ps = conn.prepareStatement("SELECT * FROM user WHERE Email=? AND Password=?");
             ps.setString(1, username);
             ps.setString(2, password);
-//            ps.setString(2, name);
             ResultSet rs =ps.executeQuery();
             st = rs.next();
         }
@@ -120,12 +120,7 @@ public class UserDao {
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-//                User user = new User();
-
                 user.setName(rs.getString("Name"));
-                String a=user.getName();
-                System.out.println("Students : "  + user.getName() );
-               // user1.add(user);
             }
         }
         catch (Exception e) {
@@ -135,5 +130,36 @@ public class UserDao {
         return user;
     }
 
+    public  Result result(String username) {
+        Result results = new Result();
+        try {
+            this.conn = ds.getConnection();
+            ps = conn.prepareStatement("SELECT * FROM user WHERE Email=?");
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                results.setResultId(rs.getInt("Raitung"));
+
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return results;
+    }
+
+    public void addResult(String username, int result) {
+        try {
+            this.conn = ds.getConnection();
+            ps = conn.prepareStatement("INSERT INTO user (Raitung) VALUE (?)");
+            ps.setString(1, username);
+            ps.setInt(2, result);
+            ps.executeUpdate();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }

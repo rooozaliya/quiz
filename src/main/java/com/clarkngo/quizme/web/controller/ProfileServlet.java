@@ -22,13 +22,16 @@ public class ProfileServlet extends HttpServlet {
         UserDao qq = new UserDao();
        String name = qq.oneUser1(username).getName();
         oldSession.setAttribute("name", name);
+        int res = qq.result(username).getResultId();
+        oldSession.setAttribute("res", res);
+        System.out.println(res);
         String password = (String)oldSession.getAttribute("password");
         if(username == null) {
             String path = req.getContextPath() + "/error";
             resp.sendRedirect(path);
         } else {
             req.getRequestDispatcher("/userProfile.jsp").include(req, resp);
-            writer.println(String.format("<h2>Welcome? Username: %s, Password: %s, Name: %s</h2>", username, password, name) );
+            writer.println(String.format("<h2>Welcome? Username: %s, Password: %s, Name: %s</h2>, N: %s</h2>", username, password, name, res) );
             writer.println(String.format("Session Id: %s", oldSession.getId()));
         }
         writer.close();

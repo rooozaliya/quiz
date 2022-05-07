@@ -8,6 +8,7 @@ public class QuizType {
     private String name;
     private String description;
     private String ImageUrl;
+    private String ImgUrl;
     private List<Question> questions;
     private String questionsJson;
     private Feedback feedback;
@@ -44,6 +45,14 @@ public class QuizType {
 
     public void setImageUrl(String imageUrl) {
         ImageUrl = imageUrl;
+    }
+
+    public String getImgUrl() {
+        return ImgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        ImgUrl = imgUrl;
     }
 
     public List<Question> getQuestions() {
