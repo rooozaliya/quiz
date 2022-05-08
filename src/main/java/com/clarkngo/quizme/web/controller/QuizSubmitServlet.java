@@ -1,5 +1,5 @@
-//НЕПОНЯТНО ДЛЯ ЧЕГО НУЖНО
-
+////НЕПОНЯТНО ДЛЯ ЧЕГО НУЖНО
+//
 //package com.clarkngo.quizme.web.controller;
 //
 //import javax.servlet.*;
@@ -14,7 +14,11 @@
 //        HttpSession session = req.getSession(true);
 //        req.setCharacterEncoding("UTF-8");
 //        res.setCharacterEncoding("UTF-8");
+//        req.getRequestDispatcher("/quizScreen.jsp").forward(req,res);
+//        String result = req.getParameter("score1");
+//        System.out.println(result+"===========");
 //
-//        System.out.println(req.getParameter("total"));
+//        String result3 = req.getParameter("score1");
+//        System.out.println(result3+" 908908908988");
 //    }
 //}

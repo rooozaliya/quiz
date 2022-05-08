@@ -13,6 +13,7 @@
         .header {padding:15px; position:fixed; top:0; width:100%; z-index:9999; }
         .left-title { width:80px; color:#FFF; font-size:18px; float:left; }
         .right-title { width:150px; text-align:right; float:right; color:#FFF;  }
+         .center-title { width:150px; text-align:center; float:right; color:#FFF;  }
         .quiz-body { margin-top:15px; padding-bottom:50px; }
         .option-block-container { margin-top:20px; max-width:420px; }
         .option-block { padding:10px; background:aliceblue; border:1px solid #84c5fe; margin-bottom:10px; cursor:pointer; }
@@ -29,6 +30,11 @@
 <div class="header bg-primary">
     <div class="left-title">JS Quiz</div>
     <div class="right-title">Total Questions: <span id="tque"></span></div>
+
+
+     <div class="center-title"> Result: <span type="text" id="score"></span>
+
+     </div>
     <div class="clearfix"></div>
 </div>
 <jsp:include page="nav.jsp" />
@@ -40,18 +46,18 @@
             <div class="col-sm-12">
                 <div id="result" class="quiz-body">
 
-                    <form id="sampleForm" name="sampleForm" action="http://localhost:8080/app/quizSubmit" method="POST">
+                    <form id="sampleForm" name="sampleForm" action="${pageContext.request.contextPath}/quiz-screen" method="POST">
+
 
                         <fieldset class="form-group">
 
+                        <p type="text" name="score11" id="score11" ></p>
                             <button  name="previous" id="previous" class="btn btn-success">Предыдущий</button>
                             &nbsp;
                             <button  name="next" id="next" class="btn btn-success">Следующий</button>
                             <h4><span id="qid">1.</span> <span id="question"></span></h4>
 
                             <div class="option-block-container" id="question-options">
-
-  <span id="ajaxUserServletResponse"></span>
 
                             </div>
                         </fieldset>
@@ -71,6 +77,9 @@
 
     var quiz;
     $(document).ready(function(){
+
+
+
         $.ajax({
             type: "GET",
             url: "http://localhost:8080/jq/quizjson?quizTypeId=1",
@@ -90,6 +99,7 @@
                     this.qno = 1;
                     this.currentque = 0;
                     var totalque = quiz.JS[0].length;
+
 
                     this.displayQuiz = function(cque) {
                         this.currentque = cque;
@@ -125,9 +135,14 @@
                     }
                     this.showResult = function(scr) {
                         $("#result").addClass('result');
+                        $("#score").html( scr );
+                       
+
                         $("#result").html("<h1 class='res-header' id='ro'>Total Score: &nbsp;" + scr  + '/' + totalque + "</h1>");
                         $("#result").append('<h3><a href="http://localhost:8080/jq/feedback-form">Give a Feedback</a></h3>');
                         $("#result").append('<br>');
+
+
                         for(var j = 0; j < totalque; j++) {
                             var res;
                             if(quiz.JS[0][j].score == 0) {
@@ -148,6 +163,15 @@
                             console.log(quiz.JS[0][j].answer);
                             console.log(quiz.JS[0][j].score);
                         }
+                           $.ajax({
+                                                type: "post",
+                                                url: "http://localhost:8080/jq/quiz-screen",
+                                                data: {scr:scr},
+                                                contentType: "application/x-www-form-urlencoded; charset=UTF-8;",
+
+                                                success: console.log(scr),
+                                                error: console.log(scr)
+                                    });
                     }
 
                     this.checkAnswer = function(option) {
@@ -191,6 +215,8 @@
                         jsq.checkAnswer(selectedopt);
                     }
                     jsq.changeQuestion(1);
+
+
                 });
 
                 $('#previous').click(function(e) {
@@ -207,20 +233,10 @@
             }
         });
 
-        $.ajax({
-            type: 'POST',
-            method: 'POST',
-            async: true,
-            url:  "OuizScreenServlet",
-            data: {
-                  				result : $('#result').val()
-                  			},
-            dataType: "html",
-           		success : function(responseText) {
-           				$('#ajaxUserServletResponse').text(responseText);
-           			}
 
-        });
+
+
+
     });
 
 
@@ -243,3 +259,4 @@
 
     }
 </script>
+

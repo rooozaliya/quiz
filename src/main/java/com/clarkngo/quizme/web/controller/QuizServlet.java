@@ -42,6 +42,7 @@ public class QuizServlet extends HttpServlet {
         System.out.println(req.getParameter("quizTypeId"));
         System.out.println(req.getParameter("page"));
         System.out.println(req.getParameter("questionId"));
+        req.getRequestDispatcher("/quizScreen.jsp").forward(req,res);
 
 
     }

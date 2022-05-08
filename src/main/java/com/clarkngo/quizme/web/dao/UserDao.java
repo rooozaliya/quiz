@@ -149,17 +149,18 @@ public class UserDao {
         return results;
     }
 
-    public void addResult(String username, int result) {
+    public void addResult(String username, String result) {
         try {
             this.conn = ds.getConnection();
-            ps = conn.prepareStatement("INSERT INTO user (Raitung) VALUE (?)");
-            ps.setString(1, username);
-            ps.setInt(2, result);
+            ps = conn.prepareStatement("UPDATE  user SET Raitung=?  WHERE Email=?");
+            ps.setString(2, username);
+            ps.setString(1, result);
             ps.executeUpdate();
         }
         catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
 }
