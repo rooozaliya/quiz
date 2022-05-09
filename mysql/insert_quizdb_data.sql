@@ -32,11 +32,17 @@ show columns from result;
 
 ALTER TABLE quiztype MODIFY COLUMN ImageURL BLOB ;
 
+
+
 UPDATE quiztype SET ImageURL=(LOAD_FILE('/Uploads/qq.png')) WHERE id=1;
 
 
 ALTER TABLE coursetype  ADD COLUMN ImageURL VARCHAR(255) NULL;
 ALTER TABLE user  ADD COLUMN Raitung int NULL;
+ALTER TABLE user  ADD COLUMN Raitung1 int NULL;
+ALTER TABLE user  ADD COLUMN Raitung2 int NULL;
+ALTER TABLE user  ADD COLUMN Raitung3 int NULL;
+
 UPDATE user SET Raitung=10 WHERE id=1;
 
 

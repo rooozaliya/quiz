@@ -46,12 +46,11 @@
             <div class="col-sm-12">
                 <div id="result" class="quiz-body">
 
-                    <form id="sampleForm" name="sampleForm" action="${pageContext.request.contextPath}/quiz-screen" method="POST">
+                    <form id="sampleForm" name="sampleForm" action="${pageContext.request.contextPath}/quiz" method="POST">
 
 
                         <fieldset class="form-group">
 
-                        <p type="text" name="score11" id="score11" ></p>
                             <button  name="previous" id="previous" class="btn btn-success">Предыдущий</button>
                             &nbsp;
                             <button  name="next" id="next" class="btn btn-success">Следующий</button>
@@ -61,8 +60,17 @@
 
                             </div>
                         </fieldset>
+                          <form action="${pageContext.request.contextPath}/quiz-screen" method="POST">
+                                                                                      <div class="form-group">
+                                                                                          <input type="hidden" class="form-control" name="quizTypeId" id="quizTypeId" value="${quizTypeId}">
+                                                                                      </div>
+
+
+                                                                               </form>
 
                     </form>
+
+
                 </div>
             </div>
 
@@ -87,7 +95,7 @@
             success: function(data) {
                 quiz = { "JS" : [JSON.parse(data)] }
                 console.log(data);
-
+                var quizTypeId=  $("#quizTypeId").val();
                 console.log(quiz.JS);
                 console.log(quiz.JS.length);
                 console.log(quiz.JS[0]);
@@ -162,15 +170,18 @@
                             console.log(quiz.JS[0][j].selected);
                             console.log(quiz.JS[0][j].answer);
                             console.log(quiz.JS[0][j].score);
+
                         }
                            $.ajax({
                                                 type: "post",
                                                 url: "http://localhost:8080/jq/quiz-screen",
-                                                data: {scr:scr},
+                                                data: {scr:scr,
+                                                quizTypeId: quizTypeId
+                                                },
                                                 contentType: "application/x-www-form-urlencoded; charset=UTF-8;",
 
-                                                success: console.log(scr),
-                                                error: console.log(scr)
+                                                success: console.log( ),
+                                                error: console.log( )
                                     });
                     }
 

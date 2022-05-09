@@ -148,17 +148,48 @@ public class UserDao {
 
         return results;
     }
-
-    public void addResult(String username, String result) {
+    public void addResult(String username, String result, int num) {
+  //public void addResult(String username, String result) {
         try {
+//            int q = Integer.parseInt(idQuiz);
+
             this.conn = ds.getConnection();
-            ps = conn.prepareStatement("UPDATE  user SET Raitung=?  WHERE Email=?");
-            ps.setString(2, username);
-            ps.setString(1, result);
-            ps.executeUpdate();
+//            ps = conn.prepareStatement("UPDATE  user SET Raitung1=?   WHERE Email=?");
+//            ps.setString(1, result);
+//            ps.setString(2, username);
+//            ps.executeUpdate();
+
+
+            if (num==1){
+                ps = conn.prepareStatement("UPDATE  user SET Raitung1=?   WHERE Email=?");
+                ps.setString(1, result);
+                ps.setString(2, username);
+
+                ps.executeUpdate();
+            }
+
+            else if (num==2){
+                ps = conn.prepareStatement("UPDATE  user SET Raitung2=?   WHERE Email=?");
+                ps.setString(1, result);
+                ps.setString(2, username);
+                    ps.executeUpdate();
+            }
+            else if (num==3){
+            ps = conn.prepareStatement("UPDATE  user SET Raitung3=?   WHERE Email=?");
+                ps.setString(1, result);
+                ps.setString(2, username);
+                ps.executeUpdate();}
+          //  ps.setInt(1, idQuiz);
+            else {
+                ps = conn.prepareStatement("UPDATE  user SET Raitung=?   WHERE Email=?");
+                ps.setString(1, result);
+                ps.setString(2, username);
+                ps.executeUpdate();}
+
         }
         catch (Exception e) {
             e.printStackTrace();
+
         }
     }
 

@@ -24,7 +24,7 @@ public class CourseScreenServlet extends HttpServlet {
         CourseTypeDao dao = new CourseTypeDao();
         CourseType course = dao.getCourseType(id);
         String descrTheory= course.getTheory();
-         session.setAttribute("listTheories", descrTheory);
+        session.setAttribute("listTheories", descrTheory);
         session.setAttribute("courseTypeId", id);
         req.getRequestDispatcher("/courseScreen.jsp").forward(req, res);
     }
