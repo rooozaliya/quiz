@@ -19,41 +19,28 @@
     <meta name="author" content="">
 
     <title>Список пользователей</title>
-
-    <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
 
-    <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
             </a>
-
-            <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
             <li class="nav-item">
 
                     <span> <jsp:include page="nav.jsp" flush="true" /></span></a>
@@ -256,25 +243,12 @@
                                 </a>
                             </div>
                         </li>
-
                     </ul>
-
                 </nav>
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
-
-                    <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Ученики</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -282,15 +256,23 @@
 
                                   <thead>
                                                     <th>ID</th>
-                                                    <th>UserName</th>
-                                                    <th>Password</th>
-
-                                                    </thead>
+                                                    <th>Почта</th>
+                                                    <th>Пароль</th>
+                                                    <th>Тест 1</th>
+                                                    <th>Тест 2</th>
+                                                    <th>Тест 3</th>
+                                                    <th>Result</th>
+                                  </thead>
                                                     <c:forEach items="${listUser}" var="user">
                                                       <tr>
-                                                        <td><c:out value="${user.getEmail()}"/></td>
-                                                        <td><c:out value="${user.getName()}"/></td>
                                                         <td><c:out value="${user.getUserId()}"/></td>
+                                                        <td><c:out value="${user.getEmail()}"/></td>
+                                                        <td><c:out value="${user.getPassword()}"/></td>
+                                                        <td><c:out value="${user.getResult1()}"/></td>
+                                                        <td><c:out value="${user.getResult2()}"/></td>
+                                                        <td><c:out value="${user.getResult3()}"/></td>
+                                                        <td><c:out value="${user.getResult()}"/></td>
+
                                                       </tr>
                                                     </c:forEach>
 

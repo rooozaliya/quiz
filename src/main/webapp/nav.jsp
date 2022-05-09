@@ -28,6 +28,7 @@ pageEncoding="UTF-8"%>
                 <li ><a href="${pageContext.request.contextPath}/login-form">Вход</a></li>
                 <li ><a href="${pageContext.request.contextPath}/register-form">Регистрация</a></li>
                 <li><a href="${pageContext.request.contextPath}/admin-form">Админка</a></li>
+                 <li><a href="${pageContext.request.contextPath}/ball">Рейтинг студентов</a></li>
                 <li><a href="${pageContext.request.contextPath}/logout">Выйти</a></li>
             </ul>
         </div>

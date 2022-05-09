@@ -45,6 +45,7 @@ public class QuizScreenServlet extends HttpServlet {
         String username = (String)oldSession.getAttribute("username");
         userDao.addResult( username, result, num);
 
+
         res.setContentType("text/html");
         req.getRequestDispatcher("/quizScreen.jsp").include(req,res);
 

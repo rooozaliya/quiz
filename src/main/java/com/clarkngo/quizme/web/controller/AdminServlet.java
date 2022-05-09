@@ -26,31 +26,29 @@ import java.util.Map;
 
 @WebServlet(name = "AdminServlet", value = "/admin-form")
 public class AdminServlet extends HttpServlet {
+
+
+    private UserDao userDao;
+
+    public void init() {this.userDao = new UserDao();}
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession session = req.getSession(true);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
-
-
         HttpSession oldSession = req.getSession(false);
         PrintWriter writer = res.getWriter();
-
         UserDao dao = new UserDao();
         List<User> listUser1 = dao.listAllUsers();
-//        session.setAttribute("listUser", listUser1);
+
+//        String usernam = (String)oldSession.getAttribute("username");
+//        userDao.allResult( usernam);
+
         req.getRequestDispatcher("/admin.jsp").forward(req, res);
-
-
         req.getRequestDispatcher("/admin.jsp").include(req, res);
 
         if (oldSession == null) {
-
-//            String path = req.getContextPath() + "/error";
-//            res.sendRedirect(path);
             res.sendRedirect("/error");
-
-
         } else {
             String username = (String) oldSession.getAttribute("username");
             if (username.equals("rooozaliya@mail.ru")) {
@@ -61,15 +59,9 @@ public class AdminServlet extends HttpServlet {
                 writer.close();
                 session.setAttribute("listUser", listUser1);
 
-
-
             } else if (oldSession != null) {
                 String path = "{pageContext.request.contextPath}/error";
                 res.sendRedirect(path);
-//                writer.print(
-//                        "<h1>Не админ</h1>"
-//                );
-//                writer.close();
             }
         }
 

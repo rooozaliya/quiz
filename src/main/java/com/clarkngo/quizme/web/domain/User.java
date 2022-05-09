@@ -9,7 +9,50 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private List<Result> results;
+    private String result;
+    private String result1;
+    private String result2;
+    private String result3;
+
+    public String getResult1() {
+        return result1;
+    }
+
+    public void setResult1(String result1) {
+        this.result1 = result1;
+    }
+
+    public String getResult2() {
+        return result2;
+    }
+
+    public void setResult2(String result2) {
+        this.result2 = result2;
+    }
+
+
+
+    public String getResult3() {
+        return result3;
+    }
+
+    public void setResult3(String result3) {
+        this.result3 = result3;
+    }
+
+
+
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+
+//    private List<Result> results;
     @PersistenceContext
     private EntityManager em;
 
@@ -53,13 +96,15 @@ public class User {
         this.password = password;
     }
 
-    public List<Result> getResults() {
-        return results;
-    }
 
-    public void setResults(List<Result> results) {
-        this.results = results;
-    }
+
+//    public List<Result> getResults() {
+//        return results;
+//    }
+//
+//    public void setResults(List<Result> results) {
+//        this.results = results;
+//    }
 
 
     @Override
@@ -69,7 +114,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", results=" + results +
+                ", results=" + result +
                 '}';
     }
 

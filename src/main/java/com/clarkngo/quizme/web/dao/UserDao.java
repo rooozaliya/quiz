@@ -1,7 +1,6 @@
 package com.clarkngo.quizme.web.dao;
 
 import com.clarkngo.quizme.web.config.MySqlDS;
-import com.clarkngo.quizme.web.domain.Result;
 import com.clarkngo.quizme.web.domain.User;
 import javax.sql.DataSource;
 import java.sql.*;
@@ -40,16 +39,26 @@ public class UserDao {
         PreparedStatement ps = null;
         try {
         this.conn = ds.getConnection();
-        ps = conn.prepareStatement("SELECT * FROM user");
+        ps = conn.prepareStatement("SELECT * FROM user ORDER BY `Raitung1` DESC");
         ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 User user = new User();
                 user.setUserId(rs.getInt("Id"));
                 user.setName(rs.getString("Name"));
                 user.setEmail(rs.getString("Email"));
+                user.setPassword(rs.getString("Password"));
+                user.setResult(rs.getString("Raitung"));
+                user.setResult1(rs.getString("Raitung1"));
+                user.setResult2(rs.getString("Raitung2"));
+                user.setResult3(rs.getString("Raitung3"));
                 System.out.println("Students : "  + user );
                 listUsers.add(user);
+
+
+//                ps.setString(2, rs.getString("Email"));
+
             }
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -130,35 +139,30 @@ public class UserDao {
         return user;
     }
 
-    public  Result result(String username) {
-        Result results = new Result();
-        try {
-            this.conn = ds.getConnection();
-            ps = conn.prepareStatement("SELECT * FROM user WHERE Email=?");
-            ps.setString(1, username);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                results.setResultId(rs.getInt("Raitung"));
-
-            }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return results;
-    }
-    public void addResult(String username, String result, int num) {
-  //public void addResult(String username, String result) {
-        try {
-//            int q = Integer.parseInt(idQuiz);
-
-            this.conn = ds.getConnection();
-//            ps = conn.prepareStatement("UPDATE  user SET Raitung1=?   WHERE Email=?");
-//            ps.setString(1, result);
+//    public  User allResult(String username) {
+//        User user = new User();
+//        try {
+//            this.conn = ds.getConnection();
+//
+//            ps = conn.prepareStatement("UPDATE  user SET Raitung=? ");
+//            ps.setString(1, rs.getString("Raitung1"));
+//            ps.executeUpdate();
+//            ps.setString(1, user.getResult1());
+//            user.setResult1(rs.getString("Raitung1"));
+////            ps.setString(2, user.getResult2());
+////            ps.setString(3, user.getResult3());
 //            ps.setString(2, username);
 //            ps.executeUpdate();
-
+//        }
+//        catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        return user;
+//    }
+    public void addResult(String username, String result, int num) {
+        try {
+            this.conn = ds.getConnection();
 
             if (num==1){
                 ps = conn.prepareStatement("UPDATE  user SET Raitung1=?   WHERE Email=?");
@@ -179,7 +183,7 @@ public class UserDao {
                 ps.setString(1, result);
                 ps.setString(2, username);
                 ps.executeUpdate();}
-          //  ps.setInt(1, idQuiz);
+
             else {
                 ps = conn.prepareStatement("UPDATE  user SET Raitung=?   WHERE Email=?");
                 ps.setString(1, result);
