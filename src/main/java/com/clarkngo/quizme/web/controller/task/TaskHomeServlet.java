@@ -3,7 +3,7 @@
 package com.clarkngo.quizme.web.controller.task;
 
 import com.clarkngo.quizme.web.dao.task.TaskTypeDao;
-import com.clarkngo.quizme.web.domain.TaskType;
+import com.clarkngo.quizme.web.domain.task.TaskType;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

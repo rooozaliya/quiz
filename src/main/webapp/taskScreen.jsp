@@ -1,4 +1,4 @@
-<!-- ЭТО СТРАНИЦА ОТОБРАЖЕНИЯ ВОПРОСОВ -->
+<!-- ЭТО СТРАНИЦА ОТОБРАЖЕНИЯ задач -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="com.clarkngo.quizme.web.domain.task.TaskType" %>
 <%@ page import="java.util.ArrayList" %>
@@ -28,6 +28,11 @@
 <body>
 <jsp:include page="nav.jsp" flush="true" />
 <div class="content">
+    <div id="result" class="quiz-body">
+                    <h2>  ЗАДАЧА</h2>
+<p><c:out value="${task}"/></p>
+
+                </div>
 
     </div>
 </div>

@@ -28,7 +28,12 @@
 <body>
 <jsp:include page="nav.jsp" flush="true" />
 <div class="content">
-
+   <c:forEach var="taskType" items="${taskTypeList}">
+    <h4 class="card-title"><c:out value="${taskType.getName()}"/></h4>
+    <p class="card-text"><c:out value="${taskType.getDescription()}"/></p>
+     <p class="card-text"><c:out value="${taskType.getTask()}"/></p>
+     <input>
+ </c:forEach>
     </div>
 </div>
 </body>

@@ -2,6 +2,10 @@
 package com.clarkngo.quizme.web.controller.task;
 
 import com.clarkngo.quizme.web.dao.UserDao;
+import com.clarkngo.quizme.web.dao.course.CourseTypeDao;
+import com.clarkngo.quizme.web.dao.task.TaskTypeDao;
+import com.clarkngo.quizme.web.domain.course.CourseType;
+import com.clarkngo.quizme.web.domain.task.TaskType;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,25 +25,30 @@ public class TaskScreenServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        req.getRequestDispatcher("/taskScreen.jsp").forward(req,res);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
-        String q = req.getParameter("taskTypeId");
-        System.out.println(q+"==========================");
-        req.setAttribute("taskTypeId", q);
-
-       req.getRequestDispatcher("/taskScreen.jsp").forward(req,res);
+        HttpSession session = req.getSession(true);
+      //  int q = Integer.parseInt(req.getParameter("taskTypeId"));
+      //  req.setAttribute("taskTypeId", q);
+        TaskTypeDao dao = new TaskTypeDao();
+        TaskType task = dao.getTaskType(1);
+        String taskA= task.getTask();
+        session.setAttribute("task", taskA);
+        session.setAttribute("taskTypeId", 1);
+        req.getRequestDispatcher("/taskScreen.jsp").forward(req,res);
     }
 
-    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
-        res.setCharacterEncoding("UTF-8");
-        String a = req.getParameter("taskTypeId");
-        System.out.println("Номер теста: "+a);
-        int num = Integer.parseInt(a);
-        HttpSession oldSession = req.getSession(false);
-        String username = (String)oldSession.getAttribute("username");
-        res.setContentType("text/html");
-        req.getRequestDispatcher("/taskScreen.jsp").include(req,res);
+  //  protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+//        req.setCharacterEncoding("UTF-8");
+//        res.setCharacterEncoding("UTF-8");
+////        String a = req.getParameter("taskTypeId");
+////        System.out.println("Номер теста: "+a);
+////        int num = Integer.parseInt(a);
+//        HttpSession oldSession = req.getSession(false);
+//        String username = (String)oldSession.getAttribute("username");
+//        res.setContentType("text/html");
+//        req.getRequestDispatcher("/taskScreen.jsp").include(req,res);
 
-    }
+ //   }
 }

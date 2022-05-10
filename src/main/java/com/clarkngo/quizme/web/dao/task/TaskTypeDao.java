@@ -1,8 +1,7 @@
 package com.clarkngo.quizme.web.dao.task;
 
 import com.clarkngo.quizme.web.config.MySqlDS;
-import com.clarkngo.quizme.web.domain.quiz.QuizType;
-import com.clarkngo.quizme.web.domain.TaskType;
+import com.clarkngo.quizme.web.domain.task.TaskType;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -33,6 +32,7 @@ public class TaskTypeDao {
                 qt.setTaskTypeId(rs.getInt("Id"));
                 qt.setName(rs.getString("Name"));
                 qt.setDescription(rs.getString("Description"));
+                qt.setTask(rs.getString("task"));
                // qt.setImageUrl(rs.getString("ImageURL"));
                // qt.setImgUrl(rs.getString("ImgURL"));
                 taskTypes.add(qt);
@@ -64,7 +64,7 @@ public class TaskTypeDao {
                 taskType.setTaskTypeId(rs.getInt("Id"));
                 taskType.setName(rs.getString("Name"));
                 taskType.setDescription(rs.getString("Description"));
-                taskType.setImgUrl(rs.getString("ImgURL"));
+                taskType.setTask(rs.getString("task"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -4,7 +4,7 @@ package com.clarkngo.quizme.web.controller.task;
 
 import com.clarkngo.quizme.web.dao.task.TaskTypeDao;
 import com.clarkngo.quizme.web.dao.UserDao;
-import com.clarkngo.quizme.web.domain.TaskType;
+import com.clarkngo.quizme.web.domain.task.TaskType;
 
 
 import javax.servlet.ServletException;
@@ -34,10 +34,10 @@ public class TaskPageServlet extends HttpServlet {
         req.getRequestDispatcher("/task.jsp").forward(req,response);
         req.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-            TaskTypeDao dao = new TaskTypeDao();
-            List<TaskType> qtList = dao.getTaskTypes();
-            oldSession.setAttribute("taskTypeList", qtList);
-            req.getRequestDispatcher("/home-page").forward(req, response);
-          }
+        TaskTypeDao dao = new TaskTypeDao();
+        List<TaskType> qtList = dao.getTaskTypes();
+        oldSession.setAttribute("taskTypeList", qtList);
+        req.getRequestDispatcher("/task-page").forward(req, response);
+        }
     }
 }

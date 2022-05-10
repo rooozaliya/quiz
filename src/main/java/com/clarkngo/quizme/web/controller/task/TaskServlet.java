@@ -2,8 +2,12 @@
 //ПОМОГАЕТ ПЕРЕНАПРАВИТЬ НА СТРАНИЦУ ВОПРОСОВ
 
 package com.clarkngo.quizme.web.controller.task;
+import com.clarkngo.quizme.web.dao.course.CourseTypeDao;
 import com.clarkngo.quizme.web.dao.task.TaskDao;
+import com.clarkngo.quizme.web.dao.task.TaskTypeDao;
+import com.clarkngo.quizme.web.domain.course.CourseType;
 import com.clarkngo.quizme.web.domain.task.Task;
+import com.clarkngo.quizme.web.domain.task.TaskType;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,17 +24,18 @@ public class TaskServlet extends HttpServlet {
         HttpSession session = req.getSession(true);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
-        if (session.getAttribute("task") == null) {
-            int id = Integer.parseInt(req.getParameter("taskTypeId"));
-            int page = Integer.parseInt(req.getParameter("page"));
-            TaskDao dao = new TaskDao();
-            Task task = dao.getTask(id);
-            session.setAttribute("task", task);
+
+        if (session.getAttribute("task-home") == null) {
             session.setAttribute("page",1);
+            int id = Integer.parseInt(req.getParameter("taskTypeId"));
+            TaskTypeDao dao = new TaskTypeDao();
+            TaskType course = dao.getTaskType(id);
+            String task= course.getTask();
+            session.setAttribute("task", task);
+            session.setAttribute("taskTypeId", id);
         } else {
             session.setAttribute("page", req.getParameter("page"));
             session.setAttribute("questionId", req.getParameter("questionId"));
-            System.out.println(req.getParameter("questionId"));
         }
         req.getRequestDispatcher("/task-screen").forward(req,res);
     }
@@ -41,7 +46,7 @@ public class TaskServlet extends HttpServlet {
         System.out.println(req.getParameter("taskTypeId"));
         System.out.println(req.getParameter("page"));
         System.out.println(req.getParameter("questionId"));
-        req.getRequestDispatcher("/taskScreen.jsp").forward(req,res);
+       // req.getRequestDispatcher("/taskScreen.jsp").forward(req,res);
 
 
     }

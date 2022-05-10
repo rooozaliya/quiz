@@ -27,7 +27,6 @@ public class CourseTypeDao {
         try {
             this.conn = ds.getConnection();
             ps = conn.prepareStatement("SELECT * FROM coursetype");
-
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 CourseType qt = new CourseType();

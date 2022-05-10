@@ -1,6 +1,5 @@
 package com.clarkngo.quizme.web.domain.task;
 
-import com.clarkngo.quizme.web.domain.TaskType;
 
 public class TaskJson {
     private TaskType taskType;
