@@ -1,4 +1,4 @@
-package com.clarkngo.quizme.web.domain;
+package com.clarkngo.quizme.web.domain.course;
 
 public class CourseJson {
     private CourseType courseType;

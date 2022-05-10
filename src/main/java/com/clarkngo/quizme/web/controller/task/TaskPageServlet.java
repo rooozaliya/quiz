@@ -1,0 +1,43 @@
+// ПРОСТО СПИСОК КУРСОВ
+
+package com.clarkngo.quizme.web.controller.task;
+
+import com.clarkngo.quizme.web.dao.task.TaskTypeDao;
+import com.clarkngo.quizme.web.dao.UserDao;
+import com.clarkngo.quizme.web.domain.TaskType;
+
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.List;
+
+@WebServlet(name = "TaskPageServlet", value = "/task-page")
+public class TaskPageServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
+
+        HttpSession oldSession = req.getSession(false);
+        String username = (String)oldSession.getAttribute("username");
+        UserDao qq = new UserDao();
+        String name = qq.oneUser1(username).getName();
+        oldSession.setAttribute("name", name);
+        if(username == null) {
+            String path = req.getContextPath() + "/error";
+            response.sendRedirect(path);
+
+        } else {
+        req.getRequestDispatcher("/task.jsp").forward(req,response);
+        req.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+            TaskTypeDao dao = new TaskTypeDao();
+            List<TaskType> qtList = dao.getTaskTypes();
+            oldSession.setAttribute("taskTypeList", qtList);
+            req.getRequestDispatcher("/home-page").forward(req, response);
+          }
+    }
+}

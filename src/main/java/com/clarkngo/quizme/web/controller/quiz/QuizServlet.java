@@ -1,18 +1,14 @@
 //ПОМОГАЕТ ПЕРЕНАПРАВИТЬ НА СТРАНИЦУ ВОПРОСОВ
 
-package com.clarkngo.quizme.web.controller;
+package com.clarkngo.quizme.web.controller.quiz;
 
-import com.clarkngo.quizme.web.dao.QuizDao;
-import com.clarkngo.quizme.web.dao.QuizTypeDao;
-import com.clarkngo.quizme.web.domain.Quiz;
-import com.clarkngo.quizme.web.domain.QuizType;
+import com.clarkngo.quizme.web.dao.quiz.QuizDao;
+import com.clarkngo.quizme.web.domain.quiz.Quiz;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 
 @WebServlet(name = "QuizServlet", value = "/quiz")
 public class QuizServlet extends HttpServlet {

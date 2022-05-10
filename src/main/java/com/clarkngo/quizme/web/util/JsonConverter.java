@@ -1,8 +1,6 @@
 package com.clarkngo.quizme.web.util;
 
 import com.clarkngo.quizme.web.domain.Question;
-import com.clarkngo.quizme.web.domain.Quiz;
-import com.clarkngo.quizme.web.domain.QuizType;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;

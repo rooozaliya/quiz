@@ -1,6 +1,6 @@
 //СПИСОК ТЕСТОВ
 
-package com.clarkngo.quizme.web.controller;
+package com.clarkngo.quizme.web.controller.quiz;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

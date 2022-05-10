@@ -1,4 +1,6 @@
-package com.clarkngo.quizme.web.domain;
+package com.clarkngo.quizme.web.domain.course;
+
+import com.clarkngo.quizme.web.domain.Question;
 
 import java.util.List;
 

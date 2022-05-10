@@ -1,10 +1,10 @@
 //ПРОСТО ПОКАЗЫВАЕТ СПИСОК ТЕСТОВ
 
-package com.clarkngo.quizme.web.controller;
+package com.clarkngo.quizme.web.controller.quiz;
 
-import com.clarkngo.quizme.web.dao.QuizTypeDao;
+import com.clarkngo.quizme.web.dao.quiz.QuizTypeDao;
 import com.clarkngo.quizme.web.dao.UserDao;
-import com.clarkngo.quizme.web.domain.QuizType;
+import com.clarkngo.quizme.web.domain.quiz.QuizType;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

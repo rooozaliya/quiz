@@ -1,8 +1,8 @@
 // ВНУТРЕННОСТЬ КУРСОВ
-package com.clarkngo.quizme.web.controller;
+package com.clarkngo.quizme.web.controller.course;
 
-import com.clarkngo.quizme.web.dao.CourseTypeDao;
-import com.clarkngo.quizme.web.domain.CourseType;
+import com.clarkngo.quizme.web.dao.course.CourseTypeDao;
+import com.clarkngo.quizme.web.domain.course.CourseType;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

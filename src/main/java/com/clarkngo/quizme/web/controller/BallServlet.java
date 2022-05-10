@@ -40,10 +40,9 @@ public class BallServlet extends HttpServlet {
         HttpSession oldSession = req.getSession(false);
         UserDao dao = new UserDao();
         List<User> listUser1 = dao.listAllUsers();
-
-
-        req.getRequestDispatcher("/ball.jsp").forward(req, res);
         req.getRequestDispatcher("/ball.jsp").include(req, res);
+        req.getRequestDispatcher("/ball.jsp").forward(req, res);
+
 
         if (oldSession == null) {
             res.sendRedirect("/error");

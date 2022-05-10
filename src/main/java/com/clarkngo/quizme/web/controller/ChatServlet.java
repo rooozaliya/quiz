@@ -30,9 +30,9 @@ public class ChatServlet extends HttpServlet {
         ChatDao dao = new ChatDao();
         List<Chat> listChat1 = dao.showChat();
         session.setAttribute("listChats", listChat1);
-        req.getRequestDispatcher("/chat.jsp").forward(req, res);
-        System.out.println(listChat1+"aaaaaaaaa");
 
+        System.out.println(listChat1+"aaaaaaaaa");
+        req.getRequestDispatcher("/chat.jsp").forward(req, res);
         req.getRequestDispatcher("/chat.jsp").include(req, res);
 
     }
@@ -40,7 +40,7 @@ public class ChatServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
-        req.getRequestDispatcher("/chat.jsp").forward(req,res);
+
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
         String description = req.getParameter("description");
@@ -48,6 +48,7 @@ public class ChatServlet extends HttpServlet {
 //        System.out.println(description);
 //        System.out.println(userId);
         chatDao1.addChat(userId, description);
+        req.getRequestDispatcher("/chat.jsp").forward(req,res);
 
     }
 }

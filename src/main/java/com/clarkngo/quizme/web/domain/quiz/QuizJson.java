@@ -1,6 +1,4 @@
-package com.clarkngo.quizme.web.domain;
-
-import java.util.List;
+package com.clarkngo.quizme.web.domain.quiz;
 
 public class QuizJson {
     private QuizType quizType;

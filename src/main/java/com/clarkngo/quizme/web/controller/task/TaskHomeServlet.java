@@ -1,12 +1,9 @@
 //ПРОСТО СПИСОК КУРСОВ
 
-package com.clarkngo.quizme.web.controller;
+package com.clarkngo.quizme.web.controller.task;
 
-import com.clarkngo.quizme.web.dao.CourseTypeDao;
-import com.clarkngo.quizme.web.dao.QuizTypeDao;
-import com.clarkngo.quizme.web.domain.Course;
-import com.clarkngo.quizme.web.domain.CourseType;
-import com.clarkngo.quizme.web.domain.QuizType;
+import com.clarkngo.quizme.web.dao.task.TaskTypeDao;
+import com.clarkngo.quizme.web.domain.TaskType;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,21 +14,21 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "CourseHomeServlet", value = "/course")
-public class CourseHomeServlet extends HttpServlet {
+@WebServlet(name = "TaskHomeServlet", value = "/task")
+public class TaskHomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession session = req.getSession(true);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
 
-        CourseTypeDao dao = new CourseTypeDao();
-        List<CourseType> qtList = dao.getCourseTypes();
+        TaskTypeDao dao = new TaskTypeDao();
+        List<TaskType> qtList = dao.getTaskTypes();
 
 //        CourseType course = dao.getCourseType(2);
 //        session.setAttribute("courseType", course);
-        session.setAttribute("courseTypeList", qtList);
-        req.getRequestDispatcher("/course-page").forward(req, res);
+        session.setAttribute("taskTypeList", qtList);
+        req.getRequestDispatcher("/task-page").forward(req, res);
     }
 
     @Override

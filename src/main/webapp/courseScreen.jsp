@@ -1,6 +1,6 @@
 <!-- ЭТО СТРАНИЦА ОТОБРАЖЕНИЯ ВОПРОСОВ -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="com.clarkngo.quizme.web.domain.CourseType" %>
+<%@ page import="com.clarkngo.quizme.web.domain.course.CourseType" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page buffer="none" %>
@@ -22,6 +22,7 @@
         .last-row { border-bottom:1px solid #ccc; padding-bottom:25px; margin-bottom:25px; }
         .res-header { border-bottom:1px solid #ccc; margin-bottom:15px; padding-bottom:15px; }
         .test {margin-top: 30px; margin-left: 100px;}
+        .task {margin-top: 30px; margin-left: 100px;}
     </style>
 </head>
 <body>
@@ -34,9 +35,10 @@
                     <h2>  ТЕОРИЯ</h2>
                         <p><c:out value="${listTheories}"/></p>
                 </div>
-                 <h2>Проверь свои знания. Пройди тест.</h2>
+
             </div>
         </div>
+         <h2>Проверь свои знания. Пройди тест.</h2>
         <div class="test">
 
            <c:forEach var="quizType" items="${quizTypeList}">
@@ -82,7 +84,43 @@
 
 
 
+            </div>
         </div>
+
+         <h2>Реши задачи.</h2>
+                <div class="task">
+                   <c:forEach var="taskType" items="${taskTypeList}">
+                                  <div class="col-sm-4">
+                                      <div class="card border-primary mb-3" style="max-width: 25rem;">
+                                          <img class="card-img-top" src="${pageContext.request.contextPath}/resourses/img/course/task.jpg" alt="Carddd" width="200px" height="150px">
+                                          <div class="card-body">
+                                              <h4 class="card-title"><c:out value="${taskType.getName()}"/></h4>
+                                              <p class="card-text"><c:out value="${taskType.getDescription()}"/></p>
+                                              <form action="${pageContext.request.contextPath}/task" method="GET">
+                                                  <div class="form-group">
+                                                      <input type="hidden" class="form-control" name="taskTypeId" value="${taskType.getTaskTypeId()}">
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <input type="hidden" class="form-control" name="page" value="1">
+                                                  </div>
+                                                <c:choose>
+                                                    <c:when test="${taskType.getTaskTypeId()<=courseTypeId}">
+                                                       <button type="submit" class="btn btn-primary btn-block">Приступить к решению задач</button>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                                <div class="form-group">
+                                                </div>
+                                              </form>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </c:forEach>
+
+
+
+                </div>
     </div>
 </div>
 </body>

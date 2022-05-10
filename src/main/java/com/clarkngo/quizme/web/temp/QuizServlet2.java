@@ -1,7 +1,7 @@
 package com.clarkngo.quizme.web.temp;
 
-import com.clarkngo.quizme.web.dao.QuizDao;
-import com.clarkngo.quizme.web.domain.Quiz;
+import com.clarkngo.quizme.web.dao.quiz.QuizDao;
+import com.clarkngo.quizme.web.domain.quiz.Quiz;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="com.clarkngo.quizme.web.domain.CourseType" %>
+<%@ page import="com.clarkngo.quizme.web.domain.course.CourseType" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Iterator" %>
 
@@ -15,7 +15,7 @@
             <c:forEach var="courseType" items="${courseTypeList}">
                 <div class="col-sm-4">
                     <div class="card border-primary mb-3" style="max-width: 25rem;">
-                     <img class="card-img-top" src="${pageContext.request.contextPath}/resourses/img/test/course${courseTypeId}/${courseTypeId}.png" alt="Carddd" width="200px" height="100px">
+                     <img class="card-img-top" src="${pageContext.request.contextPath}/resourses/img/course/course1/1.png" alt="Carddd" width="255px" height="150px">
 
                         <div class="card-body">
                             <h4 class="card-title"><c:out value="${courseType.getName()}"/></h4>

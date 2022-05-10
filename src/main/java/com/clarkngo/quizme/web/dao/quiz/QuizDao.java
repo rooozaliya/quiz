@@ -1,17 +1,13 @@
-package com.clarkngo.quizme.web.dao;
+package com.clarkngo.quizme.web.dao.quiz;
 
 import com.clarkngo.quizme.web.config.MySqlDS;
-import com.clarkngo.quizme.web.domain.Choice;
-import com.clarkngo.quizme.web.domain.Question;
-import com.clarkngo.quizme.web.domain.Quiz;
+import com.clarkngo.quizme.web.dao.ChoiceDao;
+import com.clarkngo.quizme.web.dao.QuestionDao;
+import com.clarkngo.quizme.web.domain.quiz.Quiz;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class QuizDao {
     private DataSource ds;

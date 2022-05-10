@@ -3,35 +3,24 @@ package com.clarkngo.quizme.web.domain;
 
 import java.util.List;
 
-public class CourseType {
-    private int courseTypeId;
+public class TaskType {
+    private int taskTypeId;
     private String name;
     private String description;
-    private String theory;
     private String ImageUrl;
-    private String Image;
+    private String ImgUrl;
     private List<Question> questions;
     private String questionsJson;
     private Feedback feedback;
 
-    public CourseType() {
+
+
+    public int getTaskTypeId() {
+        return taskTypeId;
     }
 
-    public String getImage() {
-        return Image;
-    }
-
-    public void setImage(String image) {
-        Image = image;
-    }
-
-
-    public int getCourseTypeId() {
-        return courseTypeId;
-    }
-
-    public void setCourseTypeId(int courseTypeId) {
-        this.courseTypeId = courseTypeId;
+    public void setTaskTypeId(int taskTypeId) {
+        this.taskTypeId = taskTypeId;
     }
 
     public String getName() {
@@ -58,6 +47,14 @@ public class CourseType {
         ImageUrl = imageUrl;
     }
 
+    public String getImgUrl() {
+        return ImgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        ImgUrl = imgUrl;
+    }
+
     public List<Question> getQuestions() {
         return questions;
     }
@@ -74,19 +71,10 @@ public class CourseType {
         this.feedback = feedback;
     }
 
-    public String getTheory() {
-        return theory;
-    }
-
-    public void setTheory(String theory) {
-        this.theory = theory;
-    }
-
-
     @Override
     public String toString() {
         return "QuizType{" +
-                "quizTypeId=" + courseTypeId +
+                "quizTypeId=" + taskTypeId +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", ImageUrl='" + ImageUrl + '\'' +

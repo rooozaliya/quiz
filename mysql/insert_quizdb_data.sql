@@ -12,6 +12,11 @@ VALUES
 	('JSP', 'JavaServer Pages')
 ;
 
+INSERT INTO tasktype (Name, Description)
+VALUES
+	('JSP', 'JavaServer Pages')
+;
+
 INSERT INTO coursetype (Name, Description)
 VALUES
 	('курс 2', 'описание курса 2')

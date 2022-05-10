@@ -1,7 +1,7 @@
-package com.clarkngo.quizme.web.dao;
+package com.clarkngo.quizme.web.dao.quiz;
 
 import com.clarkngo.quizme.web.config.MySqlDS;
-import com.clarkngo.quizme.web.domain.QuizType;
+import com.clarkngo.quizme.web.domain.quiz.QuizType;
 
 import javax.sql.DataSource;
 import java.sql.*;

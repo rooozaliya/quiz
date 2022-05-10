@@ -1,10 +1,12 @@
 // ПРОСТО СПИСОК КУРСОВ
 
-package com.clarkngo.quizme.web.controller;
+package com.clarkngo.quizme.web.controller.course;
 
-import com.clarkngo.quizme.web.dao.QuizTypeDao;
+import com.clarkngo.quizme.web.dao.quiz.QuizTypeDao;
 import com.clarkngo.quizme.web.dao.UserDao;
-import com.clarkngo.quizme.web.domain.QuizType;
+import com.clarkngo.quizme.web.dao.task.TaskTypeDao;
+import com.clarkngo.quizme.web.domain.TaskType;
+import com.clarkngo.quizme.web.domain.quiz.QuizType;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,9 +35,14 @@ public class CoursePageServlet extends HttpServlet {
         req.getRequestDispatcher("/course.jsp").forward(req,response);
         req.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-            QuizTypeDao dao = new QuizTypeDao();
-            List<QuizType> qtList = dao.getQuizTypes();
-            oldSession.setAttribute("quizTypeList", qtList);
+        QuizTypeDao dao = new QuizTypeDao();
+        List<QuizType> qtList = dao.getQuizTypes();
+        oldSession.setAttribute("quizTypeList", qtList);
+
+        TaskTypeDao dao1 = new TaskTypeDao();
+        List<TaskType> qtList1 = dao1.getTaskTypes();
+        oldSession.setAttribute("taskTypeList", qtList1);
+
             req.getRequestDispatcher("/home-page").forward(req, response);
           }
     }

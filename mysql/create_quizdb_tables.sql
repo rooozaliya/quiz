@@ -54,6 +54,17 @@ CREATE TABLE IF NOT EXISTS `quizdb`.`coursetype` (
   PRIMARY KEY (`Id`))
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `quizdb`.`tasktype`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `quizdb`.`tasktype` (
+  `Id` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(45) NULL,
+  `Description` VARCHAR(45) NULL,
+  PRIMARY KEY (`Id`))
+ENGINE = InnoDB;
+
+
 
 -- -----------------------------------------------------
 -- Table `quizdb`.`submission`

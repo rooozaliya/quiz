@@ -1,20 +1,18 @@
 //ПОМОГАЕТ ПОКАЗАТЬ ВОПРОСЫ
-package com.clarkngo.quizme.web.controller;
+package com.clarkngo.quizme.web.controller.task;
 
-import com.clarkngo.quizme.web.dao.QuizTypeDao;
 import com.clarkngo.quizme.web.dao.UserDao;
-import com.clarkngo.quizme.web.domain.QuizType;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.util.List;
 
-@WebServlet(name = "QuizScreenServlet", value = "/quiz-screen")
-public class QuizScreenServlet extends HttpServlet {
+@WebServlet(name = "TaskScreenServlet", value = "/task-screen")
+public class TaskScreenServlet extends HttpServlet {
 
     private UserDao userDao;
 
@@ -25,29 +23,23 @@ public class QuizScreenServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
-        String q = req.getParameter("quizTypeId");
+        String q = req.getParameter("taskTypeId");
         System.out.println(q+"==========================");
-        req.setAttribute("quizTypeId", q);
+        req.setAttribute("taskTypeId", q);
 
-       req.getRequestDispatcher("/quizScreen.jsp").forward(req,res);
+       req.getRequestDispatcher("/taskScreen.jsp").forward(req,res);
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
-        String result = req.getParameter("scr");
-        System.out.println("Результат тестирования: "+result);
-        String a = req.getParameter("quizTypeId");
+        String a = req.getParameter("taskTypeId");
         System.out.println("Номер теста: "+a);
         int num = Integer.parseInt(a);
-
         HttpSession oldSession = req.getSession(false);
         String username = (String)oldSession.getAttribute("username");
-        userDao.addResult( username, result, num);
-
-
         res.setContentType("text/html");
-        req.getRequestDispatcher("/quizScreen.jsp").include(req,res);
+        req.getRequestDispatcher("/taskScreen.jsp").include(req,res);
 
     }
 }

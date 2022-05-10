@@ -3,10 +3,6 @@ package com.clarkngo.quizme.web.dao;
 import com.clarkngo.quizme.web.config.MySqlDS;
 import com.clarkngo.quizme.web.domain.Choice;
 import com.clarkngo.quizme.web.domain.Question;
-import com.clarkngo.quizme.web.domain.QuizType;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

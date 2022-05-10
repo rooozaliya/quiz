@@ -5,8 +5,8 @@
 //import com.clarkngo.quizme.web.config.MySqlDS;
 //import com.clarkngo.quizme.web.domain.Choice;
 //import com.clarkngo.quizme.web.domain.Question;
-//import com.clarkngo.quizme.web.domain.Quiz;
-//import com.clarkngo.quizme.web.domain.QuizJson;
+//import com.clarkngo.quizme.web.domain.quiz.Quiz;
+//import com.clarkngo.quizme.web.domain.quiz.QuizJson;
 //import com.google.gson.Gson;
 //import com.google.gson.GsonBuilder;
 //import com.google.gson.JsonArray;

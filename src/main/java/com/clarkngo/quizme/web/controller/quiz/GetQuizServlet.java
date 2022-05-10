@@ -1,11 +1,7 @@
-package com.clarkngo.quizme.web.controller;
+package com.clarkngo.quizme.web.controller.quiz;
 
 import com.clarkngo.quizme.web.dao.QuestionDao;
-import com.clarkngo.quizme.web.dao.QuizDao;
-import com.clarkngo.quizme.web.dao.QuizTypeDao;
 import com.clarkngo.quizme.web.domain.Question;
-import com.clarkngo.quizme.web.domain.Quiz;
-import com.clarkngo.quizme.web.domain.QuizType;
 import com.clarkngo.quizme.web.util.JsonConverter;
 
 import javax.servlet.*;

@@ -1,9 +1,12 @@
-package com.clarkngo.quizme.web.domain;
+package com.clarkngo.quizme.web.domain.task;
+
+import com.clarkngo.quizme.web.domain.Question;
+import com.clarkngo.quizme.web.domain.TaskType;
 
 import java.util.List;
 
-public class Quiz {
-    private QuizType quizType;
+public class Task {
+    private TaskType taskType;
     private List<Question> questions;
     private String questionsJson;
 
@@ -15,12 +18,12 @@ public class Quiz {
         this.questionsJson = questionsJson;
     }
 
-    public QuizType getQuizType() {
-        return quizType;
+    public TaskType getTaskType() {
+        return taskType;
     }
 
-    public void setQuizType(QuizType quizType) {
-        this.quizType = quizType;
+    public void setTaskType(TaskType taskType) {
+        this.taskType = taskType;
     }
 
     public List<Question> getQuestions() {
@@ -33,8 +36,8 @@ public class Quiz {
 
     @Override
     public String toString() {
-        return "Quiz{" +
-                "quizType=" + quizType +
+        return "Task{" +
+                "taskType=" + taskType +
                 ", questions=" + questions +
                 '}';
     }
