@@ -36,17 +36,16 @@
                                                     <th>Тест 1</th>
                                                     <th>Тест 2</th>
                                                     <th>Тест 3</th>
-                                                    <th>Result</th>
+                                                    <th>Итого</th>
                                   </thead>
                                                     <c:forEach items="${listUser}" var="user">
                                                       <tr>
 
-                                                        <td><c:out value="${user.getEmail()}"/></td>
+                                                        <td><c:out value="${user.getName()}"/></td>
                                                         <td ><c:out value="${user.getResult1()}"/></td>
                                                         <td><c:out value="${user.getResult2()}"/></td>
                                                         <td><c:out value="${user.getResult3()}"/></td>
-
-
+                                                         <td id="allRes"><c:out value="${user.getResult3()+user.getResult2()+user.getResult1()}"/></td>
                                                       </tr>
                                                     </c:forEach>
 
@@ -56,3 +55,5 @@
                             </body>
 
                             </html>
+
+

@@ -17,38 +17,44 @@ VALUES
 	('JSP', 'JavaServer Pages')
 ;
 
+alter table user drop column Raitung;
+
 INSERT INTO coursetype (Name, Description)
 VALUES
-	('курс 2', 'описание курса 2')
-;
+    ('JSP', 'JavaServer Pages'),
+	('курс 2', 'описание курса 2'),
+	('курс 3', 'описание курса 3');
 
-INSERT INTO result (Fk_UserId_Result)
-VALUES
-	('1')
-;
+--DROP TABLE COURSETYPE;
+
+--INSERT INTO result (Fk_UserId_Result)
+--VALUES
+--	('1')
+--;
+
+ALTER TABLE user ADD COLUMN sum INT as (Raitung1 + Raitung2+ Raitung3);
+
 
 UPDATE user SET Name='saaa' WHERE id=5;
-UPDATE result SET Fk_UserId_Result='1' WHERE id=1;
+--UPDATE result SET Fk_UserId_Result='1' WHERE id=1;
 
 UPDATE coursetype SET Theory='theory1' WHERE id=1;
-UPDATE coursetype SET Theory='theory2' WHERE id=4;
-
-show columns from result;
-
-ALTER TABLE quiztype MODIFY COLUMN ImageURL BLOB ;
+UPDATE coursetype SET Theory='theory2' WHERE id=2;
+UPDATE coursetype SET Theory='theory3' WHERE id=3;
 
 
+--show columns from result;
+--ALTER TABLE quiztype MODIFY COLUMN ImageURL BLOB ;
+--UPDATE quiztype SET ImageURL=(LOAD_FILE('/Uploads/qq.png')) WHERE id=1;
 
-UPDATE quiztype SET ImageURL=(LOAD_FILE('/Uploads/qq.png')) WHERE id=1;
 
-
-ALTER TABLE coursetype  ADD COLUMN ImageURL VARCHAR(255) NULL;
-ALTER TABLE user  ADD COLUMN Raitung int NULL;
+ALTER TABLE coursetype  ADD COLUMN Theory VARCHAR(255) NULL;
+--ALTER TABLE user  ADD COLUMN Raitung int NULL;
 ALTER TABLE user  ADD COLUMN Raitung1 int NULL;
 ALTER TABLE user  ADD COLUMN Raitung2 int NULL;
 ALTER TABLE user  ADD COLUMN Raitung3 int NULL;
 
-UPDATE user SET Raitung=10 WHERE id=1;
+--UPDATE user SET Raitung=10 WHERE id=1;
 
 
 --ALTER TABLE coursetype  ADD COLUMN Image BLOB NULL;
@@ -58,13 +64,9 @@ UPDATE user SET Raitung=10 WHERE id=1;
 --VALUES (1, 'теория'),
 --(1, 'теория2');
 
-DELETE FROM quiztype
-WHERE Id=4;
-
-UPDATE coursetype SET Raitung=10 WHERE id=1;
 
 ALTER TABLE quiztype  ADD COLUMN ImageURL VARCHAR(255) NULL;
-ALTER TABLE quiztype  ADD COLUMN ImgURL VARCHAR(255) NULL;
+--ALTER TABLE quiztype  ADD COLUMN ImgURL VARCHAR(255) NULL;
 --UPDATE quiztype SET ImgURL='C:/Program Files/MySQL/MySQL Server 8.0/Upload/qq.png' WHERE id=1;
 ALTER TABLE coursetype  ADD COLUMN Theory VARCHAR(255) NULL;
 

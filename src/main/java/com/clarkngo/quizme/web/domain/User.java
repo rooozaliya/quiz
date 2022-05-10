@@ -9,7 +9,7 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private String result;
+    private int result;
     private String result1;
     private String result2;
     private String result3;
@@ -31,7 +31,6 @@ public class User {
     }
 
 
-
     public String getResult3() {
         return result3;
     }
@@ -40,14 +39,11 @@ public class User {
         this.result3 = result3;
     }
 
-
-
-
-    public String getResult() {
+    public int getResult() {
         return result;
     }
 
-    public void setResult(String result) {
+    public void setResult(int result) {
         this.result = result;
     }
 
@@ -55,13 +51,6 @@ public class User {
 //    private List<Result> results;
     @PersistenceContext
     private EntityManager em;
-
-
-//    public User(int userId, String name) {
-//        super();
-//        this.userId = userId;
-//        this.name = name;
-//    }
 
 
     public int getUserId() {

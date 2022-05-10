@@ -34,7 +34,7 @@ public class CourseTypeDao {
                 qt.setCourseTypeId(rs.getInt("Id"));
                 qt.setName(rs.getString("Name"));
                 qt.setDescription(rs.getString("Description"));
-                qt.setImageUrl(rs.getString("ImageURL"));
+               // qt.setImageUrl(rs.getString("ImageURL"));
                 qt.setTheory(rs.getString("Theory"));
 
                 courseTypes.add(qt);
@@ -66,7 +66,7 @@ public class CourseTypeDao {
                 courseType.setCourseTypeId(rs.getInt("Id"));
                 courseType.setName(rs.getString("Name"));
                 courseType.setDescription(rs.getString("Description"));
-                courseType.setImageUrl(rs.getString("ImageURL"));
+              //  courseType.setImageUrl(rs.getString("ImageURL"));
                 courseType.setTheory(rs.getString("Theory"));
                 System.out.println("course11111");
             }

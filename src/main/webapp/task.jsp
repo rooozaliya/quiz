@@ -1,6 +1,6 @@
 <!-- ЭТО СТРАНИЦА ОТОБРАЖЕНИЯ ВОПРОСОВ -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="com.clarkngo.quizme.web.domain.TaskType" %>
+<%@ page import="com.clarkngo.quizme.web.domain.task.TaskType" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page buffer="none" %>

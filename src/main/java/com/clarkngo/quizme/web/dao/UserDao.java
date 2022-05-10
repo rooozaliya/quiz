@@ -39,7 +39,7 @@ public class UserDao {
         PreparedStatement ps = null;
         try {
         this.conn = ds.getConnection();
-        ps = conn.prepareStatement("SELECT * FROM user ORDER BY `Raitung1` DESC");
+        ps = conn.prepareStatement("SELECT * FROM user ORDER BY `sum` DESC");
         ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 User user = new User();
@@ -47,16 +47,12 @@ public class UserDao {
                 user.setName(rs.getString("Name"));
                 user.setEmail(rs.getString("Email"));
                 user.setPassword(rs.getString("Password"));
-                user.setResult(rs.getString("Raitung"));
+                user.setResult(rs.getInt("sum"));
                 user.setResult1(rs.getString("Raitung1"));
                 user.setResult2(rs.getString("Raitung2"));
                 user.setResult3(rs.getString("Raitung3"));
                 System.out.println("Students : "  + user );
                 listUsers.add(user);
-
-
-//                ps.setString(2, rs.getString("Email"));
-
             }
 
         }
@@ -130,6 +126,25 @@ public class UserDao {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 user.setName(rs.getString("Name"));
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
+
+    public  User allResult(String username) {
+        User user = new User();
+        try {
+
+            this.conn = ds.getConnection();
+            ps = conn.prepareStatement("SELECT * FROM user WHERE Email=?");
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                user.setResult(rs.getInt("sum"));
             }
         }
         catch (Exception e) {

@@ -20,19 +20,18 @@ public class ProfileServlet extends HttpServlet {
         HttpSession oldSession = req.getSession(false);
         String username = (String)oldSession.getAttribute("username");
         UserDao qq = new UserDao();
-       String name = qq.oneUser1(username).getName();
-        oldSession.setAttribute("name", name);
-     //   int res = qq.result(username).getResultId();
-//        oldSession.setAttribute("res", res);
-//        System.out.println(res);
+        String name = qq.oneUser1(username).getName();
+        int ball = qq.allResult(username).getResult();
         String password = (String)oldSession.getAttribute("password");
+        oldSession.setAttribute("username", username);
+        oldSession.setAttribute("password", password);
+        oldSession.setAttribute("name", name);
+        oldSession.setAttribute("ball", ball);
         if(username == null) {
             String path = req.getContextPath() + "/error";
             resp.sendRedirect(path);
         } else {
             req.getRequestDispatcher("/userProfile.jsp").include(req, resp);
-            writer.println(String.format("<h2>Welcome? Username: %s, Password: %s, Name: %s</h2>, N: %s</h2>", username, password, name) );
-            writer.println(String.format("Session Id: %s", oldSession.getId()));
         }
         writer.close();
     }

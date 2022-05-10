@@ -1,6 +1,6 @@
 <!-- СПИСОК ТЕСТОВ (ТРИ ШТУКИ) -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="com.clarkngo.quizme.web.domain.QuizType" %>
+<%@ page import="com.clarkngo.quizme.web.domain.quiz.QuizType" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Iterator" %>
 
@@ -21,7 +21,7 @@
     <div class="container">
         <div class="row">
 
-
+aaaaaaaaaa
         </div>
     </div>
 </body>
