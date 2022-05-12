@@ -96,7 +96,7 @@
                                           <div class="card-body">
                                               <h4 class="card-title"><c:out value="${taskType.getName()}"/></h4>
                                               <p class="card-text"><c:out value="${taskType.getDescription()}"/></p>
-                                              <form action="${pageContext.request.contextPath}/task" method="GET">
+                                              <form action="${pageContext.request.contextPath}/task-home" method="GET">
                                                   <div class="form-group">
                                                       <input type="hidden" class="form-control" name="taskTypeId" value="${taskType.getTaskTypeId()}">
                                                   </div>

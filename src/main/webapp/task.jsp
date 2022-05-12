@@ -1,4 +1,4 @@
-<!-- ЭТО СТРАНИЦА ОТОБРАЖЕНИЯ ВОПРОСОВ -->
+<!-- ВСЕ ЗАДАЧИ-->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="com.clarkngo.quizme.web.domain.task.TaskType" %>
 <%@ page import="java.util.ArrayList" %>
@@ -28,13 +28,18 @@
 <body>
 <jsp:include page="nav.jsp" flush="true" />
 <div class="content">
-   <c:forEach var="taskType" items="${taskTypeList}">
+  <c:forEach var="taskType" items="${taskTypeList}">
     <h4 class="card-title"><c:out value="${taskType.getName()}"/></h4>
     <p class="card-text"><c:out value="${taskType.getDescription()}"/></p>
      <p class="card-text"><c:out value="${taskType.getTask()}"/></p>
-     <input>
- </c:forEach>
+      <form action="${pageContext.request.contextPath}/task-home" method="POST">
+<input type="text" class="form-control" id="tasky" name="tasky" placeholder="Задача" value="rooozaliya@mail.ru">
+  <button type="submit" class="btn btn-primary btn-block">Войти</button>
+</form>
+</c:forEach>
+
     </div>
 </div>
 </body>
 </html>
+

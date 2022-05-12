@@ -1,4 +1,4 @@
-//ПРОСТО СПИСОК КУРСОВ
+//ПРОСТО СПИСОК ЗАДАЧ
 
 package com.clarkngo.quizme.web.controller.task;
 
@@ -34,9 +34,11 @@ public class TaskHomeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession session = req.getSession(true);
-        System.out.println(req.getParameter("courseTypeId"+"str36"));
-        System.out.println(req.getParameter("page"+"str37"));
-        System.out.println(req.getParameter("questionId"+"str38"));
+        String tasky = req.getParameter("tasky");
+        System.out.println(tasky);
+        System.out.println(req.getParameter("courseTypeId")+"str36");
+        System.out.println(req.getParameter("page")+"str37");
+        System.out.println(req.getParameter("questionId")+"str38");
 
     }
 }

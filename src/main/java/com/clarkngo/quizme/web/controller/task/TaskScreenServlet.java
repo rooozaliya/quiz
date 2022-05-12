@@ -1,4 +1,4 @@
-//ПОМОГАЕТ ПОКАЗАТЬ ВОПРОСЫ
+//ВНУТРЕННОСТЬ ЗАДАЧ
 package com.clarkngo.quizme.web.controller.task;
 
 import com.clarkngo.quizme.web.dao.UserDao;
@@ -29,13 +29,12 @@ public class TaskScreenServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession(true);
-      //  int q = Integer.parseInt(req.getParameter("taskTypeId"));
-      //  req.setAttribute("taskTypeId", q);
+        int id = Integer.parseInt(req.getParameter("taskTypeId"));
         TaskTypeDao dao = new TaskTypeDao();
-        TaskType task = dao.getTaskType(1);
+        TaskType task = dao.getTaskType(id);
         String taskA= task.getTask();
         session.setAttribute("task", taskA);
-        session.setAttribute("taskTypeId", 1);
+        session.setAttribute("taskTypeId", id);
         req.getRequestDispatcher("/taskScreen.jsp").forward(req,res);
     }
 

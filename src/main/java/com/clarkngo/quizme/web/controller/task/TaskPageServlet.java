@@ -1,4 +1,4 @@
-// ПРОСТО СПИСОК КУРСОВ
+// ПРОСТО СПИСОК ЗАДАЧ
 
 package com.clarkngo.quizme.web.controller.task;
 

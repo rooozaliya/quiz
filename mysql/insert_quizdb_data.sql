@@ -14,10 +14,13 @@ VALUES
 
 INSERT INTO tasktype (Name, Description)
 VALUES
-	('JSP', 'JavaServer Pages')
+	('JSP', 'JavaServer Pages', 'Задача 2'),
+	('1', 'Задача', 'Задача 1')
 ;
 
-alter table user drop column Raitung;
+
+
+
 
 INSERT INTO coursetype (Name, Description)
 VALUES
@@ -26,6 +29,8 @@ VALUES
 	('курс 3', 'описание курса 3');
 
 --DROP TABLE COURSETYPE;
+
+--alter table user drop column Raitung;
 
 --INSERT INTO result (Fk_UserId_Result)
 --VALUES
@@ -41,6 +46,8 @@ UPDATE user SET Name='saaa' WHERE id=5;
 UPDATE coursetype SET Theory='theory1' WHERE id=1;
 UPDATE coursetype SET Theory='theory2' WHERE id=2;
 UPDATE coursetype SET Theory='theory3' WHERE id=3;
+
+UPDATE tasktype SET task='Задача 1' WHERE id=2;
 
 
 --show columns from result;

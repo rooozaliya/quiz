@@ -1,3 +1,5 @@
+<!-- ВСЕ КУРСЫ-->
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="com.clarkngo.quizme.web.domain.course.CourseType" %>
 <%@ page import="java.util.ArrayList" %>

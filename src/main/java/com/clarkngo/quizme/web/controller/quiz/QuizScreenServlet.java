@@ -21,10 +21,8 @@ public class QuizScreenServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
         String q = req.getParameter("quizTypeId");
-        System.out.println(q+"==========================");
         req.setAttribute("quizTypeId", q);
-
-       req.getRequestDispatcher("/quizScreen.jsp").forward(req,res);
+        req.getRequestDispatcher("/quizScreen.jsp").forward(req,res);
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

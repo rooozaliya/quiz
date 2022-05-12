@@ -1,5 +1,5 @@
 
-//ПОМОГАЕТ ПЕРЕНАПРАВИТЬ НА СТРАНИЦУ ВОПРОСОВ
+//ВНУТРЕННОСТЬ ЗАДАЧИ
 
 package com.clarkngo.quizme.web.controller.task;
 import com.clarkngo.quizme.web.dao.course.CourseTypeDao;
@@ -16,14 +16,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "TaskServlet", value = "/task-home")
 public class TaskServlet extends HttpServlet {
     @Override
+
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession session = req.getSession(true);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
+        String tasky = req.getParameter("tasky");
+        System.out.println(tasky+"oooooooooooo");
 
         if (session.getAttribute("task-home") == null) {
             session.setAttribute("page",1);
@@ -43,9 +47,23 @@ public class TaskServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession session = req.getSession(true);
-        System.out.println(req.getParameter("taskTypeId"));
-        System.out.println(req.getParameter("page"));
-        System.out.println(req.getParameter("questionId"));
+        req.setCharacterEncoding("UTF-8");
+        res.setCharacterEncoding("UTF-8");
+        String tasky = req.getParameter("tasky");
+        System.out.println(tasky+"oooooooooooo");
+
+        res.setContentType("text/html");
+        PrintWriter writer = res.getWriter();
+        req.getRequestDispatcher("/taskScreen.jsp").include(req, res);
+
+        writer.println(
+                "<div class='container'>" +
+                        "<h2>Задача проверена</h2>" +
+                        "</div>"
+        );
+
+        writer.close();
+
        // req.getRequestDispatcher("/taskScreen.jsp").forward(req,res);
 
 
