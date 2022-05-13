@@ -34,6 +34,7 @@
                 <div id="result" class="quiz-body">
                     <h2>  ТЕОРИЯ</h2>
                         <p><c:out value="${listTheories}"/></p>
+                        <iframe width="880" height="495" src="https://www.youtube.com/embed/1ex_bNIFR1A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
 
             </div>
