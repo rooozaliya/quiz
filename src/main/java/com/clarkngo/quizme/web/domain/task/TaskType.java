@@ -11,6 +11,7 @@ public class TaskType {
     private String name;
     private String description;
     private String task;
+    private String answer;
     private String ImageUrl;
     private String ImgUrl;
     private List<Question> questions;
@@ -96,5 +97,13 @@ public class TaskType {
                 ", questions=" + questions +
                 ", feedback=" + feedback +
                 '}';
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 }

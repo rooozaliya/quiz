@@ -10,6 +10,7 @@ import com.clarkngo.quizme.web.domain.task.Task;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class TaskDao {
     private DataSource ds;
@@ -30,5 +31,22 @@ public class TaskDao {
             task.getQuestions().get(i).setChoices(new ChoiceDao().getChoices(questionId));
         }
         return task;
+    }
+
+    public boolean checkAnswer(int id, String answer)
+    {
+        boolean st =false;
+        try {
+            this.conn = ds.getConnection();
+            ps = conn.prepareStatement("SELECT * FROM tasktype WHERE id=? AND answer=?");
+            ps.setInt(1, id);
+            ps.setString(2, answer);
+            ResultSet rs =ps.executeQuery();
+            st = rs.next();
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+        return st;
     }
 }

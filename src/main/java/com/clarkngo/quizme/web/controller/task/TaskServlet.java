@@ -2,6 +2,7 @@
 //ВНУТРЕННОСТЬ ЗАДАЧИ
 
 package com.clarkngo.quizme.web.controller.task;
+import com.clarkngo.quizme.web.dao.UserDao;
 import com.clarkngo.quizme.web.dao.course.CourseTypeDao;
 import com.clarkngo.quizme.web.dao.task.TaskDao;
 import com.clarkngo.quizme.web.dao.task.TaskTypeDao;
@@ -15,11 +16,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet(name = "TaskServlet", value = "/task-home")
 public class TaskServlet extends HttpServlet {
+    private TaskDao taskDao;
+
+    public void init() {
+        this.taskDao = new TaskDao();
+    }
+
     @Override
 
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -27,7 +35,7 @@ public class TaskServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
         String tasky = req.getParameter("tasky");
-        System.out.println(tasky+"oooooooooooo");
+        System.out.println(tasky);
 
         if (session.getAttribute("task-home") == null) {
             session.setAttribute("page",1);
@@ -50,11 +58,30 @@ public class TaskServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
         String tasky = req.getParameter("tasky");
-        System.out.println(tasky+"oooooooooooo");
-
-        res.setContentType("text/html");
+        int id = (int) session.getAttribute("taskTypeId");
         PrintWriter writer = res.getWriter();
+        res.setContentType("text/html");
+
         req.getRequestDispatcher("/taskScreen.jsp").include(req, res);
+
+        if(taskDao.checkAnswer(id, tasky)){
+            writer.println(
+                    "<div class='container'>" +
+                            "<h2> Верно</h2>" +
+                            "</div>"
+            );
+
+            writer.close();
+        }
+        else{
+            writer.println(
+                    "<div class='container'>" +
+                            "<h2> Мимо</h2>" +
+                            "</div>"
+            );
+
+            writer.close();
+        }
 
         writer.println(
                 "<div class='container'>" +

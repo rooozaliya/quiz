@@ -33,6 +33,8 @@ public class TaskTypeDao {
                 qt.setName(rs.getString("Name"));
                 qt.setDescription(rs.getString("Description"));
                 qt.setTask(rs.getString("task"));
+                qt.setAnswer(rs.getString("answer"));
+
                // qt.setImageUrl(rs.getString("ImageURL"));
                // qt.setImgUrl(rs.getString("ImgURL"));
                 taskTypes.add(qt);
