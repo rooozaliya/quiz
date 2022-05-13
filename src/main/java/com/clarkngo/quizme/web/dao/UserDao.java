@@ -154,27 +154,6 @@ public class UserDao {
         return user;
     }
 
-//    public  User allResult(String username) {
-//        User user = new User();
-//        try {
-//            this.conn = ds.getConnection();
-//
-//            ps = conn.prepareStatement("UPDATE  user SET Raitung=? ");
-//            ps.setString(1, rs.getString("Raitung1"));
-//            ps.executeUpdate();
-//            ps.setString(1, user.getResult1());
-//            user.setResult1(rs.getString("Raitung1"));
-////            ps.setString(2, user.getResult2());
-////            ps.setString(3, user.getResult3());
-//            ps.setString(2, username);
-//            ps.executeUpdate();
-//        }
-//        catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//        return user;
-//    }
     public void addResult(String username, String result, int num) {
         try {
             this.conn = ds.getConnection();
@@ -212,5 +191,19 @@ public class UserDao {
         }
     }
 
+    public void addBall(String username, int ball) {
+        try {
+            this.conn = ds.getConnection();
+
+                ps = conn.prepareStatement("UPDATE  user SET ResTask=?   WHERE Email=?");
+                ps.setInt(1, ball);
+                ps.setString(2, username);
+                ps.executeUpdate();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+
+        }
+    }
 
 }

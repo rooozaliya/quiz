@@ -38,9 +38,11 @@ VALUES
 --;
 
 ALTER TABLE user ADD COLUMN sum INT as (Raitung1 + Raitung2+ Raitung3);
+ALTER TABLE user ADD COLUMN ResTask INT null;
 
 ALTER TABLE tasktype ADD COLUMN answer VARCHAR(255) null;
 UPDATE tasktype SET answer='saaa' WHERE id=1;
+
 
 UPDATE user SET Name='saaa' WHERE id=5;
 --UPDATE result SET Fk_UserId_Result='1' WHERE id=1;

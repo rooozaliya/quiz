@@ -36,6 +36,7 @@
                        <p><c:out value="${task}"/></p>
                        <input type="text" class="form-control" id="tasky" name="tasky" placeholder="Задача" value="rooozaliya@mail.ru">
                        <button type="submit" class="btn btn-primary btn-block">Проверить</button>
+
                     </form>
     </div>
 </div>
