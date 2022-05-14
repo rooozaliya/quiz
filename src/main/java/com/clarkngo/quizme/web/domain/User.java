@@ -47,8 +47,6 @@ public class User {
         this.result = result;
     }
 
-
-//    private List<Result> results;
     @PersistenceContext
     private EntityManager em;
 
@@ -84,16 +82,6 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
-
-//    public List<Result> getResults() {
-//        return results;
-//    }
-//
-//    public void setResults(List<Result> results) {
-//        this.results = results;
-//    }
 
 
     @Override

@@ -1,3 +1,10 @@
+ALTER TABLE user ADD COLUMN Task1 int null;
+ALTER TABLE user ADD COLUMN Task2 int null;
+ALTER TABLE user ADD COLUMN Task3 int null;
+
+ALTER TABLE user MODIFY COLUMN sum  as (Raitung1 + Raitung2+ Raitung3+Task1+Task2+Task3);
+
+
 USE quizdb;
 
 INSERT INTO user (Name, Email, Password)

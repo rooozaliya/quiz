@@ -64,7 +64,6 @@ public class UserDao {
     }
 
 
-
     public boolean userExists(String username) {
         int result = 0;
         try {
@@ -158,13 +157,17 @@ public class UserDao {
         try {
             this.conn = ds.getConnection();
 
-            if (num==1){
-                ps = conn.prepareStatement("UPDATE  user SET Raitung1=?   WHERE Email=?");
-                ps.setString(1, result);
-                ps.setString(2, username);
 
-                ps.executeUpdate();
-            }
+
+                if (num == 1) {
+                   // if (conn.prepareStatement("Select * from user where Raitung1 is null")) {
+                    ps = conn.prepareStatement("UPDATE  user SET Raitung1=? WHERE Email=? ");
+                    ps.setString(1, result);
+                    ps.setString(2, username);
+                    //      ps.setString(3, result);
+                    ps.executeUpdate();
+                }
+
 
             else if (num==2){
                 ps = conn.prepareStatement("UPDATE  user SET Raitung2=?   WHERE Email=?");
@@ -191,19 +194,45 @@ public class UserDao {
         }
     }
 
-    public void addBall(String username, int ball) {
+    public void addBall(String username, int ball, int numTask) {
         try {
             this.conn = ds.getConnection();
 
-                ps = conn.prepareStatement("UPDATE  user SET ResTask=?   WHERE Email=?");
+            if (numTask==1){
+                ps = conn.prepareStatement("UPDATE  user SET Task1=?   WHERE Email=?");
+                ps.setInt(1, ball);
+                ps.setString(2, username);
+
+                ps.executeUpdate();
+            }
+
+            else if (numTask==2){
+                ps = conn.prepareStatement("UPDATE  user SET Task2=?   WHERE Email=?");
                 ps.setInt(1, ball);
                 ps.setString(2, username);
                 ps.executeUpdate();
+            }
+            else if (numTask==3){
+                ps = conn.prepareStatement("UPDATE  user SET Task3=?   WHERE Email=?");
+                ps.setInt(1, ball);
+                ps.setString(2, username);
+                ps.executeUpdate();}
+
+            else {
+                ps = conn.prepareStatement("UPDATE  user SET ResTask=?   WHERE Email=?");
+                ps.setInt(1, ball);
+                ps.setString(2, username);
+                ps.executeUpdate();}
+
         }
         catch (Exception e) {
             e.printStackTrace();
 
         }
     }
+
+
+
+
 
 }

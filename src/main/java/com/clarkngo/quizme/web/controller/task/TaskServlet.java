@@ -71,33 +71,54 @@ public class TaskServlet extends HttpServlet {
         int ball=0 ;
         if(taskDao.checkAnswer(id, tasky)){
             ball=10;
-            //session.setAttribute("ball", ball);
-
-
             writer.println(
-                    "<div class='container'>" +
+                    "<div class='containe'>" +
                             "<h2> Верно" +  ball + "</h2>"+
                             "</div>"
             );
-
-            writer.close();
-
 
         }
         else{
 
             writer.println(
-                    "<div class='container'>" +
+                    "<div class='containe'>" +
                             "<h2> Мимо</h2>" +
                             "</div>"
             );
 
-            writer.close();
+
         }
-      //  int a = (int)session.getAttribute("ball");
-        System.out.println("Количество баллов за задачи "+ball);
+        System.out.println("Количество баллов за задачи: "+ball);
         UserDao dao = new UserDao();
-        dao.addBall(username, ball);
+        System.out.println("Номер задачи: "+id);
+       // int num = Integer.parseInt(id);
+        dao.addBall(username, ball, id);
+
+        UserDao qq = new UserDao();
+        int sumBall = qq.allResult(username).getResult();
+
+        if (sumBall>=10){
+            writer.println(
+                    "<div class='content'>" +
+                            "<h1> четко</h1>" +
+                            "</div>"
+            );
+
+            System.out.println("aaaaaaaaaaaaaaaaa");
+
+        }
+        else{
+            writer.println(
+                    "<div class='content'>" +
+                            "<h1> нечетко</h1>" +
+                            "</div>"
+            );
+
+
+        }
+
+
+
 
 
 

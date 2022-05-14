@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
             newSession.setAttribute("username", username);
             newSession.setAttribute("password", password);
             newSession.setAttribute("name", name);
-            newSession.setMaxInactiveInterval(10 * 60);
+            newSession.setMaxInactiveInterval(100 * 60);
             res.sendRedirect(req.getContextPath() + "/course");
         } else {
             res.setContentType("text/html");

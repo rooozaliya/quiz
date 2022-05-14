@@ -2,6 +2,7 @@
 
 package com.clarkngo.quizme.web.controller.task;
 
+import com.clarkngo.quizme.web.dao.UserDao;
 import com.clarkngo.quizme.web.dao.task.TaskTypeDao;
 import com.clarkngo.quizme.web.domain.task.TaskType;
 
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet(name = "TaskHomeServlet", value = "/task")
@@ -39,6 +41,7 @@ public class TaskHomeServlet extends HttpServlet {
         System.out.println(req.getParameter("courseTypeId")+"str36");
         System.out.println(req.getParameter("page")+"str37");
         System.out.println(req.getParameter("questionId")+"str38");
+
 
     }
 }

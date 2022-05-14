@@ -34,7 +34,7 @@
                     <h2>  ЗАДАЧА</h2>
                     <form action="${pageContext.request.contextPath}/task-home" method="POST" class="tasking">
                        <p><c:out value="${task}"/></p>
-                       <input type="text" class="form-control" id="tasky" name="tasky" placeholder="Задача" value="rooozaliya@mail.ru">
+                       <input type="text" class="form-control" id="tasky" name="tasky" placeholder="Задача" value="saaa">
                        <button type="submit" class="btn btn-primary btn-block">Проверить</button>
 
                     </form>
