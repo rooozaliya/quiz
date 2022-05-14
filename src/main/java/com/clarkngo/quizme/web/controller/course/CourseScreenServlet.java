@@ -1,6 +1,7 @@
 // ВНУТРЕННОСТЬ КУРСОВ
 package com.clarkngo.quizme.web.controller.course;
 
+import com.clarkngo.quizme.web.dao.UserDao;
 import com.clarkngo.quizme.web.dao.course.CourseTypeDao;
 import com.clarkngo.quizme.web.domain.course.CourseType;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "CourseScreenServlet", value = "/course-screen")
 public class CourseScreenServlet extends HttpServlet {
@@ -26,6 +28,23 @@ public class CourseScreenServlet extends HttpServlet {
         String descrTheory= course.getTheory();
         session.setAttribute("listTheories", descrTheory);
         session.setAttribute("courseTypeId", id);
+        PrintWriter writer = res.getWriter();
+        res.setContentType("text/html");
+        UserDao qq = new UserDao();
+        String username = (String)session.getAttribute("username");
+        int sumBall = qq.allResult(username).getResult();
+        session.setAttribute("sumBall", sumBall);
+
+
+        if (sumBall>=10){
+
+
+
+        }
+        else{
+
+        }
+
         req.getRequestDispatcher("/courseScreen.jsp").forward(req, res);
     }
 }

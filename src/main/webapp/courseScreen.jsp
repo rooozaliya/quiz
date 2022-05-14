@@ -1,4 +1,5 @@
 <!-- ЭТО СТРАНИЦА ОТОБРАЖЕНИЯ ВОПРОСОВ -->
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="com.clarkngo.quizme.web.domain.course.CourseType" %>
 <%@ page import="java.util.ArrayList" %>
@@ -26,6 +27,7 @@
     </style>
 </head>
 <body>
+
 <jsp:include page="nav.jsp" flush="true" />
 <div class="content">
     <div class="container-fluid">
@@ -33,6 +35,7 @@
             <div class="col-sm-12">
                 <div id="result" class="quiz-body">
                     <h2>  ТЕОРИЯ</h2>
+
                         <p><c:out value="${listTheories}"/></p>
                         <iframe width="880" height="495" src="https://www.youtube.com/embed/1ex_bNIFR1A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
@@ -66,12 +69,18 @@
 
 
                                     <c:choose>
-                                        <c:when test="${quizType.getQuizTypeId()<=courseTypeId}">
+                                        <c:when test="${(sumBall>10 and (sumBall<20 and quizType.getQuizTypeId()<=2))  or quizType.getQuizTypeId()==1}">
                                            <button type="submit" class="btn btn-primary btn-block">Приступить к тестированию</button>
                                         </c:when>
-                                        <c:otherwise>
-
-                                        </c:otherwise>
+                                        <c:when test="${sumBall<=10  and (quizType.getQuizTypeId()==2  or quizType.getQuizTypeId()==3)}">
+                                            <p>Нужно больше баллов</p>
+                                         </c:when>
+                                          <c:when test="${sumBall>=20}">
+                                               <button type="submit" class="btn btn-primary btn-block">Приступить к тестированию</button>
+                                          </c:when>
+                                          <c:otherwise>
+                                          <p>Нужно больше баллов</p>
+                                          </c:otherwise>
                                     </c:choose>
 
                                         <div class="form-group">
@@ -104,13 +113,22 @@
                                                   <div class="form-group">
                                                       <input type="hidden" class="form-control" name="page" value="1">
                                                   </div>
-                                                <c:choose>
-                                                    <c:when test="${taskType.getTaskTypeId()<=courseTypeId}">
-                                                       <button type="submit" class="btn btn-primary btn-block">Приступить к решению задач</button>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                    </c:otherwise>
-                                                </c:choose>
+                                                    <c:choose>
+                                                       <c:when test="${sumBall<10 or  taskType.getTaskTypeId()==1}">
+                                                          <button type="submit" class="btn btn-primary btn-block">Приступить к задаче</button>
+                                                       </c:when>
+                                                       <c:when test="${(sumBall>=10  and sumBall<=20) and taskType.getTaskTypeId()==2 }">
+                                                          <button type="submit" class="btn btn-primary btn-block">Приступить к задаче</button>
+                                                       </c:when>
+                                                       <c:when test="${sumBall>=20}">
+                                                          <button type="submit" class="btn btn-primary btn-block">Приступить к задаче</button>
+                                                       </c:when>
+                                                       <c:otherwise>
+                                                          <p>Нужно больше баллов</p>
+                                                       </c:otherwise>
+                                                    </c:choose>
+
+
                                                 <div class="form-group">
                                                 </div>
                                               </form>

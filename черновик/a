@@ -83,3 +83,4 @@ public class TaskServlet extends HttpServlet {
 
     }
 }
+<!--ВЫВОД КНОПОК В ЗАВИСИМОСТИ ОТ НОМЕРА ТЕСТА <c:when test="${quizType.getQuizTypeId()<=courseTypeId}">-->

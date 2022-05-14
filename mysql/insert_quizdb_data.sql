@@ -4,6 +4,12 @@ ALTER TABLE user ADD COLUMN Task3 int null;
 
 ALTER TABLE user MODIFY COLUMN sum  as (Raitung1 + Raitung2+ Raitung3+Task1+Task2+Task3);
 
+--ALTER TABLE user ADD DEFAULT 6 FOR Task3;
+--ALTER TABLE user ADD  DEFAULT ('6') FOR Task2;
+
+update   user set Task1=0, Task2=0, Task3=0 where Task2 is null;
+update   user set Raitung1=0, Raitung2=0, Raitung3=0 where sum is null;
+
 
 USE quizdb;
 
