@@ -45,6 +45,7 @@
          <h2>Проверь свои знания. Пройди тест.</h2>
         <div class="test">
 
+
            <c:forEach var="quizType" items="${quizTypeList}">
 
                           <div class="col-sm-4">

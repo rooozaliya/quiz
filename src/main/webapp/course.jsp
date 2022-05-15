@@ -10,7 +10,7 @@
 <head>
     <title>Курсы</title>
 </head>
-<jsp:include page="nav.jsp" flush="true" />
+<jsp:include page="nav.jsp" flush="true"  />
 <body>
     <div class="container">
         <div class="row">

@@ -28,6 +28,10 @@ public class CourseHomeServlet extends HttpServlet {
         List<CourseType> qtList = dao.getCourseTypes();
         HttpSession oldSession = req.getSession(false);
         String username = (String)oldSession.getAttribute("username");
+        UserDao qq = new UserDao();
+        String name = qq.oneUser1(username).getName();
+        int ball = qq.allResult(username).getResult();
+        oldSession.setAttribute("ball", ball);
 
 
 //        PrintWriter writer = res.getWriter();

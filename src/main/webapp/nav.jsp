@@ -9,7 +9,8 @@ pageEncoding="UTF-8"%>
     <title>Title</title>
      <meta charset="UTF-8">
      <style>
-
+.space{
+padding-left:350px;}
      </style>
 </head>
 
@@ -21,15 +22,42 @@ pageEncoding="UTF-8"%>
             </div>
             <ul class="nav navbar-nav">
                 <li ><a href="${pageContext.request.contextPath}/profile"> <b>Привет! <c:out value="${name}"/></b></a></li>
-                <li><a href="${pageContext.request.contextPath}/course">Курсы</a></li>
-                <li><a href="${pageContext.request.contextPath}/chat">Чат</a></li>
-                <li><a href="${pageContext.request.contextPath}/feedback-form">Обратная связь</a></li>
-                <li><a href="${pageContext.request.contextPath}/contact-form">Контакты</a></li>
-                <li ><a href="${pageContext.request.contextPath}/login-form">Вход</a></li>
+
+
+
+            <c:choose>
+               <c:when test="${name==null}">
+                <li class="space"><a href="${pageContext.request.contextPath}/login-form">Вход</a></li>
                 <li ><a href="${pageContext.request.contextPath}/register-form">Регистрация</a></li>
-                <li><a href="${pageContext.request.contextPath}/admin-form">Админка</a></li>
-                 <li><a href="${pageContext.request.contextPath}/ball">Рейтинг студентов</a></li>
-                <li><a href="${pageContext.request.contextPath}/logout">Выйти</a></li>
+               </c:when>
+               <c:when test="${username=='rooozaliya@mail.ru'}">
+                    <li><a href="${pageContext.request.contextPath}"> Баллы: ${ball}</a></li>
+                   <li><a href="${pageContext.request.contextPath}/course">Курсы</a></li>
+                   <li><a href="${pageContext.request.contextPath}/chat">Чат</a></li>
+                   <li><a href="${pageContext.request.contextPath}/feedback-form">Обратная связь</a></li>
+                   <li><a href="${pageContext.request.contextPath}/contact-form">Контакты</a></li>
+                   <li><a href="${pageContext.request.contextPath}/admin-form">Админка</a></li>
+                   <li><a href="${pageContext.request.contextPath}/ball">Рейтинг студентов</a></li>
+                   <li class="space"><a href="${pageContext.request.contextPath}/logout">Выйти</a></li>
+               </c:when>
+
+               <c:when test="${name!=null}">
+               <li><a href="${pageContext.request.contextPath}"> Баллы: ${ball}</a></li>
+               <li><a href="${pageContext.request.contextPath}/course">Курсы</a></li>
+               <li><a href="${pageContext.request.contextPath}/chat">Чат</a></li>
+               <li><a href="${pageContext.request.contextPath}/feedback-form">Обратная связь</a></li>
+               <li><a href="${pageContext.request.contextPath}/contact-form">Контакты</a></li>
+               <li><a href="${pageContext.request.contextPath}/ball">Рейтинг студентов</a></li>
+               <li class="space"><a href="${pageContext.request.contextPath}/logout">Выйти</a></li>
+               </c:when>
+
+               <c:otherwise>
+
+               </c:otherwise>
+            </c:choose>
+
+
+
             </ul>
         </div>
     </nav>
