@@ -3,6 +3,7 @@ package com.clarkngo.quizme.web.dao.task;
 import com.clarkngo.quizme.web.config.MySqlDS;
 import com.clarkngo.quizme.web.dao.ChoiceDao;
 import com.clarkngo.quizme.web.dao.QuestionDao;
+import com.clarkngo.quizme.web.domain.User;
 import com.clarkngo.quizme.web.domain.quiz.Quiz;
 
 import com.clarkngo.quizme.web.domain.task.Task;
@@ -49,4 +50,56 @@ public class TaskDao {
         }
         return st;
     }
+
+    public boolean checkAnswer1(int id, String answer)
+    {
+        boolean st =false;
+        try {
+            this.conn = ds.getConnection();
+            ps = conn.prepareStatement("SELECT * FROM task WHERE TaskId=? AND answer=?");
+            ps.setInt(1, id);
+            ps.setString(2, answer);
+            ResultSet rs =ps.executeQuery();
+            st = rs.next();
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+        return st;
+    }
+
+
+    public void addTask(String task, String answer) {
+        try {
+            this.conn = ds.getConnection();
+                ps = conn.prepareStatement("INSERT INTO tasktype (task, answer) VALUES (?,?)");
+                ps.setString(1, task);
+                ps.setString(2, answer);
+                ps.executeUpdate();
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+
+        }
+    }
+
+//    public User showTask() {
+//        Task task = new Task();
+//        try {
+//
+//            this.conn = ds.getConnection();
+//            ps = conn.prepareStatement("SELECT * FROM tasktype INNER JOIN task ON tasktype.id = task.idTask;");
+//            ResultSet rs = ps.executeQuery();
+////            if (rs.next()) {
+////                (rs.getString("Name"));
+////            }
+//        }
+//        catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        return task;
+//    }
+
 }

@@ -45,7 +45,7 @@
                                                         <td ><c:out value="${user.getResult1()}"/></td>
                                                         <td><c:out value="${user.getResult2()}"/></td>
                                                         <td><c:out value="${user.getResult3()}"/></td>
-                                                         <td id="allRes"><c:out value="${user.getResult3()+user.getResult2()+user.getResult1()}"/></td>
+                                                         <td id="allRes"><c:out value="${user.getResult()}"/></td>
                                                       </tr>
                                                     </c:forEach>
 

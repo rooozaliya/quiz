@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "TaskScreenServlet", value = "/task-screen")
 public class TaskScreenServlet extends HttpServlet {
@@ -33,6 +34,8 @@ public class TaskScreenServlet extends HttpServlet {
         TaskTypeDao dao = new TaskTypeDao();
         TaskType task = dao.getTaskType(id);
         String taskA= task.getTask();
+        List<TaskType> qtList1 = dao.getAllTask(id);
+        session.setAttribute("taskAllList", qtList1);
         session.setAttribute("task", taskA);
         session.setAttribute("taskTypeId", id);
         req.getRequestDispatcher("/taskScreen.jsp").forward(req,res);

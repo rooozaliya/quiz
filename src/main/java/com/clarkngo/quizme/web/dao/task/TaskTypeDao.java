@@ -82,4 +82,38 @@ public class TaskTypeDao {
 
         return taskType;
     }
+//SELECT * FROM task INNER JOIN tasktype ON  task.idTask = tasktype.id;
+    public List<TaskType> getAllTask(int id) {
+        List<TaskType> taskTypes = new ArrayList<>();
+        PreparedStatement ps = null;
+        try {
+            this.conn = ds.getConnection();
+            ps = conn.prepareStatement("SELECT * FROM task INNER JOIN tasktype ON  task.idTask = tasktype.id where tasktype.id=? ");
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                TaskType qt = new TaskType();
+                qt.setTaskTypeId(rs.getInt("Id"));
+                qt.setName(rs.getString("Name"));
+                qt.setDescription(rs.getString("Description"));
+                qt.setTask(rs.getString("Task"));
+                qt.setAnswer(rs.getString("answer"));
+
+                // qt.setImageUrl(rs.getString("ImageURL"));
+                // qt.setImgUrl(rs.getString("ImgURL"));
+                taskTypes.add(qt);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            try {
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return taskTypes;
+    }
 }

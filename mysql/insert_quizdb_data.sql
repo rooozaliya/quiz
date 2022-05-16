@@ -10,6 +10,38 @@ ALTER TABLE user MODIFY COLUMN sum  as (Raitung1 + Raitung2+ Raitung3+Task1+Task
 update   user set Task1=0, Task2=0, Task3=0 where Task2 is null;
 update   user set Raitung1=0, Raitung2=0, Raitung3=0 where sum is null;
 
+-- нужно две таблицы: id курсов и айди задач.
+--таблица задач
+CREATE TABLE IF NOT EXISTS `quizdb`.`task` (
+  `TaskId` INT AUTO_INCREMENT PRIMARY KEY,
+  `Task` VARCHAR(45) NULL,
+  `answer` VARCHAR(45) NULL,
+   `idTask` int,
+  FOREIGN KEY (idTask) REFERENCES tasktype(id)
+);
+
+INSERT INTO task (Task, answer, idTask)
+VALUES
+	('task3', 'answer2', 1),
+	('task3', 'answer3', 1)
+;
+
+INSERT INTO task (Task, answer, idTask)
+VALUES
+	('22task3', '22answer2', 2),
+	('33task3', '22answer3', 2)
+;
+
+SELECT * FROM tasktype INNER JOIN task ON tasktype.id = task.idTask;
+
+SELECT Name, Description FROM tasktype INNER JOIN task ON tasktype.id = task.idTask;
+
+--create table `quizdb`.`withTask`
+--(
+--	TaskId int foreign key references dbo.task(TaskId),
+--	id int foreign key references dbo.tasktype(Id),
+--	primary key(TaskId, Id)
+--)
 
 USE quizdb;
 

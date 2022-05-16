@@ -23,7 +23,7 @@
         .res-header { border-bottom:1px solid #ccc; margin-bottom:15px; padding-bottom:15px; }
         .test {margin-top: 30px; margin-left: 100px;}
         .task {margin-top: 30px; margin-left: 100px;}
-         .tasking {margin-top: 30px; margin-left:50%; text-align:center;}
+         .tasking {margin-top: 30px; margin-left:50%; text-align:center; padding:10px;}
 
     </style>
 </head>
@@ -31,24 +31,13 @@
 <jsp:include page="nav.jsp" flush="true" />
 <div class="content">
     <div id="result" class="quiz-body">
-                    <h2>  ЗАДАЧА</h2>
-          <!--          <form action="${pageContext.request.contextPath}/task-home" method="POST" class="tasking">
-                       <p><c:out value="${task}"/></p>
 
-                       <input type="text" class="form-control" id="tasky" name="tasky" placeholder="Задача" value="saaa">
-                       <button type="submit" class="btn btn-primary btn-block">Проверить</button>
-
-                    </form>-->
-
-                     <form action="${pageContext.request.contextPath}/task-home" method="POST" class="tasking">
-                      <c:forEach var="taskType" items="${taskAllList}">
-                        <h4 class="card-title"><c:out value="${taskType.getTask()}"/></h4>
-
-                        <input type="text" class="form-control" id="tasky" name="tasky" placeholder="Ответ">
-                        <button type="submit" class="btn btn-primary btn-block">Проверить</button>
-
+                    <form action="${pageContext.request.contextPath}/add-task" method="POST" class="tasking">
+                       <h2>ЗАДАЧА</h2>
+                       <input type="text" class="form-control" id="task" name="task" placeholder="Задача">
+                       <input type="text" class="form-control" id="answer" name="answer" placeholder="Задача">
+                       <button type="submit" class="btn btn-primary btn-block">Добавить</button>
                     </form>
-                    </c:forEach>
     </div>
 </div>
 </body>

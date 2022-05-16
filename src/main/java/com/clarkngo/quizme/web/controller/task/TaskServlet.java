@@ -1,5 +1,5 @@
 
-//ВНУТРЕННОСТЬ ЗАДАЧИ
+//ВНУТРЕННОСТЬ ЗАДАЧИ — ГЛАВНАЯ
 
 package com.clarkngo.quizme.web.controller.task;
 import com.clarkngo.quizme.web.dao.UserDao;
@@ -47,9 +47,13 @@ public class TaskServlet extends HttpServlet {
             int id = Integer.parseInt(req.getParameter("taskTypeId"));
             TaskTypeDao dao = new TaskTypeDao();
             TaskType course = dao.getTaskType(id);
+
             String task= course.getTask();
+            //dao.getAllTask();
             session.setAttribute("task", task);
             session.setAttribute("taskTypeId", id);
+            List<TaskType> qtList1 = dao.getAllTask(id);
+            session.setAttribute("taskAllList", qtList1);
         } else {
             session.setAttribute("page", req.getParameter("page"));
             session.setAttribute("questionId", req.getParameter("questionId"));
@@ -69,7 +73,8 @@ public class TaskServlet extends HttpServlet {
         String username = (String)session.getAttribute("username");
         req.getRequestDispatcher("/taskScreen.jsp").include(req, res);
         int ball=0 ;
-        if(taskDao.checkAnswer(id, tasky)){
+//        if(taskDao.checkAnswer(id, tasky)){
+        if(taskDao.checkAnswer1(id, tasky)){
             ball=10;
             writer.println(
                     "<div class='containe'>" +
