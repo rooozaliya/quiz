@@ -32,24 +32,19 @@ public class TaskServlet extends HttpServlet {
         this.taskDao = new TaskDao();
     }
 
-
-
     @Override
-
+//заполняем типа
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession session = req.getSession(true);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
-        String tasky = req.getParameter("tasky");
-        System.out.println(tasky);
+        String tasky = req.getParameter("tasky"); //ответ введенный
         if (session.getAttribute("task-home") == null) {
             session.setAttribute("page",1);
-            int id = Integer.parseInt(req.getParameter("taskTypeId"));
+            int id = Integer.parseInt(req.getParameter("taskTypeId")); //получаем тип задач
             TaskTypeDao dao = new TaskTypeDao();
             TaskType course = dao.getTaskType(id);
-
             String task= course.getTask();
-            //dao.getAllTask();
             session.setAttribute("task", task);
             session.setAttribute("taskTypeId", id);
             List<TaskType> qtList1 = dao.getAllTask(id);
@@ -61,44 +56,43 @@ public class TaskServlet extends HttpServlet {
         req.getRequestDispatcher("/task-screen").forward(req,res);
     }
 
+//    получаем типа
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         HttpSession session = req.getSession(true);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
         String tasky = req.getParameter("tasky");
+        System.out.println(tasky+" Введенный ответ");
         int id = (int) session.getAttribute("taskTypeId");
+        String idTask = req.getParameter("TaskId");
+        System.out.println(idTask+" номер ЗАДАЧИ в задачи");
         PrintWriter writer = res.getWriter();
         res.setContentType("text/html");
         String username = (String)session.getAttribute("username");
-        req.getRequestDispatcher("/taskScreen.jsp").include(req, res);
+      //  req.getRequestDispatcher("/taskScreen.jsp").forward(req, res);
         int ball=0 ;
-//        if(taskDao.checkAnswer(id, tasky)){
-        if(taskDao.checkAnswer1(id, tasky)){
+      if(taskDao.checkAnswer(id, tasky)){
+//        if(taskDao.checkAnswer1(id, tasky, taskId)){
             ball=10;
             writer.println(
                     "<div class='containe'>" +
-                            "<h2> Верно" +  ball + "</h2>"+
+                            "<h2> Верно. Баллы: " +  ball + "</h2>"+
                             "</div>"
             );
 
         }
         else{
-
             writer.println(
                     "<div class='containe'>" +
                             "<h2> Мимо</h2>" +
                             "</div>"
             );
-
-
         }
         System.out.println("Количество баллов за задачи: "+ball);
         UserDao dao = new UserDao();
-        System.out.println("Номер задачи: "+id);
-       // int num = Integer.parseInt(id);
+        System.out.println("Номер ТИПА задачи: "+id);
         dao.addBall(username, ball, id);
-
         UserDao qq = new UserDao();
         int sumBall = qq.allResult(username).getResult();
 
@@ -109,8 +103,6 @@ public class TaskServlet extends HttpServlet {
                             "</div>"
             );
 
-            System.out.println("aaaaaaaaaaaaaaaaa");
-
         }
         else{
             writer.println(
@@ -118,16 +110,7 @@ public class TaskServlet extends HttpServlet {
                             "<h1> нечетко</h1>" +
                             "</div>"
             );
-
-
         }
-
-
-
-
-
-
-
-
+         req.getRequestDispatcher("/taskScreen.jsp").forward(req, res);
     }
 }

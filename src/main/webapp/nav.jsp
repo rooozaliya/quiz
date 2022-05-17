@@ -27,7 +27,7 @@ padding-left:350px;}
 
             <c:choose>
                <c:when test="${name==null}">
-                <li class="space"><a href="${pageContext.request.contextPath}/login-form">Вход</a></li>
+                <li class="space"><a href="${pageContext.request.contextPath}/login">Вход</a></li>
                 <li ><a href="${pageContext.request.contextPath}/register-form">Регистрация</a></li>
                </c:when>
                <c:when test="${username=='rooozaliya@mail.ru'}">

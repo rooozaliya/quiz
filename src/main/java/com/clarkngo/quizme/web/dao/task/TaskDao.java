@@ -51,13 +51,15 @@ public class TaskDao {
         return st;
     }
 
-    public boolean checkAnswer1(int id, String answer)
+    public boolean checkAnswer1(int id, String answer, int taskId)
     {
         boolean st =false;
         try {
             this.conn = ds.getConnection();
+
             ps = conn.prepareStatement("SELECT * FROM task WHERE TaskId=? AND answer=?");
-            ps.setInt(1, id);
+          //  ps.setInt(1, id);
+            ps.setInt(1, taskId);
             ps.setString(2, answer);
             ResultSet rs =ps.executeQuery();
             st = rs.next();

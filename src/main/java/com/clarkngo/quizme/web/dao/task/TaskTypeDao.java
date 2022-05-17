@@ -93,7 +93,7 @@ public class TaskTypeDao {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 TaskType qt = new TaskType();
-                qt.setTaskTypeId(rs.getInt("Id"));
+                qt.setTaskId(rs.getInt("TaskId"));
                 qt.setName(rs.getString("Name"));
                 qt.setDescription(rs.getString("Description"));
                 qt.setTask(rs.getString("Task"));

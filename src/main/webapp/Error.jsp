@@ -15,7 +15,7 @@
     <form action="${pageContext.request.contextPath}/error" method="POST">
         <h2 class="text-center">Похоже, вы не авторизованы :( </h2>
     </form>
-    <p class="text-center"><a href="${pageContext.request.contextPath}/login-form">Войти!</a></p>
+    <p class="text-center"><a href="${pageContext.request.contextPath}/login">Войти!</a></p>
     <p class="text-center"><a href="${pageContext.request.contextPath}/register-form">Нет аккаунта? Создай его!</a></p>
 </div>
 </body>

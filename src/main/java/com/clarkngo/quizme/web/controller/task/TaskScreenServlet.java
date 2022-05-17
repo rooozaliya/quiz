@@ -33,7 +33,7 @@ public class TaskScreenServlet extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("taskTypeId"));
         TaskTypeDao dao = new TaskTypeDao();
         TaskType task = dao.getTaskType(id);
-        String taskA= task.getTask();
+        String taskA= task.getTask(); //столбец таск из таблицы тасктайп хз зачем щас нужен
         List<TaskType> qtList1 = dao.getAllTask(id);
         session.setAttribute("taskAllList", qtList1);
         session.setAttribute("task", taskA);
@@ -41,16 +41,11 @@ public class TaskScreenServlet extends HttpServlet {
         req.getRequestDispatcher("/taskScreen.jsp").forward(req,res);
     }
 
-  //  protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-//        req.setCharacterEncoding("UTF-8");
-//        res.setCharacterEncoding("UTF-8");
-////        String a = req.getParameter("taskTypeId");
-////        System.out.println("Номер теста: "+a);
-////        int num = Integer.parseInt(a);
-//        HttpSession oldSession = req.getSession(false);
-//        String username = (String)oldSession.getAttribute("username");
-//        res.setContentType("text/html");
-//        req.getRequestDispatcher("/taskScreen.jsp").include(req,res);
+  protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        res.setCharacterEncoding("UTF-8");
+        res.setContentType("text/html");
+        req.getRequestDispatcher("/taskScreen.jsp").include(req,res);
 
- //   }
+    }
 }

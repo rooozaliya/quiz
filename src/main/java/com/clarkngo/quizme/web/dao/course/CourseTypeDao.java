@@ -65,9 +65,8 @@ public class CourseTypeDao {
                 courseType.setCourseTypeId(rs.getInt("Id"));
                 courseType.setName(rs.getString("Name"));
                 courseType.setDescription(rs.getString("Description"));
-              //  courseType.setImageUrl(rs.getString("ImageURL"));
                 courseType.setTheory(rs.getString("Theory"));
-                System.out.println("course11111");
+
             }
         } catch (SQLException e) {
             e.printStackTrace();

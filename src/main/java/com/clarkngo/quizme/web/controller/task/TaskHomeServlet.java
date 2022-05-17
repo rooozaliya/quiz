@@ -29,7 +29,7 @@ public class TaskHomeServlet extends HttpServlet {
 
 //        CourseType course = dao.getCourseType(2);
 //        session.setAttribute("courseType", course);
-        session.setAttribute("taskTypeList", qtList);
+        //session.setAttribute("taskTypeList", qtList);
         req.getRequestDispatcher("/task-page").forward(req, res);
     }
 

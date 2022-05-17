@@ -1,4 +1,4 @@
-<!-- ВСЕ ЗАДАЧИ-->
+<!-- ВСЕ ЗАДАЧИ ВРОДЕ НЕНУЖНО-->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="com.clarkngo.quizme.web.domain.task.TaskType" %>
 <%@ page import="java.util.ArrayList" %>
@@ -33,10 +33,28 @@
     <p class="card-text"><c:out value="${taskType.getDescription()}"/></p>
      <p class="card-text"><c:out value="${taskType.getTask()}"/></p>
       <form action="${pageContext.request.contextPath}/task-home" method="POST">
-<input type="text" class="form-control" id="tasky" name="tasky" placeholder="Задача" value="rooozaliya@mail.ru">
-  <button type="submit" class="btn btn-primary btn-block">Войти</button>
+<input type="text" class="form-control" id="tasky" name="tasky" placeholder="Задача" value="${taskType.getAnswer()}">
+  <button type="submit" class="btn btn-primary btn-block">Проверить</button>
 </form>
 </c:forEach>
+
+
+                      <c:forEach var="taskType" items="${taskAllList}">
+                        <h4 class="card-title"><c:out value="${taskType.getTask()}"/></h4>
+
+                        <h4 class="card-title" id="" name="TaskId"><c:out value="${taskType.getTaskId()}"/></h4>
+
+                        <form action="${pageContext.request.contextPath}/task-home" method="POST" class="tasking">
+                         <input type="" class="card-title" id="TaskId" name="TaskId" value="${taskType.getTaskId()}"/>
+                         <input type="text" class="form-control" id="tasky" name="tasky" value="${taskType.getAnswer()}" placeholder="Ответ">
+                        <button type="submit" class="btn btn-primary btn-block">Проверить</button>
+                         </form>
+                        <div class="form-group">
+                           <input type="" class="form-control" name="tasksTypeId" value="${taskType.getTaskId()}">
+                        </div>
+                      </c:forEach>
+
+
 
     </div>
 </div>

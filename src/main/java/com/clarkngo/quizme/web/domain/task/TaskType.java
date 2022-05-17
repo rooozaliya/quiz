@@ -8,6 +8,7 @@ import java.util.List;
 
 public class TaskType {
     private int taskTypeId;
+    private int taskId;
     private String name;
     private String description;
     private String task;
@@ -105,5 +106,13 @@ public class TaskType {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    public int getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(int taskId) {
+        this.taskId = taskId;
     }
 }
