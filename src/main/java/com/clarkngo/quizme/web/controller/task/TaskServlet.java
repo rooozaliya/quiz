@@ -66,15 +66,16 @@ public class TaskServlet extends HttpServlet {
         System.out.println(tasky+" Введенный ответ");
         int id = (int) session.getAttribute("taskTypeId");
         String idTask = req.getParameter("TaskId");
+        int TaskId = Integer.parseInt(idTask);
         System.out.println(idTask+" номер ЗАДАЧИ в задачи");
         PrintWriter writer = res.getWriter();
         res.setContentType("text/html");
         String username = (String)session.getAttribute("username");
       //  req.getRequestDispatcher("/taskScreen.jsp").forward(req, res);
-        int ball=0 ;
-      if(taskDao.checkAnswer(id, tasky)){
-//        if(taskDao.checkAnswer1(id, tasky, taskId)){
-            ball=10;
+        int ball=0;
+        //if(taskDao.checkAnswer(id, tasky)){
+        if(taskDao.checkAnswer1(TaskId, tasky)){
+            ball=ball+2;
             writer.println(
                     "<div class='containe'>" +
                             "<h2> Верно. Баллы: " +  ball + "</h2>"+
@@ -83,6 +84,7 @@ public class TaskServlet extends HttpServlet {
 
         }
         else{
+            ball=ball+0;
             writer.println(
                     "<div class='containe'>" +
                             "<h2> Мимо</h2>" +
@@ -111,6 +113,6 @@ public class TaskServlet extends HttpServlet {
                             "</div>"
             );
         }
-         req.getRequestDispatcher("/taskScreen.jsp").forward(req, res);
+         req.getRequestDispatcher("/taskScreen.jsp").include(req, res);
     }
 }

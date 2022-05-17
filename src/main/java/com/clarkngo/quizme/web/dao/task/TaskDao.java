@@ -51,7 +51,7 @@ public class TaskDao {
         return st;
     }
 
-    public boolean checkAnswer1(int id, String answer, int taskId)
+    public boolean checkAnswer1(int taskId, String answer)
     {
         boolean st =false;
         try {
