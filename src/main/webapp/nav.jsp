@@ -33,7 +33,7 @@ padding-left:350px;}
                <c:when test="${username=='rooozaliya@mail.ru'}">
                     <li><a href="${pageContext.request.contextPath}"> Баллы: ${ball}</a></li>
                    <li><a href="${pageContext.request.contextPath}/course">Курсы</a></li>
-                   <li><a href="${pageContext.request.contextPath}/chat">Чат</a></li>
+                 <!--  <li><a href="${pageContext.request.contextPath}/chat">Чат</a></li> -->
                    <li><a href="${pageContext.request.contextPath}/feedback-form">Обратная связь</a></li>
                    <li><a href="${pageContext.request.contextPath}/contact-form">Контакты</a></li>
                    <li><a href="${pageContext.request.contextPath}/admin-form">Админка</a></li>
@@ -45,7 +45,7 @@ padding-left:350px;}
                <c:when test="${name!=null}">
                <li><a href="${pageContext.request.contextPath}"> Баллы: ${ball}</a></li>
                <li><a href="${pageContext.request.contextPath}/course">Курсы</a></li>
-               <li><a href="${pageContext.request.contextPath}/chat">Чат</a></li>
+             <!--  <li><a href="${pageContext.request.contextPath}/chat">Чат</a></li> -->
                <li><a href="${pageContext.request.contextPath}/feedback-form">Обратная связь</a></li>
                <li><a href="${pageContext.request.contextPath}/contact-form">Контакты</a></li>
                <li><a href="${pageContext.request.contextPath}/ball">Рейтинг студентов</a></li>

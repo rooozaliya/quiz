@@ -73,7 +73,7 @@ public class TaskServlet extends HttpServlet {
         PrintWriter writer = res.getWriter();
         res.setContentType("text/html");
         String username = (String)session.getAttribute("username");
-      //  req.getRequestDispatcher("/taskScreen.jsp").forward(req, res);
+        req.getRequestDispatcher("/taskScreen.jsp").include(req, res);
 
 
         //if(taskDao.checkAnswer(id, tasky)){
@@ -81,7 +81,7 @@ public class TaskServlet extends HttpServlet {
             ball=ball+2;
             ballArray[TaskId]=2;
             writer.println(
-                    "<h2> Верно. Баллы: " +  ball + "</h2>"
+                    "<div class='content'><h1> Верно</h1></div>"
             );
            // System.out.println(ballArray[TaskId]+" массив баллов");
 
@@ -89,38 +89,27 @@ public class TaskServlet extends HttpServlet {
         else{
             ball=ball+0;
             writer.println(
-                    "<h2> Мимо</h2>" +  ball + "</h2>"
+                    "<h2>Неверно</h2></h2>"
             );
         }
         int sum=0;
         for (int i = 0; i < 10; i++) {
-            System.out.println(ballArray[i]+" МАССИВ");
             sum=sum+ballArray[i];
         }
         System.out.println(sum+" Всего баллов из массива");
-        System.out.println("Количество баллов за задачи: "+ball);
         UserDao dao = new UserDao();
         System.out.println("Номер ТИПА задачи: "+id);
-        dao.addBall(username, ball, id);
+        dao.addBall(username, sum, id);
         UserDao qq = new UserDao();
         int sumBall = qq.allResult(username).getResult();
 
         if (sumBall>=10){
-            writer.println(
-                    "<div class='content'>" +
-                            "<h1> четко</h1>" +
-                            "</div>"
-            );
 
         }
         else{
-            writer.println(
-                    "<div class='content'>" +
-                            "<h1> нечетко</h1>" +
-                            "</div>"
-            );
+
         }
-        res.setContentType("text/html");
-        req.getRequestDispatcher("/taskScreen.jsp").include(req, res);
+        //res.setContentType("text/html");
+        //req.getRequestDispatcher("/taskScreen.jsp").include(req, res);
     }
 }
