@@ -37,6 +37,7 @@ padding-left:350px;}
                    <li><a href="${pageContext.request.contextPath}/feedback-form">Обратная связь</a></li>
                    <li><a href="${pageContext.request.contextPath}/contact-form">Контакты</a></li>
                    <li><a href="${pageContext.request.contextPath}/admin-form">Админка</a></li>
+                   <li><a href="${pageContext.request.contextPath}/add-task">Добавить задачи</a></li>
                    <li><a href="${pageContext.request.contextPath}/ball">Рейтинг студентов</a></li>
                    <li class="space"><a href="${pageContext.request.contextPath}/logout">Выйти</a></li>
                </c:when>

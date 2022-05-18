@@ -31,6 +31,8 @@ public class TaskServlet extends HttpServlet {
     public void init() {
         this.taskDao = new TaskDao();
     }
+    int[] ballArray = new int[10];
+    int ball=0;
 
     @Override
 //заполняем типа
@@ -72,25 +74,30 @@ public class TaskServlet extends HttpServlet {
         res.setContentType("text/html");
         String username = (String)session.getAttribute("username");
       //  req.getRequestDispatcher("/taskScreen.jsp").forward(req, res);
-        int ball=0;
+
+
         //if(taskDao.checkAnswer(id, tasky)){
         if(taskDao.checkAnswer1(TaskId, tasky)){
             ball=ball+2;
+            ballArray[TaskId]=2;
             writer.println(
-                    "<div class='containe'>" +
-                            "<h2> Верно. Баллы: " +  ball + "</h2>"+
-                            "</div>"
+                    "<h2> Верно. Баллы: " +  ball + "</h2>"
             );
+           // System.out.println(ballArray[TaskId]+" массив баллов");
 
         }
         else{
             ball=ball+0;
             writer.println(
-                    "<div class='containe'>" +
-                            "<h2> Мимо</h2>" +
-                            "</div>"
+                    "<h2> Мимо</h2>" +  ball + "</h2>"
             );
         }
+        int sum=0;
+        for (int i = 0; i < 10; i++) {
+            System.out.println(ballArray[i]+" МАССИВ");
+            sum=sum+ballArray[i];
+        }
+        System.out.println(sum+" Всего баллов из массива");
         System.out.println("Количество баллов за задачи: "+ball);
         UserDao dao = new UserDao();
         System.out.println("Номер ТИПА задачи: "+id);
@@ -113,6 +120,7 @@ public class TaskServlet extends HttpServlet {
                             "</div>"
             );
         }
-         req.getRequestDispatcher("/taskScreen.jsp").include(req, res);
+        res.setContentType("text/html");
+        req.getRequestDispatcher("/taskScreen.jsp").include(req, res);
     }
 }

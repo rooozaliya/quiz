@@ -34,6 +34,7 @@
 
                     <form action="${pageContext.request.contextPath}/add-task" method="POST" class="tasking">
                        <h2>ЗАДАЧА</h2>
+                        <input type="text" id="name" name="name">
                        <input type="text" class="form-control" id="task" name="task" placeholder="Задача">
                        <input type="text" class="form-control" id="answer" name="answer" placeholder="Задача">
                        <button type="submit" class="btn btn-primary btn-block">Добавить</button>

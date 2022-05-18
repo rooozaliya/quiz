@@ -45,9 +45,9 @@
                         <h4 class="card-title"><c:out value="${taskType.getTask()}"/></h4>
 
                         <form action="${pageContext.request.contextPath}/task-home" method="POST" class="tasking">
-                                                 <input type="hidden" class="card-title" style="color:red" id="TaskId" name="TaskId" value="${taskType.getTaskId()}"/>
-                                                 <input type="text" class="form-control" style="color:red" id="tasky" name="tasky" value="${taskType.getAnswer()}" placeholder="Ответ">
-                                                <button type="submit" class="btn btn-primary btn-block">Проверить2</button>
+                           <input type="hidden" class="card-title" style="color:red" id="TaskId" name="TaskId" value="${taskType.getTaskId()}"/>
+                           <input type="text" class="form-control" style="color:red" id="tasky" name="tasky" value="${taskType.getAnswer()}" placeholder="Ответ">
+                           <button type="submit" class="btn btn-primary btn-block">Проверить</button>
                         </form>
                       </c:forEach>
 

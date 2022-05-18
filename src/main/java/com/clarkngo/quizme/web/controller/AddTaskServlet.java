@@ -41,11 +41,14 @@ public class AddTaskServlet extends HttpServlet {
       protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
+        String nameS = req.getParameter("name");
+        int name =Integer.parseInt(nameS);
+        System.out.println("Название задачи: "+name);
         String task = req.getParameter("task");
         System.out.println("Заполнение задачи: "+task);
         String answer = req.getParameter("answer");
         System.out.println("Заполнение ответа: "+answer);
-        taskDao.addTask(task, answer);
+        taskDao.addTask(name, task, answer);
         HttpSession oldSession = req.getSession(false);
         String username = (String)oldSession.getAttribute("username");
         res.setContentType("text/html");

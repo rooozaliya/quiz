@@ -71,20 +71,21 @@ public class TaskDao {
     }
 
 
-    public void addTask(String task, String answer) {
-        try {
-            this.conn = ds.getConnection();
-                ps = conn.prepareStatement("INSERT INTO tasktype (task, answer) VALUES (?,?)");
-                ps.setString(1, task);
-                ps.setString(2, answer);
-                ps.executeUpdate();
+//    public void addTask(String task, String answer) {
+//        try {
+//            this.conn = ds.getConnection();
+//                ps = conn.prepareStatement("INSERT INTO tasktype (task, answer) VALUES (?,?)");
+//                ps.setString(1, task);
+//                ps.setString(2, answer);
+//                ps.executeUpdate();
+//
+//        }
+//        catch (Exception e) {
+//            e.printStackTrace();
+//
+//        }
+//    }
 
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-
-        }
-    }
 
 //    public User showTask() {
 //        Task task = new Task();
@@ -103,5 +104,22 @@ public class TaskDao {
 //
 //        return task;
 //    }
+
+    public void addTask(int name, String task, String answer) {
+        try {
+
+            this.conn = ds.getConnection();
+            ps = conn.prepareStatement("INSERT  task (Task, answer, idTask) VALUES (?,?,?)");
+            ps.setString(1, task);
+            ps.setString(2, answer);
+            ps.setInt(3, name);
+            ps.executeUpdate();
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+
+        }
+    }
 
 }
