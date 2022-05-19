@@ -16,39 +16,51 @@ public class RegisterServlet extends HttpServlet {
     public void init() {this.userDao = new UserDao();}
 
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");     
+        request.getRequestDispatcher("/registerForm.jsp").forward(request,response);
+
+    }
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        res.setCharacterEncoding("UTF-8");
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         String name = req.getParameter("name");
-        req.setCharacterEncoding("UTF-8");
-        res.setCharacterEncoding("UTF-8");
+
 
         if(userDao.userExists(username)) {
             res.setContentType("text/html");
             PrintWriter writer = res.getWriter();
-            req.getRequestDispatcher("/registerForm.jsp").include(req,res);
+            req.getRequestDispatcher("/registerForm.jsp").include(req, res);
+
 
             writer.print(
                     "<div class='container'>" +
-                            "<h2 style='color: red;'>Username exists. Please use a different username.</h2>" +
+                            "<h2 style='color: red;'>Пользователь с такой почтой уже существует.</h2>" +
                             "</div>"
             );
 
             writer.close();
+           // req.getRequestDispatcher("/registerForm.jsp").include(req,res);
+
         } else {
             userDao.addUser(name, username, password);
-
             res.setContentType("text/html");
             PrintWriter writer = res.getWriter();
-            req.getRequestDispatcher("/login").include(req,res);
+            req.getRequestDispatcher("/loginForm.jsp").include(req, res);
 
             writer.print(
                     "<div class='container'>" +
-                            "<h2 style='color: green;'>Successfully registered! Please login.</h2>" +
+                            "<h2 style='color: green;'>Успешно. Войдите</h2>" +
                             "</div>"
             );
 
             writer.close();
+            //req.getRequestDispatcher("/login").include(req,res);
         }
     }
 }

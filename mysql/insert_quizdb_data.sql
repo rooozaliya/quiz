@@ -22,8 +22,7 @@ CREATE TABLE IF NOT EXISTS `quizdb`.`task` (
 
 INSERT INTO task (Task, answer, idTask)
 VALUES
-	('task3', 'answer2', 1),
-	('task3', 'answer3', 1)
+	('Задание 2', 'Ответ 2', 1)
 ;
 
 INSERT INTO task (Task, answer, idTask)
@@ -43,6 +42,15 @@ SELECT Name, Description FROM tasktype INNER JOIN task ON tasktype.id = task.idT
 --	primary key(TaskId, Id)
 --)
 
+INSERT INTO tasktype (Name, Description, task)
+VALUES
+	('JSP', 'JavaServer Pages', 'Задача 2'),
+	('1', 'Задача', 'Задача 1')
+;
+
+ALTER TABLE tasktype  ADD COLUMN task int NULL;
+ALTER TABLE tasktype MODIFY COLUMN task VARCHAR(255) ;
+
 USE quizdb;
 
 INSERT INTO user (Name, Email, Password)
@@ -57,11 +65,7 @@ VALUES
 	('JSP', 'JavaServer Pages')
 ;
 
-INSERT INTO tasktype (Name, Description)
-VALUES
-	('JSP', 'JavaServer Pages', 'Задача 2'),
-	('1', 'Задача', 'Задача 1')
-;
+
 
 
 
@@ -100,7 +104,7 @@ UPDATE tasktype SET task='Задача 1' WHERE id=2;
 
 
 --show columns from result;
---ALTER TABLE quiztype MODIFY COLUMN ImageURL BLOB ;
+--ALTER TABLE quiztype MODIFY COLUMN ImgURL BLOB ;
 --UPDATE quiztype SET ImageURL=(LOAD_FILE('/Uploads/qq.png')) WHERE id=1;
 
 
@@ -113,7 +117,7 @@ ALTER TABLE user  ADD COLUMN Raitung3 int NULL;
 --UPDATE user SET Raitung=10 WHERE id=1;
 
 
---ALTER TABLE coursetype  ADD COLUMN Image BLOB NULL;
+--ALTER TABLE quiztype MODIFY COLUMN ImgURL BLOB ;
 --
 
 --INSERT INTO theory (theoryId, Description)

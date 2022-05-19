@@ -197,6 +197,9 @@ CREATE TABLE IF NOT EXISTS `quizdb`.`result` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+ALTER TABLE quiztype  ADD COLUMN ImageURL VARCHAR(255) NULL;
+
+
 -- __________
 -- table chat
 -- ------

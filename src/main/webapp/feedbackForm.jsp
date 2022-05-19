@@ -85,7 +85,7 @@
 <body>
 <jsp:include page="nav.jsp" flush="true" />
 <div class="container">
-    <form action="${pageContext.request.contextPath}/feedback" method="POST"">
+    <form action="${pageContext.request.contextPath}/feedback" method="POST">
         <h3>Оцените тест по пятибалльной шкале:</h3>
         <div class="rating">
             <input type="radio" id="star5" name="rating" value="5" />

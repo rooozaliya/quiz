@@ -51,7 +51,7 @@ public class AdminServlet extends HttpServlet {
             res.sendRedirect("/error");
         } else {
             String username = (String) oldSession.getAttribute("username");
-            if (username.equals("rooozaliya@mail.ru")) {
+            if (username.equals("rainurl@mail.ru")) {
                 writer.print(
                         "<h1>Админ</h1>"
 

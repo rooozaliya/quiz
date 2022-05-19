@@ -14,8 +14,8 @@
 
 
         .hero-image {
-
-            background-image: linear-gradient(rgba(220, 90, 120, 0.5), rgba(110, 20, 0, 0.5));
+            background-image: linear-gradient(90deg, #aea4e3, #d3ffe8);
+            /*background-image: linear-gradient(rgba(220, 90, 120, 0.5), rgba(110, 20, 0, 0.5));*/
             height: 100%;
             top:-20px;
             margin:0px;
@@ -33,7 +33,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: white;
+            color: black;
         }
 
         input {
@@ -55,7 +55,7 @@
         <h1>Добро пожаловать на обучающую платформу!</h1>
         <h3>Здесь вы узнаете об алгоритмах программирования</h3>
         <br>
-       <p>Для проверки знаний рекомендуем проходить тесты, которые открываются после обучения. </p>
+       <p>Для проверки знаний рекомендуем проходить тесты, которые открываются после обучения, и решать задачи. </p>
         <br>
          <form action="${pageContext.request.contextPath}/course" method="GET">
         <button type="submit" class="btn btn-primary btn-block">Начать обучение!</button>

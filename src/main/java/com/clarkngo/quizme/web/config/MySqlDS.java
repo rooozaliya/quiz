@@ -19,7 +19,7 @@ public class MySqlDS {
         try {
             dataSource.setAllowMultiQueries(true);
             dataSource.setServerTimezone("EST");
-            dataSource.setRewriteBatchedStatements(true); // To get the actual benefits of Batch Processing in MySQL
+            dataSource.setRewriteBatchedStatements(true);
         } catch (SQLException e) {
             e.printStackTrace();
         }

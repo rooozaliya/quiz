@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 
             writer.println(
                     "<div class='container'>" +
-                            "<h2 style='color: red;'>Incorrect user name or password.</h2>" +
+                            "<h2 style='color: red;'>Неверная почта или пароль</h2>" +
                             "</div>"
             );
 

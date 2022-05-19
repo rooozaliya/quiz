@@ -76,15 +76,13 @@ public class TaskServlet extends HttpServlet {
         req.getRequestDispatcher("/taskScreen.jsp").include(req, res);
 
 
-        //if(taskDao.checkAnswer(id, tasky)){
+
         if(taskDao.checkAnswer1(TaskId, tasky)){
             ball=ball+2;
             ballArray[TaskId]=2;
             writer.println(
                     "<div class='content'><h1> Верно</h1></div>"
             );
-           // System.out.println(ballArray[TaskId]+" массив баллов");
-
         }
         else{
             ball=ball+0;
@@ -109,7 +107,5 @@ public class TaskServlet extends HttpServlet {
         else{
 
         }
-        //res.setContentType("text/html");
-        //req.getRequestDispatcher("/taskScreen.jsp").include(req, res);
     }
 }

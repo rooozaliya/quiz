@@ -34,23 +34,6 @@ public class TaskDao {
         return task;
     }
 
-    public boolean checkAnswer(int id, String answer)
-    {
-        boolean st =false;
-        try {
-            this.conn = ds.getConnection();
-            ps = conn.prepareStatement("SELECT * FROM tasktype WHERE id=? AND answer=?");
-            ps.setInt(1, id);
-            ps.setString(2, answer);
-            ResultSet rs =ps.executeQuery();
-            st = rs.next();
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
-        return st;
-    }
-
     public boolean checkAnswer1(int taskId, String answer)
     {
         boolean st =false;
@@ -68,51 +51,17 @@ public class TaskDao {
             e.printStackTrace();
         }
         return st;
+
     }
 
-
-//    public void addTask(String task, String answer) {
-//        try {
-//            this.conn = ds.getConnection();
-//                ps = conn.prepareStatement("INSERT INTO tasktype (task, answer) VALUES (?,?)");
-//                ps.setString(1, task);
-//                ps.setString(2, answer);
-//                ps.executeUpdate();
-//
-//        }
-//        catch (Exception e) {
-//            e.printStackTrace();
-//
-//        }
-//    }
-
-
-//    public User showTask() {
-//        Task task = new Task();
-//        try {
-//
-//            this.conn = ds.getConnection();
-//            ps = conn.prepareStatement("SELECT * FROM tasktype INNER JOIN task ON tasktype.id = task.idTask;");
-//            ResultSet rs = ps.executeQuery();
-////            if (rs.next()) {
-////                (rs.getString("Name"));
-////            }
-//        }
-//        catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//        return task;
-//    }
-
-    public void addTask(int name, String task, String answer) {
+    public void addTask(int id, String task, String answer) {
         try {
 
             this.conn = ds.getConnection();
             ps = conn.prepareStatement("INSERT  task (Task, answer, idTask) VALUES (?,?,?)");
             ps.setString(1, task);
             ps.setString(2, answer);
-            ps.setInt(3, name);
+            ps.setInt(3, id);
             ps.executeUpdate();
 
         }

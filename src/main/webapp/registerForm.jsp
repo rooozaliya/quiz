@@ -26,7 +26,7 @@
             <button type="submit" class="btn btn-primary btn-block">Зарегистрироваться</button>
         </div>
     </form>
-    <p class="text-center"><a href="${pageContext.request.contextPath}/login-form">Уже есть аккаунт? Войди!</a></p>
+    <p class="text-center"><a href="${pageContext.request.contextPath}/login">Уже есть аккаунт? Войди!</a></p>
 </div>
 </body>
 </html>

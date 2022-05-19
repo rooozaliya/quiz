@@ -34,9 +34,6 @@ public class TaskTypeDao {
                 qt.setDescription(rs.getString("Description"));
                 qt.setTask(rs.getString("task"));
                 qt.setAnswer(rs.getString("answer"));
-
-               // qt.setImageUrl(rs.getString("ImageURL"));
-               // qt.setImgUrl(rs.getString("ImgURL"));
                 taskTypes.add(qt);
             }
         } catch (SQLException e) {
@@ -82,7 +79,7 @@ public class TaskTypeDao {
 
         return taskType;
     }
-//SELECT * FROM task INNER JOIN tasktype ON  task.idTask = tasktype.id;
+
     public List<TaskType> getAllTask(int id) {
         List<TaskType> taskTypes = new ArrayList<>();
         PreparedStatement ps = null;
@@ -98,9 +95,6 @@ public class TaskTypeDao {
                 qt.setDescription(rs.getString("Description"));
                 qt.setTask(rs.getString("Task"));
                 qt.setAnswer(rs.getString("answer"));
-
-                // qt.setImageUrl(rs.getString("ImageURL"));
-                // qt.setImgUrl(rs.getString("ImgURL"));
                 taskTypes.add(qt);
             }
         } catch (SQLException e) {
