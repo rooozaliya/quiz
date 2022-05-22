@@ -20,23 +20,15 @@ public class CourseServlet extends HttpServlet {
         HttpSession session = req.getSession(true);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
-
-
         if (session.getAttribute("course-home") == null) {
-//            int id = Integer.parseInt(req.getParameter("courseTypeId"));
-//            int page = Integer.parseInt(req.getParameter("page"));
-//            CourseDao dao = new CourseDao();
-//            Course course = dao.getCourse(id);
-         //   session.setAttribute("course-home", course);
             session.setAttribute("page",1);
             int id = Integer.parseInt(req.getParameter("courseTypeId"));
             CourseTypeDao dao = new CourseTypeDao();
             CourseType course = dao.getCourseType(id);
             String descrTheory= course.getTheory();
+            String link= course.getLink();
             session.setAttribute("listTheories", descrTheory);
             session.setAttribute("courseTypeId", id);
-
-
         } else {
             session.setAttribute("page", req.getParameter("page"));
             session.setAttribute("questionId", req.getParameter("questionId"));
@@ -46,10 +38,6 @@ public class CourseServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        HttpSession session = req.getSession(true);
-        System.out.println(req.getParameter("courseTypeId"+"str42"));
-        System.out.println(req.getParameter("page"+"str43"));
-        System.out.println(req.getParameter("questionId"+"str36"));
-
+        req.getRequestDispatcher("/course-screen").forward(req,res);
     }
 }

@@ -1,3 +1,4 @@
+
 package com.clarkngo.quizme.web.controller;
 
         import com.clarkngo.quizme.web.dao.UserDao;
@@ -15,8 +16,8 @@ package com.clarkngo.quizme.web.controller;
         import javax.servlet.http.HttpSession;
         import java.io.IOException;
 
-@WebServlet(name = "AddTaskServlet", value = "/add-task")
-public class AddTaskServlet extends HttpServlet {
+@WebServlet(name = "AddTheoryServlet", value = "/add-theory")
+public class AddTheoryServlet extends HttpServlet {
 
     private TaskDao taskDao;
 
@@ -38,23 +39,19 @@ public class AddTaskServlet extends HttpServlet {
         req.getRequestDispatcher("/addNewTask.jsp").forward(req,res);
     }
 
-      protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
-        String nameS = req.getParameter("name");
-        int name =Integer.parseInt(nameS);
-        System.out.println("Название задачи: "+name);
-        String task = req.getParameter("task");
-        System.out.println("Заполнение задачи: "+task);
-        String answer = req.getParameter("answer");
-        System.out.println("Заполнение ответа: "+answer);
-        taskDao.addTask(name, task, answer);
-          String theory = req.getParameter("theory");
-          System.out.println("Заполнение теории: "+theory);
+
+        String theory = req.getParameter("theory");
+        System.out.println("Заполнение теории: "+theory);
+        String description = req.getParameter("description");
+        System.out.println("Заполнение description: "+description);
+        taskDao.addTheory(theory, description);
         HttpSession oldSession = req.getSession(false);
         String username = (String)oldSession.getAttribute("username");
         res.setContentType("text/html");
         req.getRequestDispatcher("/addNewTask.jsp").include(req,res);
 
-       }
+    }
 }

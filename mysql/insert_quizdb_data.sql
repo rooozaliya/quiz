@@ -2,6 +2,11 @@ ALTER TABLE user ADD COLUMN Task1 int null;
 ALTER TABLE user ADD COLUMN Task2 int null;
 ALTER TABLE user ADD COLUMN Task3 int null;
 
+ALTER TABLE coursetype ADD COLUMN VideoLink varchar(255) null;
+
+update   coursetype set VideoLink="https://www.youtube.com/embed/k1XkZ5ANO64" where Id=1;
+
+
 ALTER TABLE user MODIFY COLUMN sum  as (Raitung1 + Raitung2+ Raitung3+Task1+Task2+Task3);
 
 --ALTER TABLE user ADD DEFAULT 6 FOR Task3;

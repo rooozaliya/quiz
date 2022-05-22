@@ -30,7 +30,7 @@
                     <li class="space"><a href="${pageContext.request.contextPath}/login">Вход</a></li>
                     <li ><a href="${pageContext.request.contextPath}/register">Регистрация</a></li>
                 </c:when>
-                <c:when test="${username=='rainurl@mail.ru'}">
+                <c:when test="${username=='rooozaliya@mail.ru'}">
                     <li><a href="${pageContext.request.contextPath}"> Баллы: ${ball}</a></li>
                     <li><a href="${pageContext.request.contextPath}/course">Курсы</a></li>
                     <li><a href="${pageContext.request.contextPath}/feedback">Обратная связь</a></li>

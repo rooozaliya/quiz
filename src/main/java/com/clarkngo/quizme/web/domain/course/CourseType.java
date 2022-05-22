@@ -13,6 +13,7 @@ public class CourseType {
     private String theory;
     private String ImageUrl;
     private String Image;
+    private String Link;
     private List<Question> questions;
     private String questionsJson;
     private Feedback feedback;
@@ -96,5 +97,13 @@ public class CourseType {
                 ", questions=" + questions +
                 ", feedback=" + feedback +
                 '}';
+    }
+
+    public String getLink() {
+        return Link;
+    }
+
+    public void setLink(String link) {
+        Link = link;
     }
 }

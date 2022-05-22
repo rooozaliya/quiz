@@ -60,6 +60,7 @@ public class CourseHomeServlet extends HttpServlet {
         System.out.println(req.getParameter("courseTypeId"+"str36"));
         System.out.println(req.getParameter("page"+"str37"));
         System.out.println(req.getParameter("questionId"+"str38"));
+        req.getRequestDispatcher("/course-page").forward(req, res);
 
     }
 }

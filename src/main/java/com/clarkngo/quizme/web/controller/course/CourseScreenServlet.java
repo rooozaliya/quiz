@@ -26,6 +26,7 @@ public class CourseScreenServlet extends HttpServlet {
         CourseTypeDao dao = new CourseTypeDao();
         CourseType course = dao.getCourseType(id);
         String descrTheory= course.getTheory();
+        String link= course.getLink();
         session.setAttribute("listTheories", descrTheory);
         session.setAttribute("courseTypeId", id);
         PrintWriter writer = res.getWriter();

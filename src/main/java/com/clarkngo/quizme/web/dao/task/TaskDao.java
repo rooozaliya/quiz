@@ -71,4 +71,20 @@ public class TaskDao {
         }
     }
 
+    public void addTheory( String theory, String description) {
+        try {
+
+            this.conn = ds.getConnection();
+            ps = conn.prepareStatement("INSERT into coursetype (Name, Description) VALUES (?, ?)");
+            ps.setString(1, theory);
+            ps.setString(2, description);
+            ps.executeUpdate();
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+
+        }
+    }
+
 }
