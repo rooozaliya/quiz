@@ -84,7 +84,8 @@ public class UserDao {
     public void addUser(String name, String username, String password) {
         try {
             this.conn = ds.getConnection();
-            ps = conn.prepareStatement("INSERT INTO user (Name, Email, Password) VALUES (?,?,?)");
+            ps = conn.prepareStatement("INSERT INTO user (Name, Email, Password, Task1, Task2, Task3, Raitung1,Raitung2,Raitung3) VALUES (?,?,?,0,0,0,0,0,0x`)");
+
             ps.setString(1, name);
             ps.setString(2, username);
             ps.setString(3, password);

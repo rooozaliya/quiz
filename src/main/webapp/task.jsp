@@ -23,7 +23,7 @@
         .res-header { border-bottom:1px solid #ccc; margin-bottom:15px; padding-bottom:15px; }
         .test {margin-top: 30px; margin-left: 100px;}
         .task {margin-top: 30px; margin-left: 100px;}
-        .gray{color:green;}
+        .gray{color:white; background:gray;}
     </style>
 </head>
 <body>
@@ -56,11 +56,9 @@
                                                           <button type="submit" class="btn btn-primary btn-block">Приступить к задаче</button>
                                                        </c:when>
                                                        <c:otherwise>
-                                                          <button class="btn  gray">Нужно больше баллов</button>
+                                                          <div class="btn  gray">Нужно больше баллов</div>
                                                        </c:otherwise>
                                                     </c:choose>
-
-
                                                 <div class="form-group">
                                                 </div>
                                               </form>

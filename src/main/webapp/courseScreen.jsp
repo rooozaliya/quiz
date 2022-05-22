@@ -24,6 +24,7 @@
         .res-header { border-bottom:1px solid #ccc; margin-bottom:15px; padding-bottom:15px; }
         .test {margin-top: 30px; margin-left: 100px;}
         .task {margin-top: 30px; margin-left: 100px;}
+        .gray{color:white; background:gray;}
     </style>
 </head>
 <body>
@@ -42,21 +43,13 @@
         </div>
         <h2>Проверь свои знания. Пройди тест.</h2>
         <div class="test">
-
-
            <c:forEach var="quizType" items="${quizTypeList}">
-
                           <div class="col-sm-4">
                               <div class="card border-primary mb-3" style="max-width: 25rem;">
-
-
-                                  <img class="card-img-top" src="${pageContext.request.contextPath}/resourses/img/test/course${courseTypeId}/${quizType.getQuizTypeId()}.png" alt="Carddd" width="200px" height="100px">
-
+                                  <img class="card-img-top" src="${pageContext.request.contextPath}/resourses/img/test/course1/1.png" alt="Carddd" width="200px" height="100px">
                                   <div class="card-body">
-
                                       <h4 class="card-title"><c:out value="${quizType.getName()}"/></h4>
                                       <p class="card-text"><c:out value="${quizType.getDescription()}"/></p>
-
                                       <form action="${pageContext.request.contextPath}/quiz" method="GET">
                                           <div class="form-group">
                                               <input type="hidden" class="form-control" name="quizTypeId" value="${quizType.getQuizTypeId()}">
@@ -64,21 +57,18 @@
                                           <div class="form-group">
                                               <input type="hidden" class="form-control" name="page" value="1">
                                           </div>
-
-
-
                                     <c:choose>
-                                        <c:when test="${(sumBall>10 and (sumBall<20 and quizType.getQuizTypeId()<=2))  or quizType.getQuizTypeId()==1}">
+                                        <c:when test="${ball<10 and quizType.getQuizTypeId()==1}">
                                            <button type="submit" class="btn btn-primary btn-block">Приступить к тестированию</button>
                                         </c:when>
-                                        <c:when test="${sumBall<=10  and (quizType.getQuizTypeId()==2  or quizType.getQuizTypeId()==3)}">
-                                            <p>Нужно больше баллов</p>
+                                        <c:when test="${(ball>10 and ball<=20)  and (quizType.getQuizTypeId()==2  or quizType.getQuizTypeId()==1)}">
+                                            <button type="submit" class="btn btn-primary btn-block">Приступить к тестированию</button>
                                          </c:when>
-                                          <c:when test="${sumBall>=20}">
+                                          <c:when test="${ball>=20 and quizType.getQuizTypeId()>=1 }">
                                                <button type="submit" class="btn btn-primary btn-block">Приступить к тестированию</button>
                                           </c:when>
                                           <c:otherwise>
-                                          <p>Нужно больше баллов</p>
+                                           <div class="btn  gray">Нужно больше баллов</div>
                                           </c:otherwise>
                                     </c:choose>
 

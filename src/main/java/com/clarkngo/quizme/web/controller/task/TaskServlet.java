@@ -22,6 +22,7 @@ import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.List;
 
 @WebServlet(name = "TaskServlet", value = "/task-home")
@@ -31,8 +32,7 @@ public class TaskServlet extends HttpServlet {
     public void init() {
         this.taskDao = new TaskDao();
     }
-    int[] ballArray = new int[10];
-    int ball=0;
+    int[][] allBallArray = new int[50][50];
 
     @Override
 //заполняем типа
@@ -78,26 +78,29 @@ public class TaskServlet extends HttpServlet {
 
 
         if(taskDao.checkAnswer1(TaskId, tasky)){
-            ball=ball+2;
-            ballArray[TaskId]=2;
+            allBallArray[id][TaskId]=2;
             writer.println(
                     "<div class='content'><h1> Верно</h1></div>"
             );
         }
         else{
-            ball=ball+0;
             writer.println(
                     "<h2>Неверно</h2></h2>"
             );
         }
-        int sum=0;
-        for (int i = 0; i < 10; i++) {
-            sum=sum+ballArray[i];
+
+        int sum1=0;
+        for (int i = id; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                sum1 = sum1 + allBallArray[i][j];
+            }
         }
-        System.out.println(sum+" Всего баллов из массива");
+
+        Arrays.stream(allBallArray).map(Arrays::toString).forEach(System.out::println);
+        System.out.println(sum1+" Всего баллов из МАССИВА");
         UserDao dao = new UserDao();
         System.out.println("Номер ТИПА задачи: "+id);
-        dao.addBall(username, sum, id);
+        dao.addBall(username, sum1, id);
         UserDao qq = new UserDao();
         int sumBall = qq.allResult(username).getResult();
 
