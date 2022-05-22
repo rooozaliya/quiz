@@ -23,36 +23,54 @@
         .res-header { border-bottom:1px solid #ccc; margin-bottom:15px; padding-bottom:15px; }
         .test {margin-top: 30px; margin-left: 100px;}
         .task {margin-top: 30px; margin-left: 100px;}
+        .gray{color:green;}
     </style>
 </head>
 <body>
 <jsp:include page="nav.jsp" flush="true" />
 <div class="content">
-  <c:forEach var="taskType" items="${taskAllList}">
-    <h4 class="card-title"><c:out value="${taskType.getName()}"/></h4>
-    <p class="card-text"><c:out value="${taskType.getDescription()}"/></p>
-     <p class="card-text"><c:out value="${taskType.getTask()}"/></p>
-      <form action="${pageContext.request.contextPath}/task-home" method="POST">
-<input type="text" class="form-control" id="tasky" name="tasky" placeholder="Задача" value="${taskType.getAnswer()}">
-  <button type="submit" class="btn btn-primary btn-block">Проверить</button>
-</form>
-</c:forEach>
+ <h2>Реши задачи.</h2>
+                <div class="task">
+                   <c:forEach var="taskType" items="${taskTypeList}">
+                                  <div class="col-sm-4">
+                                      <div class="card border-primary mb-3" style="max-width: 25rem;">
+                                          <img class="card-img-top" src="${pageContext.request.contextPath}/resourses/img/course/task.jpg" alt="Carddd" width="200px" height="150px">
+                                          <div class="card-body">
+                                              <h4 class="card-title"><c:out value="${taskType.getName()}"/></h4>
+                                              <p class="card-text"><c:out value="${taskType.getDescription()}"/></p>
+                                              <form action="${pageContext.request.contextPath}/task-home" method="GET">
+                                                  <div class="form-group">
+                                                      <input type="hidden" class="form-control" name="taskTypeId" value="${taskType.getTaskTypeId()}">
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <input type="hidden" class="form-control" name="page" value="1">
+                                                  </div>
+                                                    <c:choose>
+                                                       <c:when test="${ball<10 and  taskType.getTaskTypeId()==1}">
+                                                          <button type="submit" class="btn btn-primary btn-block">Приступить к задаче</button>
+                                                       </c:when>
+                                                       <c:when test="${(ball>10 and ball<=20) and (taskType.getTaskTypeId()==2 or taskType.getTaskTypeId()==1) }">
+                                                          <button type="submit" class="btn btn-primary btn-block">Приступить к задаче</button>
+                                                       </c:when>
+                                                       <c:when test="${ball>=20 and taskType.getTaskTypeId()>=1 }">
+                                                          <button type="submit" class="btn btn-primary btn-block">Приступить к задаче</button>
+                                                       </c:when>
+                                                       <c:otherwise>
+                                                          <button class="btn  gray">Нужно больше баллов</button>
+                                                       </c:otherwise>
+                                                    </c:choose>
 
 
-                      <c:forEach var="taskType" items="${taskAllList}">
-                        <h4 class="card-title"><c:out value="${taskType.getTask()}"/></h4>
+                                                <div class="form-group">
+                                                </div>
+                                              </form>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </c:forEach>
+                </div>
 
-                        <h4 class="card-title" id="" name="TaskId"><c:out value="${taskType.getTaskId()}"/></h4>
 
-                        <form action="${pageContext.request.contextPath}/task-home" method="POST" class="tasking">
-                         <input type="" class="card-title" id="TaskId" name="TaskId" value="${taskType.getTaskId()}"/>
-                         <input type="text" class="form-control" id="tasky" name="tasky" value="${taskType.getAnswer()}" placeholder="Ответ">
-                        <button type="submit" class="btn btn-primary btn-block">Проверить</button>
-                         </form>
-                        <div class="form-group">
-                           <input type="" class="form-control" name="tasksTypeId" value="${taskType.getTaskId()}">
-                        </div>
-                      </c:forEach>
 
 
 

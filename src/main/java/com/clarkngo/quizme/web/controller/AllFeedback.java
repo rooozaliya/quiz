@@ -29,8 +29,8 @@ public class AllFeedback extends HttpServlet {
         FeedbackDao dao = new FeedbackDao();
         List<Feedback> listFeedback = dao.showFeedback();
         session.setAttribute("listFeedback", listFeedback);
-        req.getRequestDispatcher("/chat.jsp").forward(req, res);
-        req.getRequestDispatcher("/chat.jsp").include(req, res);
+        req.getRequestDispatcher("/allFeedback.jsp").forward(req, res);
+        req.getRequestDispatcher("/allFeedback.jsp").include(req, res);
 
     }
 

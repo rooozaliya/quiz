@@ -96,6 +96,7 @@
             </div>
         </div>
 
+<!--
          <h2>Реши задачи.</h2>
                 <div class="task">
                    <c:forEach var="taskType" items="${taskTypeList}">
@@ -136,6 +137,8 @@
                                   </div>
                               </c:forEach>
                 </div>
+
+             -->
     </div>
 </div>
 </body>

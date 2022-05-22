@@ -41,22 +41,13 @@ public class AdminServlet extends HttpServlet {
         UserDao dao = new UserDao();
         List<User> listUser1 = dao.listAllUsers();
 
-//        String usernam = (String)oldSession.getAttribute("username");
-//        userDao.allResult( usernam);
-
-        req.getRequestDispatcher("/admin.jsp").forward(req, res);
-        req.getRequestDispatcher("/admin.jsp").include(req, res);
+      //      req.getRequestDispatcher("/admin.jsp").include(req, res);
 
         if (oldSession == null) {
             res.sendRedirect("/error");
         } else {
             String username = (String) oldSession.getAttribute("username");
-            if (username.equals("rainurl@mail.ru")) {
-                writer.print(
-                        "<h1>Админ</h1>"
-
-                );
-                writer.close();
+            if (username.equals("s@s.com")) {
                 session.setAttribute("listUser", listUser1);
 
             } else if (oldSession != null) {
@@ -64,9 +55,17 @@ public class AdminServlet extends HttpServlet {
                 res.sendRedirect(path);
             }
         }
+        req.getRequestDispatcher("/admin.jsp").forward(req, res);
 
 
 
+    }
+
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        res.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding("UTF-8");
+        res.setContentType("text/html");
+        res.sendRedirect(req.getContextPath() + "/admin-form");
     }
 }
 

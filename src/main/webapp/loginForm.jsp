@@ -14,10 +14,10 @@
     <form action="${pageContext.request.contextPath}/login" method="POST">
         <h2 class="text-center">Авторизация</h2>
         <div class="form-group">
-            <input type="text" class="form-control" name="username" placeholder="Email" required="required" value="rooozaliya@mail.ru">
+            <input type="text" class="form-control" name="username" placeholder="Email" required="required" value="s@s.com">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Password" required="required" value=111>
+            <input type="password" class="form-control" name="password" placeholder="Password" required="required" value=1234>
         </div>
           <div class="form-group">
                     <input type="hidden" class="form-control" name="namer" placeholder="name" >

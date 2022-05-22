@@ -29,7 +29,7 @@
 </head>
 
 <body>
-<div class="naving"><jsp:include page="nav.jsp" flush="true" /></div>
+<jsp:include page="nav.jsp" flush="true" />
     <div id="wrapper">
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">

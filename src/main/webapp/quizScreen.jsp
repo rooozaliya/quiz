@@ -31,50 +31,32 @@
 <div class="header bg-primary">
     <div class="left-title">JS Quiz</div>
     <div class="right-title">Total Questions: <span id="tque"></span></div>
-
-
-     <div class="center-title"> Result: <span type="text" id="score"></span>
-
-     </div>
+    <div class="center-title"> Result: <span type="text" id="score"></span></div>
     <div class="clearfix"></div>
 </div>
 <jsp:include page="nav.jsp" />
-
-
     <div class="container-fluid">
-
         <div class="row">
             <div class="col-sm-12">
                 <div id="result" class="quiz-body">
-
                     <form id="sampleForm" name="sampleForm" action="${pageContext.request.contextPath}/quiz" method="POST">
-
-
                         <fieldset class="form-group">
-
                             <button  name="previous" id="previous" class="btn btn-success">Предыдущий</button>
                             &nbsp;
                             <button  name="next" id="next" class="btn btn-success">Следующий</button>
                             <h4><span id="qid">1.</span> <span id="question"></span></h4>
-
-                            <div class="option-block-container" id="question-options">
-
+                             <div class="option-block-container" id="question-options">
                             </div>
                         </fieldset>
                           <form action="${pageContext.request.contextPath}/quiz-screen" method="POST">
-                                                                                      <div class="form-group">
-                                                                                          <input type="hidden" class="form-control" name="quizTypeId" id="quizTypeId" value="${quizTypeId}">
-                                                                                      </div>
-
-
-                                                                               </form>
+                             <div class="form-group">
+                                 <input type="hidden" class="form-control" name="quizTypeId" id="quizTypeId" value="${quizTypeId}">
+                             </div>
+                          </form>
 
                     </form>
-
-
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -91,7 +73,7 @@
 
         $.ajax({
             type: "GET",
-            url: "http://localhost:8080/jq/quizjson?quizTypeId=1",
+            url: "${pageContext.request.contextPath}/quizjson?quizTypeId=1",
             dataType: 'html',
             success: function(data) {
                 quiz = { "JS" : [JSON.parse(data)] }
@@ -147,8 +129,8 @@
                         $("#score").html( scr );
                        
 
-                        $("#result").html("<h1 class='res-header' id='ro'>Total Score: &nbsp;" + scr  + '/' + totalque + "</h1>");
-                        $("#result").append('<h3><a href="http://localhost:8080/jq/feedback-form">Give a Feedback</a></h3>');
+                        $("#result").html("<h1 class='res-header' id='ro'>Всего баллов: &nbsp;" + scr  + '/' + totalque + "</h1>");
+                        $("#result").append('<h3><a href="${pageContext.request.contextPath}/feedback">Оставить отзыв о курсе</a></h3>');
                         $("#result").append('<br>');
 
 
@@ -160,10 +142,10 @@
                                     res = '<span class="correct">' + quiz.JS[0][j].score + '</span><i class="fa fa-check c-correct"></i>';
                                 }
                                 $("#result").append(
-                                '<div class="result-question"><span>Q ' + quiz.JS[0][j].id + '</span> &nbsp;' + quiz.JS[0][j].question + '</div>' +
-                                '<div><b>Selected answer:</b> &nbsp;' + quiz.JS[0][j].selected + '</div>' +
-                                '<div><b>Correct answer:</b> &nbsp;' + quiz.JS[0][j].answer + '</div>' +
-                                '<div class="last-row"><b>Score:</b> &nbsp;' + res +
+                                '<div class="result-question"><span>Вопрос: ' + quiz.JS[0][j].id + '</span> &nbsp;' + quiz.JS[0][j].question + '</div>' +
+                                '<div><b>Выбранный ответ:</b> &nbsp;' + quiz.JS[0][j].selected + '</div>' +
+                                '<div><b>Правильный ответ:</b> &nbsp;' + quiz.JS[0][j].answer + '</div>' +
+                                '<div class="last-row"><b>Количество баллов:</b> &nbsp;' + res +
                                 '</div>'
                             );
                             console.log(quiz.JS[0][j].questionId);
@@ -175,7 +157,7 @@
                         }
                            $.ajax({
                                                 type: "post",
-                                                url: "http://localhost:8080/jq/quiz-screen",
+                                                url: "${pageContext.request.contextPath}/quiz-screen",
                                                 data: {scr:scr,
                                                 quizTypeId: quizTypeId
                                                 },
