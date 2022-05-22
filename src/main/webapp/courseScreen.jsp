@@ -61,7 +61,7 @@
                                         <c:when test="${ball<10 and quizType.getQuizTypeId()==1}">
                                            <button type="submit" class="btn btn-primary btn-block">Приступить к тестированию</button>
                                         </c:when>
-                                        <c:when test="${(ball>10 and ball<=20)  and (quizType.getQuizTypeId()==2  or quizType.getQuizTypeId()==1)}">
+                                        <c:when test="${(ball>=10 and ball<=20)  and (quizType.getQuizTypeId()==2  or quizType.getQuizTypeId()==1)}">
                                             <button type="submit" class="btn btn-primary btn-block">Приступить к тестированию</button>
                                          </c:when>
                                           <c:when test="${ball>=20 and quizType.getQuizTypeId()>=1 }">

@@ -26,6 +26,11 @@ public class TaskHomeServlet extends HttpServlet {
 
         TaskTypeDao dao = new TaskTypeDao();
         List<TaskType> qtList = dao.getTaskTypes();
+        HttpSession oldSession = req.getSession(false);
+        String username = (String)oldSession.getAttribute("username");
+        UserDao qq = new UserDao();
+        int ball = qq.allResult(username).getResult();
+        oldSession.setAttribute("ball", ball);
 
 //        CourseType course = dao.getCourseType(2);
 //        session.setAttribute("courseType", course);

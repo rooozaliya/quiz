@@ -26,6 +26,8 @@ public class TaskPageServlet extends HttpServlet {
         UserDao qq = new UserDao();
         String name = qq.oneUser1(username).getName();
         oldSession.setAttribute("name", name);
+        int ball = qq.allResult(username).getResult();
+        oldSession.setAttribute("ball", ball);
         if(username == null) {
             String path = req.getContextPath() + "/error";
             response.sendRedirect(path);

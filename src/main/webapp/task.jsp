@@ -49,7 +49,7 @@
                                                        <c:when test="${ball<10 and  taskType.getTaskTypeId()==1}">
                                                           <button type="submit" class="btn btn-primary btn-block">Приступить к задаче</button>
                                                        </c:when>
-                                                       <c:when test="${(ball>10 and ball<=20) and (taskType.getTaskTypeId()==2 or taskType.getTaskTypeId()==1) }">
+                                                       <c:when test="${(ball>=10 and ball<=20) and (taskType.getTaskTypeId()==2 or taskType.getTaskTypeId()==1) }">
                                                           <button type="submit" class="btn btn-primary btn-block">Приступить к задаче</button>
                                                        </c:when>
                                                        <c:when test="${ball>=20 and taskType.getTaskTypeId()>=1 }">

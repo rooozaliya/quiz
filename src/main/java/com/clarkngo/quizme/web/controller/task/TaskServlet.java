@@ -90,11 +90,11 @@ public class TaskServlet extends HttpServlet {
         }
 
         int sum1=0;
-        for (int i = id; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                sum1 = sum1 + allBallArray[i][j];
+      //  for (int i = id; i < 50; i++) {
+            for (int j = 0; j < 50; j++) {
+                sum1 = sum1 + allBallArray[id][j];
             }
-        }
+      //  }
 
         Arrays.stream(allBallArray).map(Arrays::toString).forEach(System.out::println);
         System.out.println(sum1+" Всего баллов из МАССИВА");

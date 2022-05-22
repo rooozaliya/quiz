@@ -35,6 +35,11 @@ public class TaskScreenServlet extends HttpServlet {
         TaskType task = dao.getTaskType(id);
         String taskA= task.getTask(); //столбец таск из таблицы тасктайп хз зачем щас нужен
         List<TaskType> qtList1 = dao.getAllTask(id);
+        HttpSession oldSession = req.getSession(false);
+        String username = (String)oldSession.getAttribute("username");
+        UserDao qq = new UserDao();
+        int ball = qq.allResult(username).getResult();
+        oldSession.setAttribute("ball", ball);
         session.setAttribute("taskAllList", qtList1);
         session.setAttribute("task", taskA);
         session.setAttribute("taskTypeId", id);

@@ -1,3 +1,31 @@
+-- -----------------------------------------------------
+-- РЕФАКТОРИНГ БД
+-- -----------------------------------------------------
+DROP TABLE RESULT;
+
+CREATE TABLE `Result` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`Fk_UserId_result` INT NOT NULL,
+	`TestBall` INT NOT NULL,
+	`TaskBall` INT NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+ALTER TABLE `Result` ADD CONSTRAINT `Result_fk0` FOREIGN KEY (`Fk_UserId_result`) REFERENCES `User`(`id`);
+
+INSERT INTO Result (Fk_UserId_result, TestBall, TaskBall)
+VALUES
+	(1,0, 0)
+;
+
+SELECT * FROM USER  INNER JOIN  Result ON  USER.id=Result.Fk_UserId_result;
+
+-- -----------------------------------------------------
+--
+-- -----------------------------------------------------
+
+
+
 ALTER TABLE user ADD COLUMN Task1 int null;
 ALTER TABLE user ADD COLUMN Task2 int null;
 ALTER TABLE user ADD COLUMN Task3 int null;
