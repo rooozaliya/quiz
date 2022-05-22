@@ -27,7 +27,6 @@ public class QuizServlet extends HttpServlet {
         } else {
             session.setAttribute("page", req.getParameter("page"));
             session.setAttribute("questionId", req.getParameter("questionId"));
-            System.out.println(req.getParameter("questionId"));
         }
         req.getRequestDispatcher("/quiz-screen").forward(req,res);
     }

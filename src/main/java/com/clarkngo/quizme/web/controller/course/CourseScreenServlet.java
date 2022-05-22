@@ -29,6 +29,7 @@ public class CourseScreenServlet extends HttpServlet {
         String link= course.getLink();
         session.setAttribute("listTheories", descrTheory);
         session.setAttribute("courseTypeId", id);
+        session.setAttribute("link", link);
         PrintWriter writer = res.getWriter();
         res.setContentType("text/html");
         UserDao qq = new UserDao();

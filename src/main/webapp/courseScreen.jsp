@@ -35,15 +35,12 @@
             <div class="col-sm-12">
                 <div id="result" class="quiz-body">
                     <h2>  ТЕОРИЯ</h2>
-
-                        <p><c:out value="${listTheories}"/></p>
-                        <iframe width="740" height="416" src="https://www.youtube.com/embed/k1XkZ5ANO64" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<iframe width="740" height="416" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <p><c:out value="${listTheories}"/></p>
+                    <iframe width="740" height="416" src="${link}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-
             </div>
         </div>
-         <h2>Проверь свои знания. Пройди тест.</h2>
+        <h2>Проверь свои знания. Пройди тест.</h2>
         <div class="test">
 
 

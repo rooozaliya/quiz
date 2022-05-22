@@ -26,7 +26,6 @@ public class QuizScreenServlet extends HttpServlet {
         HttpSession oldSession = req.getSession(false);
         String username = (String)oldSession.getAttribute("username");
 
-
         PrintWriter writer = res.getWriter();
         res.setContentType("text/html");
         UserDao qq = new UserDao();

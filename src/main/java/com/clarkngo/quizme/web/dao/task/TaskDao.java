@@ -22,17 +22,17 @@ public class TaskDao {
     }
 
     private PreparedStatement ps;
-    public Task getTask(int id) {
-        Task task = new Task();
-
-        task.setTaskType(new TaskTypeDao().getTaskType(id));
-        task.setQuestions(new QuestionDao().getTenRandomQuestions(id));
-        for (int i=0; i < task.getQuestions().size(); i++) {
-            int questionId = task.getQuestions().get(i).getQuestionId();
-            task.getQuestions().get(i).setChoices(new ChoiceDao().getChoices(questionId));
-        }
-        return task;
-    }
+//    public Task getTask(int id) {
+//        Task task = new Task();
+//
+//        task.setTaskType(new TaskTypeDao().getTaskType(id));
+//        task.setQuestions(new QuestionDao().getTenRandomQuestions(id));
+//        for (int i=0; i < task.getQuestions().size(); i++) {
+//            int questionId = task.getQuestions().get(i).getQuestionId();
+//            task.getQuestions().get(i).setChoices(new ChoiceDao().getChoices(questionId));
+//        }
+//        return task;
+//    }
 
     public boolean checkAnswer1(int taskId, String answer)
     {
@@ -71,13 +71,15 @@ public class TaskDao {
         }
     }
 
-    public void addTheory( String theory, String description) {
+    public void addTheory( String name, String description, String theory, String link) {
         try {
 
             this.conn = ds.getConnection();
-            ps = conn.prepareStatement("INSERT into coursetype (Name, Description) VALUES (?, ?)");
-            ps.setString(1, theory);
+            ps = conn.prepareStatement("INSERT into coursetype (Name, Description, Theory, VideoLink) VALUES (?, ?, ?, ?)");
+            ps.setString(1, name);
             ps.setString(2, description);
+            ps.setString(3, theory);
+            ps.setString(4, link);
             ps.executeUpdate();
 
         }

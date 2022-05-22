@@ -28,24 +28,9 @@ public class FeedbackServlet extends HttpServlet {
         int rating = Integer.parseInt(req.getParameter("rating"));
         String description = req.getParameter("description");
         int quizTypeId = Integer.parseInt(req.getParameter("quizTypeId"));
-        System.out.println(rating);
-        System.out.println(description);
-        System.out.println(quizTypeId);
         feedbackDao.addFeedback(quizTypeId, rating, description);
         res.setContentType("text/html");
-        PrintWriter writer = res.getWriter();
-        req.getRequestDispatcher("/chat.jsp").forward(req, res);
-        writer.print(
-                "<div class='container'>" +
-                        "<h2 style='color: green;'>Спасибо, отзыв отправлен</h2>" +
-                        "</div>"
-        );
-        writer.println(String.format("<h2>Оценка: %s, Сообщение: %s</h2>", rating, description));
-
-
-
-        writer.close();
-
+        res.sendRedirect(req.getContextPath() + "/allFeedback");
     }
 
     @Override
@@ -56,9 +41,6 @@ public class FeedbackServlet extends HttpServlet {
         FeedbackDao dao = new FeedbackDao();
         List<Feedback> listFeedback = dao.showFeedback();
         session.setAttribute("listFeedback", listFeedback);
-        System.out.println(listFeedback+"aaaaaaaaa");
         request.getRequestDispatcher("/feedbackForm.jsp").forward(request, response);
-        request.getRequestDispatcher("/feedbackForm.jsp").include(request, response);
-
     }
 }

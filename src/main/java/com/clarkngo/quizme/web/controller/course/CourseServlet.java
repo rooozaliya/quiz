@@ -29,6 +29,7 @@ public class CourseServlet extends HttpServlet {
             String link= course.getLink();
             session.setAttribute("listTheories", descrTheory);
             session.setAttribute("courseTypeId", id);
+            session.setAttribute("link", link);
         } else {
             session.setAttribute("page", req.getParameter("page"));
             session.setAttribute("questionId", req.getParameter("questionId"));

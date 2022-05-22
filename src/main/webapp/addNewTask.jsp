@@ -42,11 +42,20 @@
 
                      <form action="${pageContext.request.contextPath}/add-theory" method="POST" class="tasking">
                        <h2>Теория</h2>
-
+                       <input type="text" class="form-control" id="name" name="name" placeholder="Название">
+                       <input type="text" class="form-control" id="description" name="description" placeholder="description">
                        <input type="text" class="form-control" id="theory" name="theory" placeholder="Теория">
-                        <input type="text" class="form-control" id="description" name="description" placeholder="description">
-
+                        <input type="text" class="form-control" id="link" name="link" placeholder="link">
                        <button type="submit" class="btn btn-primary btn-block">Добавить</button>
+                     </form>
+
+                      <form action="${pageContext.request.contextPath}/add-theory" method="POST" class="tasking">
+                          <h2>Вопросы</h2>
+                          <input type="text" class="form-control" id="" name="name" placeholder="Название">
+                          <input type="text" class="form-control" id="" name="description" placeholder="description">
+                          <input type="text" class="form-control" id="" name="theory" placeholder="Теория">
+                          <input type="text" class="form-control" id="" name="link" placeholder="link">
+                          <button type="submit" class="btn btn-primary btn-block">Добавить</button>
                       </form>
     </div>
 </div>

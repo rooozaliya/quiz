@@ -5,7 +5,7 @@ ALTER TABLE user ADD COLUMN Task3 int null;
 ALTER TABLE coursetype ADD COLUMN VideoLink varchar(255) null;
 
 update   coursetype set VideoLink="https://www.youtube.com/embed/k1XkZ5ANO64" where Id=1;
-
+"https://www.youtube.com/embed/_J-3nt9bhbI"
 
 ALTER TABLE user MODIFY COLUMN sum  as (Raitung1 + Raitung2+ Raitung3+Task1+Task2+Task3);
 

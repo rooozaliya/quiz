@@ -4,6 +4,7 @@ import com.clarkngo.quizme.web.dao.ChatDao;
 import com.clarkngo.quizme.web.dao.FeedbackDao;
 import com.clarkngo.quizme.web.dao.UserDao;
 import com.clarkngo.quizme.web.domain.Chat;
+import com.clarkngo.quizme.web.domain.Feedback;
 import com.clarkngo.quizme.web.domain.User;
 
 import javax.servlet.*;
@@ -13,8 +14,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(name = "ChatServlet", value = "/chat")
-public class ChatServlet extends HttpServlet {
+@WebServlet(name = "AllFeedback", value = "/allFeedback")
+public class AllFeedback extends HttpServlet {
 
     private ChatDao chatDao1;
 
@@ -22,16 +23,12 @@ public class ChatServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        HttpSession session = req.getSession(true);
-       // req.getRequestDispatcher("/chat.jsp").forward(req,res);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
-
-        ChatDao dao = new ChatDao();
-        List<Chat> listChat1 = dao.showChat();
-        session.setAttribute("listChats", listChat1);
-
-        System.out.println(listChat1+"aaaaaaaaa");
+        HttpSession session = req.getSession(true);
+        FeedbackDao dao = new FeedbackDao();
+        List<Feedback> listFeedback = dao.showFeedback();
+        session.setAttribute("listFeedback", listFeedback);
         req.getRequestDispatcher("/chat.jsp").forward(req, res);
         req.getRequestDispatcher("/chat.jsp").include(req, res);
 
@@ -39,16 +36,9 @@ public class ChatServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-
-
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
-        String description = req.getParameter("description");
-        int userId = Integer.parseInt(req.getParameter("userId"));
-//        System.out.println(description);
-//        System.out.println(userId);
-        chatDao1.addChat(userId, description);
-        req.getRequestDispatcher("/chat.jsp").forward(req,res);
+        req.getRequestDispatcher("/allFeedback.jsp").forward(req,res);
 
     }
 }

@@ -1,4 +1,4 @@
-<!-- ЭТО СТРАНИЦА ОТОБРАЖЕНИЯ ВОПРОСОВ новый комментарий-->
+<!-- !!ЭТО СТРАНИЦА ОТОБРАЖЕНИЯ ВОПРОСОВ новый комментарий-->
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="com.clarkngo.quizme.web.domain.quiz.QuizType" %>
