@@ -21,7 +21,7 @@
 
                         <div class="card-body">
                             <h4 class="card-title"><c:out value="${courseType.getName()}"/></h4>
-                            <p class="card-text"><c:out value="${courseType.getDescription()}"/></p>
+
                             <form action="${pageContext.request.contextPath}/course-home" method="GET">
                                 <div class="form-group">
                                     <input type="hidden" class="form-control" name="courseTypeId" value="${courseType.getCourseTypeId()}">

@@ -14,7 +14,7 @@
         .header {padding:15px; position:fixed; top:0; width:100%; z-index:9999; }
         .left-title { width:80px; color:#FFF; font-size:18px; float:left; }
         .right-title { width:150px; text-align:right; float:right; color:#FFF;  }
-         .center-title { width:150px; text-align:center; float:right; color:#FFF;  }
+        .center-title { width:150px; text-align:center; float:right; color:#FFF;  }
         .quiz-body { margin-top:15px; padding-bottom:50px; }
         .option-block-container { margin-top:20px; max-width:420px; }
         .option-block { padding:10px; background:aliceblue; border:1px solid #84c5fe; margin-bottom:10px; cursor:pointer; }
@@ -28,13 +28,13 @@
 <body>
 
 <div class="content">
-<div class="header bg-primary">
-    <div class="left-title">JS Quiz</div>
-    <div class="right-title">Total Questions: <span id="tque"></span></div>
-    <div class="center-title"> Result: <span type="text" id="score"></span></div>
-    <div class="clearfix"></div>
-</div>
-<jsp:include page="nav.jsp" />
+    <div class="header bg-primary">
+        <div class="left-title">JS Quiz</div>
+        <div class="right-title">Total Questions: <span id="tque"></span></div>
+        <div class="center-title"> Result: <span type="text" id="score"></span></div>
+        <div class="clearfix"></div>
+    </div>
+    <jsp:include page="nav.jsp" />
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -45,14 +45,14 @@
                             &nbsp;
                             <button  name="next" id="next" class="btn btn-success">Следующий</button>
                             <h4><span id="qid">1.</span> <span id="question"></span></h4>
-                             <div class="option-block-container" id="question-options">
+                            <div class="option-block-container" id="question-options">
                             </div>
                         </fieldset>
-                          <form action="${pageContext.request.contextPath}/quiz-screen" method="POST">
-                             <div class="form-group">
-                                 <input type="hidden" class="form-control" name="quizTypeId" id="quizTypeId" value="${quizTypeId}">
-                             </div>
-                          </form>
+                        <form action="${pageContext.request.contextPath}/quiz-screen" method="POST">
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" name="quizTypeId" id="quizTypeId" value="${quizTypeId}">
+                            </div>
+                        </form>
 
                     </form>
                 </div>
@@ -127,7 +127,7 @@
                     this.showResult = function(scr) {
                         $("#result").addClass('result');
                         $("#score").html( scr );
-                       
+
 
                         $("#result").html("<h1 class='res-header' id='ro'>Всего баллов: &nbsp;" + scr  + '/' + totalque + "</h1>");
                         $("#result").append('<h3><a href="${pageContext.request.contextPath}/feedback">Оставить отзыв о курсе</a></h3>');
@@ -137,11 +137,11 @@
                         for(var j = 0; j < totalque; j++) {
                             var res;
                             if(quiz.JS[0][j].score == 0) {
-                                    res = '<span class="wrong">' + quiz.JS[0][j].score + '</span><i class="fa fa-remove c-wrong"></i>';
-                                } else {
-                                    res = '<span class="correct">' + quiz.JS[0][j].score + '</span><i class="fa fa-check c-correct"></i>';
-                                }
-                                $("#result").append(
+                                res = '<span class="wrong">' + quiz.JS[0][j].score + '</span><i class="fa fa-remove c-wrong"></i>';
+                            } else {
+                                res = '<span class="correct">' + quiz.JS[0][j].score + '</span><i class="fa fa-check c-correct"></i>';
+                            }
+                            $("#result").append(
                                 '<div class="result-question"><span>Вопрос: ' + quiz.JS[0][j].id + '</span> &nbsp;' + quiz.JS[0][j].question + '</div>' +
                                 '<div><b>Выбранный ответ:</b> &nbsp;' + quiz.JS[0][j].selected + '</div>' +
                                 '<div><b>Правильный ответ:</b> &nbsp;' + quiz.JS[0][j].answer + '</div>' +
@@ -155,17 +155,17 @@
                             console.log(quiz.JS[0][j].score);
 
                         }
-                           $.ajax({
-                                                type: "post",
-                                                url: "${pageContext.request.contextPath}/quiz-screen",
-                                                data: {scr:scr,
-                                                quizTypeId: quizTypeId
-                                                },
-                                                contentType: "application/x-www-form-urlencoded; charset=UTF-8;",
+                        $.ajax({
+                            type: "post",
+                            url: "${pageContext.request.contextPath}/quiz-screen",
+                            data: {scr:scr,
+                                quizTypeId: quizTypeId
+                            },
+                            contentType: "application/x-www-form-urlencoded; charset=UTF-8;",
 
-                                                success: console.log( ),
-                                                error: console.log( )
-                                    });
+                            success: console.log( ),
+                            error: console.log( )
+                        });
                     }
 
                     this.checkAnswer = function(option) {
@@ -253,4 +253,3 @@
 
     }
 </script>
-

@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `quizdb`.`feedback` (
   `Id` INT NOT NULL AUTO_INCREMENT,
   `Fk_QuizTypeId_Feedback` INT NULL,
   `Rating` INT NULL,
-  `Description` VARCHAR(45) NULL,
+  `Description` VARCHAR(250) NULL,
   PRIMARY KEY (`Id`),
   INDEX `QuizTypeId_idx` (`Fk_QuizTypeId_Feedback` ASC) VISIBLE,
   CONSTRAINT `Fk_QuizTypeId_Feedback`

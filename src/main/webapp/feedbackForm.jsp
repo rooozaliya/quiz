@@ -103,7 +103,8 @@
         <br>
         <br>
         <h3>Ваш комментарий:</h3>
-        <textarea id="description" name="description" placeholder="Напишите что-нибудь.." required style="height:200px"></textarea>
+        <textarea id="description" name="description" placeholder="Напишите что-нибудь.." style="height:200px"></textarea>
+
         <input type="submit" value="Отправить">
 
     </form>
