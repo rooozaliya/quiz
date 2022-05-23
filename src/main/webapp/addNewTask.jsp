@@ -13,7 +13,7 @@
         .header {padding:15px; position:fixed; top:0; width:100%; z-index:9999; }
         .left-title { width:80px; color:#FFF; font-size:18px; float:left; }
         .right-title { width:150px; text-align:right; float:right; color:#FFF;  }
-        .quiz-body { margin-top:15px; padding-bottom:50px; max-width:420px;  float:center;}
+        .quiz-body { margin-top:15px; padding-bottom:50px; max-width:700px;  float:center;}
         .option-block-container { margin-top:20px; max-width:420px; }
         .option-block { padding:10px; background:aliceblue; border:1px solid #84c5fe; margin-bottom:10px; cursor:pointer; }
         .result-question { font-weight:bold; }
@@ -49,12 +49,20 @@
                        <button type="submit" class="btn btn-primary btn-block">Добавить</button>
                      </form>
 
-                      <form action="${pageContext.request.contextPath}/add-theory" method="POST" class="tasking">
+                      <form action="${pageContext.request.contextPath}/add-question" method="POST" class="tasking">
                           <h2>Вопросы</h2>
-                          <input type="text" class="form-control" id="" name="name" placeholder="Название">
-                          <input type="text" class="form-control" id="" name="description" placeholder="description">
-                          <input type="text" class="form-control" id="" name="theory" placeholder="Теория">
-                          <input type="text" class="form-control" id="" name="link" placeholder="link">
+                          <input type="text" class="form-control" id="" name="question" placeholder="Вопрос">
+                          <input type="text" class="form-control" id="" name="right_answer" placeholder="Правильный ответ"> <br>
+                          <h3>Введите остальные варианты ответов</h3>
+                          <p>1.</p>
+                          <input type="text" class="form-control" id="" name="answer_1" placeholder="1">
+                          <p>2.</p>
+                          <input type="text" class="form-control" id="" name="answer_2" placeholder="2">
+                          <p>3.</p>
+                          <input type="text" class="form-control" id="" name="answer_3" placeholder="3">
+
+                          <p>Для какого теста нужно добавить вопрос? Введите цифру</p>
+                          <input type="text" class="form-control" id="" name="testId" placeholder="Номер теста">
                           <button type="submit" class="btn btn-primary btn-block">Добавить</button>
                       </form>
     </div>

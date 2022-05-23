@@ -9,6 +9,7 @@ public class Task {
     private TaskType taskType;
     private List<Question> questions;
     private String questionsJson;
+    private int queID;
 
     public String getQuestionsJson() {
         return questionsJson;
@@ -40,5 +41,13 @@ public class Task {
                 "taskType=" + taskType +
                 ", questions=" + questions +
                 '}';
+    }
+
+    public int getQueID() {
+        return queID;
+    }
+
+    public void setQueID(int queID) {
+        this.queID = queID;
     }
 }

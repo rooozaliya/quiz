@@ -16,7 +16,7 @@
         <h2 class="text-center">Похоже, вы не авторизованы :( </h2>
     </form>
     <p class="text-center"><a href="${pageContext.request.contextPath}/login">Войти!</a></p>
-    <p class="text-center"><a href="${pageContext.request.contextPath}/register-form">Нет аккаунта? Создай его!</a></p>
+    <p class="text-center"><a href="${pageContext.request.contextPath}/register">Нет аккаунта? Создай его!</a></p>
 </div>
 </body>
 </html>

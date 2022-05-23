@@ -89,4 +89,67 @@ public class TaskDao {
         }
     }
 
+    public void addQuestion(int testId, String question) {
+        try {
+
+            this.conn = ds.getConnection();
+            ps = conn.prepareStatement("INSERT into question (Fk_QuizTypeId_Question, Description) VALUES (?, ?)");
+            ps.setInt(1, testId);
+            ps.setString(2, question);
+            ps.executeUpdate();
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Task getQueID(String question) {
+        Task task = new Task();
+        try {
+
+            this.conn = ds.getConnection();
+            ps = conn.prepareStatement("SELECT * FROM question WHERE Description=?");
+            ps.setString(1, question);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                task.setQueID(rs.getInt("Id"));
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return task;
+    }
+
+    public void addAnswerForQue(int questionId,  String all_answer) {
+        try {
+            this.conn = ds.getConnection();
+            ps = conn.prepareStatement("INSERT into choice (Fk_QuestionId_Choice, Description, IsAnswer) VALUES (?, ?, 0)");
+            ps.setInt(1, questionId);
+            ps.setString(2, all_answer);
+       //     ps.setString(3, right_answer);
+            ps.executeUpdate();
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+
+        }
+    }
+    public void addTrueAnswerForQue(int questionId,  String right_answer) {
+        try {
+            this.conn = ds.getConnection();
+            ps = conn.prepareStatement("INSERT into choice (Fk_QuestionId_Choice, Description, IsAnswer) VALUES (?, ?, 1)");
+            ps.setInt(1, questionId);
+            ps.setString(2, right_answer);
+            ps.executeUpdate();
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+
+        }
+    }
+
 }
