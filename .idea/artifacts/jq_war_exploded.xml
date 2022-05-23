@@ -61,7 +61,6 @@
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.3.10.Final" />
           <element id="library" level="project" name="Maven: javax.persistence:javax.persistence-api:2.2" />
           <element id="library" level="project" name="Maven: org.javassist:javassist:3.23.2-GA" />
-          <element id="library" level="project" name="Maven: net.bytebuddy:byte-buddy:1.9.13" />
           <element id="library" level="project" name="Maven: antlr:antlr:2.7.7" />
           <element id="library" level="project" name="Maven: org.jboss:jandex:2.0.5.Final" />
           <element id="library" level="project" name="Maven: org.dom4j:dom4j:2.1.1" />
@@ -81,6 +80,7 @@
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-devtools:2.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:2.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.1.6.RELEASE" />
+          <element id="library" level="project" name="Maven: net.bytebuddy:byte-buddy:1.9.13" />
         </element>
       </element>
       <element id="directory" name="META-INF">

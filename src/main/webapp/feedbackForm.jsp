@@ -86,7 +86,7 @@
 <jsp:include page="nav.jsp" flush="true" />
 <div class="container">
     <form action="${pageContext.request.contextPath}/feedback" method="POST">
-        <h3>Оцените тест по пятибалльной шкале:</h3>
+        <h3>Оцените по пятибалльной шкале:</h3>
         <div class="rating">
             <input type="radio" id="star5" name="rating" value="5" />
             <label for="star5" title="text">5 звёзд</label>
@@ -103,7 +103,7 @@
         <br>
         <br>
         <h3>Ваш комментарий:</h3>
-        <textarea id="description" name="description" placeholder="Напишите что-нибудь.." style="height:200px"></textarea>
+        <textarea id="description" name="description" placeholder="Напишите что-нибудь.." style="height:200px" required></textarea>
 
         <input type="submit" value="Отправить">
 

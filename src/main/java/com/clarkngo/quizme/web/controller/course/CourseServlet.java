@@ -39,6 +39,6 @@ public class CourseServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        req.getRequestDispatcher("/course-screen").forward(req,res);
+        res.sendRedirect(req.getContextPath() + "/course-screen");
     }
 }

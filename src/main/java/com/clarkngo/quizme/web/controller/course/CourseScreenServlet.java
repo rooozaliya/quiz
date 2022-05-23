@@ -49,4 +49,8 @@ public class CourseScreenServlet extends HttpServlet {
 
         req.getRequestDispatcher("/courseScreen.jsp").forward(req, res);
     }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        res.sendRedirect("/courseScreen.jsp");
+    }
 }

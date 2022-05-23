@@ -1,6 +1,6 @@
 package com.clarkngo.quizme.web.controller.quiz;
 
-import com.clarkngo.quizme.web.dao.QuestionDao;
+import com.clarkngo.quizme.web.dao.question.QuestionDao;
 import com.clarkngo.quizme.web.domain.Question;
 import com.clarkngo.quizme.web.util.JsonConverter;
 

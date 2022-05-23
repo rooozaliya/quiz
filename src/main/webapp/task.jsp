@@ -37,7 +37,6 @@
                                           <img class="card-img-top" src="${pageContext.request.contextPath}/resourses/img/course/task.jpg" alt="Carddd" width="200px" height="150px">
                                           <div class="card-body">
                                               <h4 class="card-title"><c:out value="${taskType.getName()}"/></h4>
-                                              <p class="card-text"><c:out value="${taskType.getDescription()}"/></p>
                                               <form action="${pageContext.request.contextPath}/task-home" method="GET">
                                                   <div class="form-group">
                                                       <input type="hidden" class="form-control" name="taskTypeId" value="${taskType.getTaskTypeId()}">

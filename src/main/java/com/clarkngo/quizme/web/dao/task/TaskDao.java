@@ -1,10 +1,6 @@
 package com.clarkngo.quizme.web.dao.task;
 
 import com.clarkngo.quizme.web.config.MySqlDS;
-import com.clarkngo.quizme.web.dao.ChoiceDao;
-import com.clarkngo.quizme.web.dao.QuestionDao;
-import com.clarkngo.quizme.web.domain.User;
-import com.clarkngo.quizme.web.domain.quiz.Quiz;
 
 import com.clarkngo.quizme.web.domain.task.Task;
 

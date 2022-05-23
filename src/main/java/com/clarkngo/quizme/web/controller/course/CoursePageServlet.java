@@ -46,4 +46,8 @@ public class CoursePageServlet extends HttpServlet {
             req.getRequestDispatcher("/home-page").forward(req, response);
           }
     }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        res.sendRedirect(req.getContextPath() + "/course-screen");
+    }
 }

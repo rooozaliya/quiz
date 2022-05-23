@@ -25,6 +25,7 @@
         .test {margin-top: 30px; margin-left: 100px;}
         .task {margin-top: 30px; margin-left: 100px;}
         .gray{color:white; background:gray;}
+        .theory{width:75%; margin:10px 15%; padding: 5px; font-size: 23px; text-align: center;}
     </style>
 </head>
 <body>
@@ -36,7 +37,7 @@
             <div class="col-sm-12">
                 <div id="result" class="quiz-body">
                     <h2>  ТЕОРИЯ</h2>
-                    <p><c:out value="${listTheories}"/></p>
+                    <div class="theory" > <c:out value="${listTheories}" /></div>
                     <iframe width="740" height="416" src="${link}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
@@ -49,7 +50,6 @@
                                   <img class="card-img-top" src="${pageContext.request.contextPath}/resourses/img/test/course1/1.png" alt="Carddd" width="200px" height="100px">
                                   <div class="card-body">
                                       <h4 class="card-title"><c:out value="${quizType.getName()}"/></h4>
-                                      <p class="card-text"><c:out value="${quizType.getDescription()}"/></p>
                                       <form action="${pageContext.request.contextPath}/quiz" method="GET">
                                           <div class="form-group">
                                               <input type="hidden" class="form-control" name="quizTypeId" value="${quizType.getQuizTypeId()}">

@@ -29,7 +29,7 @@
 
 <div class="content">
     <div class="header bg-primary">
-        <div class="left-title">JS Quiz</div>
+        <div class="left-title"></div>
         <div class="right-title">Total Questions: <span id="tque"></span></div>
         <div class="center-title"> Result: <span type="text" id="score"></span></div>
         <div class="clearfix"></div>

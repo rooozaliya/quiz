@@ -101,8 +101,9 @@ VALUES
 
 
 
+update coursetype set Theory = 'Понятие алгоритма — одно из основных в программировании и информатике[1]. Это последовательность команд, предназначенная исполнителю, в результате выполнения которой он должен решить поставленную задачу. Алгоритм должен описываться на формальном языке, исключающем неоднозначность толкования. Исполнитель может быть человеком или машиной. Исполнитель должен уметь выполнять все команды, составляющие алгоритм. Множество возможных команд конечно и изначально строго задано. Действия, выполняемые по этим командам, называются элементарными.
 
-
+Запись алгоритма на формальном языке называется программой. Иногда само понятие алгоритма отождествляется с его записью, так что слова «алгоритм» и «программа» — почти синонимы. Небольшое различие заключается в том, что под алгоритмом, как правило, понимают основную идею его построения. Программа же всегда связана с записью алгоритма на конкретном формальном языке.' where id= 1;
 
 
 INSERT INTO coursetype (Name, Description)
@@ -110,8 +111,10 @@ VALUES
     ('JSP', 'JavaServer Pages'),
 	('курс 2', 'описание курса 2'),
 	('курс 3', 'описание курса 3');
-update coursetype set Name = 'Рекурсия' where id = 3;
-update coursetype set Description = '' where id = 2;
+
+update quiztype set Name = 'Рекурсия' where id = 3;
+update quiztype set Name = 'Сортировки' where id = 2;
+update quiztype set Name = 'Алгоритмы' where id = 1;
 
 --DROP TABLE COURSETYPE;
 
@@ -164,13 +167,17 @@ ALTER TABLE user  ADD COLUMN Raitung3 int NULL;
 ALTER TABLE quiztype  ADD COLUMN ImageURL VARCHAR(255) NULL;
 --ALTER TABLE quiztype  ADD COLUMN ImgURL VARCHAR(255) NULL;
 --UPDATE quiztype SET ImgURL='C:/Program Files/MySQL/MySQL Server 8.0/Upload/qq.png' WHERE id=1;
-ALTER TABLE coursetype  modify COLUMN Description MEDIUMTEXT NULL;
+ALTER TABLE task  modify COLUMN Task LONGTEXT NULL;
 
 INSERT INTO coursetype (Theory)
 VALUES ( 'теория');
 
 UPDATE coursetype Set Name='Hibernate' where id=5;
 UPDATE coursetype Set  Description='Java Hibernate' where id=5;
+
+UPDATE tasktype Set Name='Рекурсия' where id=1;
+UPDATE tasktype Set Name='Сортировки' where id=2;
+
 
 
 --select * from theory;
@@ -179,7 +186,7 @@ UPDATE coursetype Set  Description='Java Hibernate' where id=5;
 --ВОПРОСЫ
 -- -----------------------------------------------------
 
-
+insert into task (Task, answer, id)
 
 INSERT INTO question (Fk_QuizTypeId_Question, Description)
 VALUES
