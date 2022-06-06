@@ -22,13 +22,11 @@ public class LoginServlet extends HttpServlet {
         String name = req.getParameter("name");
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
-
         if (username!=null && password!=null && userDao.checkCredentials(username, password)) {
             HttpSession oldSession = req.getSession(false);
             if (oldSession != null) {
                 oldSession.invalidate();
             }
-
             HttpSession newSession = req.getSession(true);
             newSession.setAttribute("username", username);
             newSession.setAttribute("password", password);
@@ -39,7 +37,6 @@ public class LoginServlet extends HttpServlet {
             res.setContentType("text/html");
             PrintWriter writer = res.getWriter();
             req.getRequestDispatcher("/loginForm.jsp").include(req, res);
-
             writer.println(
                     "<div class='container'>" +
                             "<h2 style='color: red;'>Неверная почта или пароль</h2>" +
@@ -51,7 +48,6 @@ public class LoginServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         request.getRequestDispatcher("/loginForm.jsp").forward(request,response);
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");

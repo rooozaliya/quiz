@@ -37,9 +37,6 @@ public class QuizScreenServlet extends HttpServlet {
                             "<h1> четко</h1>" +
                             "</div>"
             );
-
-            System.out.println("aaaaaaaaaaaaaaaaa");
-
         }
         else{
             writer.println(
@@ -47,8 +44,6 @@ public class QuizScreenServlet extends HttpServlet {
                             "<h1> нечетко</h1>" +
                             "</div>"
             );
-
-
         }
 
         req.getRequestDispatcher("/quizScreen.jsp").forward(req,res);
@@ -58,17 +53,11 @@ public class QuizScreenServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
         String result = req.getParameter("scr");
-        System.out.println("Результат тестирования: "+result);
         String a = req.getParameter("quizTypeId");
-        System.out.println("Номер теста: "+a);
         int num = Integer.parseInt(a);
-
         HttpSession oldSession = req.getSession(false);
         String username = (String)oldSession.getAttribute("username");
         userDao.addResult( username, result, num);
-
-
-
         res.setContentType("text/html");
         req.getRequestDispatcher("/quizScreen.jsp").include(req,res);
 

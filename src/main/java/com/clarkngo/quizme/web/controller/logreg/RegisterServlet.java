@@ -45,7 +45,6 @@ public class RegisterServlet extends HttpServlet {
             );
 
             writer.close();
-           // req.getRequestDispatcher("/registerForm.jsp").include(req,res);
 
         } else {
             userDao.addUser(name, username, password);
@@ -60,7 +59,6 @@ public class RegisterServlet extends HttpServlet {
             );
 
             writer.close();
-            //req.getRequestDispatcher("/login").include(req,res);
         }
     }
 }

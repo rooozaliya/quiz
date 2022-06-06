@@ -21,10 +21,7 @@ public class GetQuizServlet extends HttpServlet {
         response.setHeader("Access-Control-Allow-Origin", "*");
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-       // ServletOutputStream out = response.getOutputStream();
-
         List<Question> quiz = new QuestionDao().getTenRandomQuestions(id);
-
         JsonConverter converter = new JsonConverter();
         String output = converter.convertToJson(quiz);
         PrintWriter out = response.getWriter();

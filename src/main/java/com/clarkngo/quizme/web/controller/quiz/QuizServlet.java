@@ -19,7 +19,6 @@ public class QuizServlet extends HttpServlet {
         res.setCharacterEncoding("UTF-8");
         if (session.getAttribute("quiz") == null) {
             int id = Integer.parseInt(req.getParameter("quizTypeId"));
-            int page = Integer.parseInt(req.getParameter("page"));
             QuizDao dao = new QuizDao();
             Quiz quiz = dao.getQuiz(id);
             session.setAttribute("quiz", quiz);
@@ -33,10 +32,6 @@ public class QuizServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        HttpSession session = req.getSession(true);
-        System.out.println(req.getParameter("quizTypeId"));
-        System.out.println(req.getParameter("page"));
-        System.out.println(req.getParameter("questionId"));
         req.getRequestDispatcher("/quizScreen.jsp").forward(req,res);
 
 

@@ -157,19 +157,12 @@ public class UserDao {
     public void addResult(String username, String result, int num) {
         try {
             this.conn = ds.getConnection();
-
-
-
                 if (num == 1) {
-                   // if (conn.prepareStatement("Select * from user where Raitung1 is null")) {
                     ps = conn.prepareStatement("UPDATE  user SET Raitung1=? WHERE Email=? ");
                     ps.setString(1, result);
                     ps.setString(2, username);
-                    //      ps.setString(3, result);
                     ps.executeUpdate();
                 }
-
-
             else if (num==2){
                 ps = conn.prepareStatement("UPDATE  user SET Raitung2=?   WHERE Email=?");
                 ps.setString(1, result);

@@ -148,11 +148,6 @@
                                 '<div class="last-row"><b>Количество баллов:</b> &nbsp;' + res +
                                 '</div>'
                             );
-                            console.log(quiz.JS[0][j].questionId);
-                            console.log(quiz.JS[0][j].question);
-                            console.log(quiz.JS[0][j].selected);
-                            console.log(quiz.JS[0][j].answer);
-                            console.log(quiz.JS[0][j].score);
 
                         }
                         $.ajax({

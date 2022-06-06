@@ -26,13 +26,16 @@ public class BallServlet extends HttpServlet {
         HttpSession oldSession = req.getSession(false);
         UserDao dao = new UserDao();
         List<User> listUser1 = dao.listAllUsers();
-      //  session.setAttribute("listUser", listUser1);
 
         if (oldSession == null) {
             res.sendRedirect("/error");
         } else {
 
+
+            session.setAttribute("listUsers", listUser1);
             session.setAttribute("listUser", listUser1);
+
+
 
         }
 
@@ -45,6 +48,16 @@ public class BallServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         res.sendRedirect(req.getContextPath() + "/ball");
+        req.getRequestDispatcher("/ball.jsp").include(req, res);
+        req.getRequestDispatcher("/ball.jsp").forward(req, res);
+        HttpSession session = req.getSession(true);
+        req.setCharacterEncoding("UTF-8");
+        res.setCharacterEncoding("UTF-8");
+        HttpSession oldSession = req.getSession(false);
+        UserDao dao = new UserDao();
+        List<User> listUser1 = dao.listAllUsers();
+        session.setAttribute("listUsers", listUser1);
+        session.setAttribute("listUser", listUser1);
     }
 
     }

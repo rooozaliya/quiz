@@ -21,7 +21,6 @@ import java.util.List;
 public class CoursePageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
-
         HttpSession oldSession = req.getSession(false);
         String username = (String)oldSession.getAttribute("username");
         UserDao qq = new UserDao();
@@ -30,22 +29,20 @@ public class CoursePageServlet extends HttpServlet {
         if(username == null) {
             String path = req.getContextPath() + "/error";
             response.sendRedirect(path);
-
         } else {
-        req.getRequestDispatcher("/course.jsp").forward(req,response);
-        req.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        QuizTypeDao dao = new QuizTypeDao();
-        List<QuizType> qtList = dao.getQuizTypes();
-        oldSession.setAttribute("quizTypeList", qtList);
-
-        TaskTypeDao dao1 = new TaskTypeDao();
-        List<TaskType> qtList1 = dao1.getTaskTypes();
-        oldSession.setAttribute("taskTypeList", qtList1);
-
+            req.getRequestDispatcher("/course.jsp").forward(req,response);
+            req.setCharacterEncoding("UTF-8");
+            response.setCharacterEncoding("UTF-8");
+            QuizTypeDao dao = new QuizTypeDao();
+            List<QuizType> qtList = dao.getQuizTypes();
+            oldSession.setAttribute("quizTypeList", qtList);
+            TaskTypeDao dao1 = new TaskTypeDao();
+            List<TaskType> qtList1 = dao1.getTaskTypes();
+            oldSession.setAttribute("taskTypeList", qtList1);
             req.getRequestDispatcher("/home-page").forward(req, response);
           }
     }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         res.sendRedirect(req.getContextPath() + "/course-screen");

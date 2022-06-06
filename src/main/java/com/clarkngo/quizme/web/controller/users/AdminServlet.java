@@ -37,12 +37,8 @@ public class AdminServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
         HttpSession oldSession = req.getSession(false);
-        PrintWriter writer = res.getWriter();
         UserDao dao = new UserDao();
         List<User> listUser1 = dao.listAllUsers();
-
-      //      req.getRequestDispatcher("/admin.jsp").include(req, res);
-
         if (oldSession == null) {
             res.sendRedirect("/error");
         } else {

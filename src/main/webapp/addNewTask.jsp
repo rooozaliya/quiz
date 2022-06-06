@@ -36,7 +36,7 @@
                        <h2>ЗАДАЧА</h2>
                         <input type="text" id="name" name="name" placeholder="ID задачи">
                        <input type="text" class="form-control" id="task" name="task" placeholder="Задача">
-                       <input type="text" class="form-control" id="answer" name="answer" placeholder="Задача">
+                       <input type="text" class="form-control" id="answer" name="answer" placeholder="Ответ">
                        <button type="submit" class="btn btn-primary btn-block">Добавить</button>
                     </form>
 

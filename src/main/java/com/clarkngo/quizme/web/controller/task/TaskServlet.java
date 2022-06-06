@@ -40,7 +40,6 @@ public class TaskServlet extends HttpServlet {
         HttpSession session = req.getSession(true);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
-        String tasky = req.getParameter("tasky"); //ответ введенный
         if (session.getAttribute("task-home") == null) {
             session.setAttribute("page",1);
             int id = Integer.parseInt(req.getParameter("taskTypeId")); //получаем тип задач
@@ -90,20 +89,16 @@ public class TaskServlet extends HttpServlet {
         }
 
         int sum1=0;
-      //  for (int i = id; i < 50; i++) {
             for (int j = 0; j < 50; j++) {
                 sum1 = sum1 + allBallArray[id][j];
             }
-      //  }
-
         Arrays.stream(allBallArray).map(Arrays::toString).forEach(System.out::println);
-        System.out.println(sum1+" Всего баллов из МАССИВА");
         UserDao dao = new UserDao();
-        System.out.println("Номер ТИПА задачи: "+id);
         dao.addBall(username, sum1, id);
         UserDao qq = new UserDao();
         int sumBall = qq.allResult(username).getResult();
-
+        System.out.println(sum1+" Всего баллов из МАССИВА");
+        System.out.println("Номер ТИПА задачи: "+id);
         if (sumBall>=10){
 
         }

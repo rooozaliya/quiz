@@ -44,7 +44,7 @@
                                   <thead>
                                                     <th>ID</th>
                                                     <th>Почта</th>
-                                                    <th>Пароль</th>
+
                                                     <th>Тест 1</th>
                                                     <th>Тест 2</th>
                                                     <th>Тест 3</th>
@@ -54,7 +54,7 @@
                                                       <tr>
                                                         <td><c:out value="${user.getUserId()}"/></td>
                                                         <td><c:out value="${user.getEmail()}"/></td>
-                                                        <td><c:out value="${user.getPassword()}"/></td>
+
                                                         <td><c:out value="${user.getResult1()}"/></td>
                                                         <td><c:out value="${user.getResult2()}"/></td>
                                                         <td><c:out value="${user.getResult3()}"/></td>

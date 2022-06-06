@@ -13,7 +13,7 @@
         .header {padding:15px; position:fixed; top:0; width:100%; z-index:9999; }
         .left-title { width:80px; color:#FFF; font-size:18px; float:left; }
         .right-title { width:150px; text-align:right; float:right; color:#FFF;  }
-        .quiz-body { margin-top:15px; padding-bottom:50px; max-width:420px;  float:center;}
+        .quiz-body { margin-top:15px; padding-bottom:50px; max-width:800px;  padding-left:50px;}
         .option-block-container { margin-top:20px; max-width:420px; }
         .option-block { padding:10px; background:aliceblue; border:1px solid #84c5fe; margin-bottom:10px; cursor:pointer; }
         .result-question { font-weight:bold; }
@@ -21,13 +21,11 @@
         .c-correct {  margin-left:20px; color:green; }
         .last-row { border-bottom:1px solid #ccc; padding-bottom:25px; margin-bottom:25px; }
         .res-header { border-bottom:1px solid #ccc; margin-bottom:15px; padding-bottom:15px; }
-        .test {margin-top: 30px; margin-left: 100px;}
-        .task {margin-top: 30px; margin-left: 100px;}
+        .test {margin-top: 30px; margin-left: 20px;}
         .cont {width:100px;height:100px; }
         .check {width:100px;height:100px; }
-         .tasking {margin-top: 30px; margin-left:50%; text-align:center;}
-
-
+         .tasking {margin-top: 30px; margin-left:100px; text-align:center; width:60%;}
+         .card-title {margin-top: 30px; margin-left:100px; text-align:center; width:60%;}
     </style>
 </head>
 <body>
@@ -37,10 +35,8 @@
                     <h2>  ЗАДАЧА</h2>
           <!--          <form action="${pageContext.request.contextPath}/task-home" method="POST" class="tasking">
                        <p><c:out value="${task}"/></p>
-
                        <input type="text" class="form-control" id="tasky" name="tasky" placeholder="Задача" value="saaa">
                        <button type="submit" class="btn btn-primary btn-block">Проверить</button>
-
                     </form>-->
                       <c:forEach var="taskType" items="${taskAllList}">
                         <h4 class="card-title"><c:out value="${taskType.getTask()}"/></h4>

@@ -38,13 +38,10 @@ public class AddQuestionServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
         String question = req.getParameter("question");
-        System.out.println("Название задачи: "+question);
         String right_answer = req.getParameter("right_answer");
-        System.out.println("Заполнение right_answer: "+right_answer);
         String answer_1 = req.getParameter("answer_1");
         String answer_2 = req.getParameter("answer_2");
         String answer_3 = req.getParameter("answer_3");
-        System.out.println("Заполнение all_answer: "+answer_1+ answer_2+answer_3);
         String tI = req.getParameter("testId");
         int testId =Integer.parseInt(tI);
         taskDao.addQuestion(testId, question);

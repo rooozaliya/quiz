@@ -30,27 +30,20 @@ public class CourseScreenServlet extends HttpServlet {
         session.setAttribute("listTheories", descrTheory);
         session.setAttribute("courseTypeId", id);
         session.setAttribute("link", link);
-        PrintWriter writer = res.getWriter();
         res.setContentType("text/html");
         UserDao qq = new UserDao();
         String username = (String)session.getAttribute("username");
         int sumBall = qq.allResult(username).getResult();
         session.setAttribute("sumBall", sumBall);
-
-
-        if (sumBall>=10){
-
-
-
-        }
-        else{
-
-        }
-
         req.getRequestDispatcher("/courseScreen.jsp").forward(req, res);
     }
+//    @Override
+//    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+//        res.sendRedirect("/courseScreen.jsp");
+//    }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        res.sendRedirect("/courseScreen.jsp");
+        res.sendRedirect(req.getContextPath() + "/course-screen");
     }
 }

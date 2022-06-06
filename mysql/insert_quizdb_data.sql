@@ -47,8 +47,8 @@ update   user set Raitung1=0, Raitung2=0, Raitung3=0 where sum is null;
 --таблица задач
 CREATE TABLE IF NOT EXISTS `quizdb`.`task` (
   `TaskId` INT AUTO_INCREMENT PRIMARY KEY,
-  `Task` VARCHAR(45) NULL,
-  `answer` VARCHAR(45) NULL,
+  `Task` longtext NULL,
+  `answer` longtext NULL,
    `idTask` int,
   FOREIGN KEY (idTask) REFERENCES tasktype(id)
 );

@@ -31,13 +31,6 @@ public class AddTheoryServlet extends HttpServlet {
         req.getRequestDispatcher("/addNewTask.jsp").forward(req, res);
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
-        HttpSession session = req.getSession(true);
-//        int id = Integer.parseInt(req.getParameter("taskTypeId"));
-//        TaskTypeDao dao = new TaskTypeDao();
-//        TaskType task = dao.getTaskType(id);
-//        String taskA= task.getTask();
-//        session.setAttribute("task", taskA);
-//        session.setAttribute("taskTypeId", id);
         req.getRequestDispatcher("/addNewTask.jsp").forward(req, res);
     }
 
@@ -45,16 +38,10 @@ public class AddTheoryServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         res.setCharacterEncoding("UTF-8");
         String name = req.getParameter("name");
-        System.out.println("Название теории: " + name);
         String theory = req.getParameter("theory");
-        System.out.println("Заполнение теории: " + theory);
         String description = req.getParameter("description");
-        System.out.println("Заполнение description: " + description);
         String link = req.getParameter("link");
-        System.out.println("Ссылка на видео: " + link);
         taskDao.addTheory(name, description, theory, link);
-        HttpSession oldSession = req.getSession(false);
-        String username = (String) oldSession.getAttribute("username");
         res.setContentType("text/html");
         req.getRequestDispatcher("/addNewTask.jsp").include(req, res);
 
